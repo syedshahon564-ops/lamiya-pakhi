@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>For My Jannat Pakhi ❤️ | Tree of Love</title>
+  
+  <!-- Google Fonts: Romantic Cursive & Clean Modern Body -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Great+Vibes&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #ff4071;
+      --primary-glow: rgba(255, 64, 113, 0.45);
+      --secondary: #ff758f;
+      --bg-gradient: linear-gradient(135deg, #fff0f3 0%, #ffe5ec 50%, #fde2e4 100%);
+      --glass-bg: rgba(255, 255, 255, 0.82);
+      --glass-border: rgba(255, 182, 193, 0.4);
+      --text-main: #3d1c24;
+      --text-muted: #7a4e58;
+      --accent-gold: #e29578;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      min-height: 100vh;
+      min-height: -webkit-fill-available;
+      background: var(--bg-gradient);
+      font-family: 'Outfit', sans-serif;
+      color: var(--text-main);
+      overflow-x: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Ambient Floating Background Hearts */
+    .ambient-hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .ambient-heart {
+      position: absolute;
+      color: rgba(255, 105, 180, 0.22);
+      user-select: none;
+      animation: floatUp 14s linear infinite;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(105vh) scale(0.6) rotate(0deg);
+        opacity: 0;
+      }
+      15% {
+        opacity: 0.8;
+      }
+      85% {
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.1) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    /* Top Navigation / Controls Bar */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 64px;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-shadow: 0 2px 8px var(--primary-glow);
+    }
+
+    .brand .heart-icon {
+      animation: heartbeat 1.4s ease-in-out infinite;
+      display: inline-block;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      14% { transform: scale(1.25); }
+      28% { transform: scale(1); }
+      42% { transform: scale(1.25); }
+      70% { transform: scale(1); }
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Vinyl Record Music Toggle Button */
+    .music-btn {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 50px;
+      padding: 6px 14px 6px 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(255, 64, 113, 0.15);
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .music-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(255, 64, 113, 0.25);
+    }
+
+    .disc-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #333 20%, #111 60%, #ff4071 61%, #111 65%, #222 100%);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: #fff;
+    }
+
+    .disc-icon.playing {
+      animation: spin 3s linear infinite;
+    }
+
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
+    }
+
+    .music-label {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-main);
+    }
+
+    /* Main Container Layout */
+    main {
+      flex: 1;
+      width: 100%;
+      max-width: 1300px;
+      margin: 64px auto 0;
+      padding: 1rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      position: relative;
+      z-index: 10;
+      align-items: center;
+    }
+
+    /* Responsive 2-Column on Desktop (PC) */
+    @media (min-width: 900px) {
+      main {
+        grid-template-columns: 1.05fr 1fr;
+        padding: 2rem 2.5rem;
+        min-height: calc(100vh - 64px);
+      }
+    }
+
+    /* Canvas Section */
+    .canvas-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      order: 1;
+    }
+
+    @media (min-width: 900px) {
+      .canvas-container {
+        order: 2;
+      }
+    }
+
+    #loveCanvas {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      aspect-ratio: 1 / 1.08;
+      display: block;
+      border-radius: 24px;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    /* Interactive "Click to Bloom" Seed Overlay Button */
+    .start-prompt {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      z-index: 25;
+      padding: 20px 28px;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 2px solid rgba(255, 105, 180, 0.4);
+      box-shadow: 0 15px 35px rgba(255, 64, 113, 0.25);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      text-align: center;
+    }
+
+    .start-prompt:hover {
+      transform: translate(-50%, -50%) scale(1.06);
+      box-shadow: 0 20px 45px rgba(255, 64, 113, 0.35);
+    }
+
+    .seed-heart-pulsing {
+      width: 58px;
+      height: 58px;
+      background: linear-gradient(135deg, #ff4071, #ff758f);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      color: #fff;
+      box-shadow: 0 0 25px var(--primary-glow);
+      animation: heartbeat 1.2s ease-in-out infinite;
+    }
+
+    .start-prompt h3 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin: 0;
+    }
+
+    .start-prompt p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin: 0;
+      font-weight: 500;
+    }
+
+    /* Content & Story Letter Section */
+    .story-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border);
+      border-radius: 28px;
+      padding: 2rem 2.2rem;
+      box-shadow: 0 20px 45px rgba(255, 105, 180, 0.12);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      order: 2;
+      position: relative;
+      overflow: hidden;
+      margin-top: 1rem;
+    }
+
+    @media (min-width: 900px) {
+      .story-card {
+        order: 1;
+        margin-top: 0;
+        padding: 2.5rem 3rem;
+      }
+    }
+
+    /* Decorative Ribbon / Badge */
+    .story-badge {
+      align-self: flex-start;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, rgba(255, 64, 113, 0.12), rgba(255, 117, 143, 0.15));
+      border: 1px solid rgba(255, 64, 113, 0.25);
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .story-title {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.8rem;
+      color: var(--primary);
+      line-height: 1.1;
+      text-shadow: 0 2px 10px rgba(255, 64, 113, 0.15);
+    }
+
+    @media (min-width: 600px) {
+      .story-title {
+        font-size: 3.4rem;
+      }
+    }
+
+    /* Typewriter Letter Box */
+    .letter-box {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #4a2830;
+      min-height: 180px;
+      font-family: 'Playfair Display', Georgia, serif;
+      position: relative;
+    }
+
+    .letter-paragraph {
+      margin-bottom: 0.85rem;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .letter-paragraph.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .letter-signature {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-top: 1rem;
+      display: block;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s;
+    }
+
+    .letter-signature.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .typing-cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1.15em;
+      background: var(--primary);
+      vertical-align: middle;
+      margin-left: 2px;
+      animation: blink 0.9s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* Love Timer / Clock Counter */
+    .clock-card {
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(255, 182, 193, 0.5);
+      border-radius: 20px;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: 0 8px 25px rgba(255, 105, 180, 0.08);
+    }
+
+    .clock-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .clock-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    .clock-slot {
+      background: #ffffff;
+      border: 1px solid rgba(255, 105, 180, 0.2);
+      border-radius: 14px;
+      padding: 10px 4px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    }
+
+    .clock-num {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary);
+      font-variant-numeric: tabular-nums;
+      line-height: 1.2;
+    }
+
+    @media (min-width: 600px) {
+      .clock-num {
+        font-size: 1.65rem;
+      }
+    }
+
+    .clock-unit {
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+
+    /* Action Buttons (Replay & Tap Love) */
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-action {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      padding: 10px 22px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      box-shadow: 0 8px 20px var(--primary-glow);
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .btn-action:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 12px 28px var(--primary-glow);
+    }
+
+    .btn-action:active {
+      transform: translateY(0) scale(0.98);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--text-main);
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .btn-secondary:hover {
+      background: #fff;
+      color: var(--primary);
+      box-shadow: 0 6px 16px rgba(255, 64, 113, 0.15);
+    }
+
+    /* Interactive Click Sparks (Floating Hearts on Click) */
+    .click-heart {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      animation: burstUp 1s ease-out forwards;
+      user-select: none;
+    }
+
+    @keyframes burstUp {
+      0% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(1.4);
+        opacity: 0;
+      }
+    }
+
+    /* Touch Helper Footer Note */
+    .mobile-tip {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin: 1.5rem auto 1rem;
+      position: relative;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient Floating Background Hearts -->
+  <div class="ambient-hearts" id="ambientHearts"></div>
+
+  <!-- Audio Player (Indila - Love Story) -->
+  <audio id="loveAudio" loop preload="auto">
+    <source src="love_story_indila.m4a" type="audio/mp4">
+    <source src="love_story_full.m4a" type="audio/mp4">
+    <source src="music.mp3" type="audio/mp3">
+  </audio>
+
+  <!-- Top Header Navigation -->
+  <header>
+    <div class="brand">
+      <span class="heart-icon">❤️</span>
+      <span>Jannat Pakhi</span>
+    </div>
+
+    <div class="nav-actions">
+      <!-- Track Switcher & Music Toggle -->
+      <select id="trackSelector" style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 20px; padding: 5px 10px; font-size: 0.8rem; font-family: inherit; color: var(--text-main); cursor: pointer; outline: none;">
+        <option value="love_story_indila.m4a">🎵 Indila - Love Story (Short Edit)</option>
+        <option value="love_story_full.m4a">🎵 Indila - Love Story (Full Song)</option>
+        <option value="music.mp3">🎹 Romantic Piano</option>
+      </select>
+
+      <button class="music-btn" id="musicToggle" title="Play / Pause Music">
+        <div class="disc-icon" id="discIcon">♪</div>
+        <span class="music-label" id="musicLabel">Music: Off</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content Layout -->
+  <main>
+    <!-- Left Column: Story, Letter & Love Clock -->
+    <section class="story-card">
+      <div class="story-badge">
+        <span>✨</span>
+        <span>My Forever Love</span>
+      </div>
+
+      <h1 class="story-title">For My Jannat Pakhi</h1>
+
+      <!-- Typewriter Text Container -->
+      <div class="letter-box" id="letterBox">
+        <!-- Content will be typed out dynamically -->
+        <span class="typing-cursor" id="cursor"></span>
+      </div>
+
+      <!-- Live Love Timer Clock -->
+      <div class="clock-card" id="clockBox">
+        <div class="clock-heading">
+          <span>💖 Loved Every Second</span>
+          <span style="font-size: 0.78rem; opacity: 0.8;">Since Our Day</span>
+        </div>
+        <div class="clock-grid">
+          <div class="clock-slot">
+            <span class="clock-num" id="daysVal">0</span>
+            <span class="clock-unit">Days</span>
+          </div>
+          <div class="clock-slot">
+            <span class="clock-num" id="hoursVal">00</span>
+            <span class="clock-unit">Hours</span>
+          </div>
+          <div class="clock-slot">
+            <span class="clock-num" id="minutesVal">00</span>
+            <span class="clock-unit">Mins</span>
+          </div>
+          <div class="clock-slot">
+            <span class="clock-num" id="secondsVal">00</span>
+            <span class="clock-unit">Secs</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="card-footer">
+        <button class="btn-action" id="sendHeartBtn">
+          <span>Send Love</span>
+          <span>❤️</span>
+        </button>
+        <button class="btn-action btn-secondary" id="replayBtn" title="Re-bloom the Love Tree">
+          <span>Replay Tree</span>
+          <span>🌸</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Right Column: Blooming Love Tree Canvas -->
+    <section class="canvas-container">
+      <canvas id="loveCanvas" width="600" height="650"></canvas>
+
+      <!-- Center Pulsing Seed (Click/Tap to Start) -->
+      <div class="start-prompt" id="startPrompt">
+        <div class="seed-heart-pulsing">❤️</div>
+        <h3>Grow Our Love Tree</h3>
+        <p>Tap here to bloom for Jannat Pakhi</p>
+      </div>
+    </section>
+  </main>
+
+  <div class="mobile-tip">
+    Made with eternal love for Jannat Pakhi ❤️ • Works on Mobile & PC
+  </div>
+
+  <!-- Core JavaScript Logic (Pure Modern ES6 Canvas & Animation) -->
+  <script>
+    /* ==========================================================
+       1. Ambient Floating Hearts Generator
+       ========================================================== */
+    const ambientContainer = document.getElementById('ambientHearts');
+    const heartSymbols = ['❤️', '💖', '💕', '💗', '🌸', '✨'];
+    
+    function createAmbientHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'ambient-heart';
+      heart.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = (Math.random() * 14 + 14) + 'px';
+      heart.style.animationDuration = (Math.random() * 7 + 9) + 's';
+      heart.style.animationDelay = (Math.random() * 2) + 's';
+      ambientContainer.appendChild(heart);
+      setTimeout(() => heart.remove(), 16000);
+    }
+    for (let i = 0; i < 15; i++) {
+      setTimeout(createAmbientHeart, i * 400);
+    }
+    setInterval(createAmbientHeart, 1200);
+
+    /* ==========================================================
+       2. Click & Tap Heart Sparks Effect
+       ========================================================== */
+    function spawnSpark(x, y) {
+      const symbols = ['❤️', '💖', '💕', '✨', '🌸', '💗'];
+      for (let i = 0; i < 6; i++) {
+        const spark = document.createElement('span');
+        spark.className = 'click-heart';
+        spark.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        spark.style.left = x + 'px';
+        spark.style.top = y + 'px';
+        spark.style.fontSize = (Math.random() * 12 + 16) + 'px';
+        const angle = Math.random() * Math.PI * 2;
+        const dist = Math.random() * 80 + 30;
+        spark.style.setProperty('--dx', (Math.cos(angle) * dist) + 'px');
+        spark.style.setProperty('--dy', (Math.sin(angle) * dist - 30) + 'px');
+        document.body.appendChild(spark);
+        setTimeout(() => spark.remove(), 1000);
+      }
+    }
+
+    window.addEventListener('click', (e) => {
+      // Don't spawn sparks if clicking buttons directly
+      if (e.target.closest('button')) return;
+      spawnSpark(e.clientX, e.clientY);
+    });
+
+    document.getElementById('sendHeartBtn').addEventListener('click', (e) => {
+      const rect = e.target.getBoundingClientRect();
+      spawnSpark(rect.left + rect.width / 2, rect.top);
+    });
+
+    /* ==========================================================
+       3. Audio Player with Synth Fallback
+       ========================================================== */
+    const audio = document.getElementById('loveAudio');
+    const musicToggle = document.getElementById('musicToggle');
+    const discIcon = document.getElementById('discIcon');
+    const musicLabel = document.getElementById('musicLabel');
+    let isMusicPlaying = false;
+    let audioCtx = null;
+    let synthInterval = null;
+
+    function playRomanticSynth() {
+      try {
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+        const notes = [261.63, 329.63, 392.00, 523.25, 440.00, 392.00, 329.63, 293.66]; // C E G C A G E D
+        let noteIndex = 0;
+        synthInterval = setInterval(() => {
+          if (!isMusicPlaying) return;
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(notes[noteIndex % notes.length], audioCtx.currentTime);
+          noteIndex++;
+          gain.gain.setValueAtTime(0.06, audioCtx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 1.2);
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start();
+          osc.stop(audioCtx.currentTime + 1.3);
+        }, 900);
+      } catch (e) {
+        console.warn('Synth fallback not supported', e);
+      }
+    }
+
+    function toggleMusic(forceState) {
+      const shouldPlay = forceState !== undefined ? forceState : !isMusicPlaying;
+      if (shouldPlay) {
+        audio.play().then(() => {
+          isMusicPlaying = true;
+          discIcon.classList.add('playing');
+          musicLabel.textContent = 'Music: On';
+        }).catch(() => {
+          // If mp3 fails or blocked, start gentle synth
+          isMusicPlaying = true;
+          discIcon.classList.add('playing');
+          musicLabel.textContent = 'Music: On';
+          playRomanticSynth();
+        });
+      } else {
+        isMusicPlaying = false;
+        audio.pause();
+        if (synthInterval) clearInterval(synthInterval);
+        discIcon.classList.remove('playing');
+        musicLabel.textContent = 'Music: Off';
+      }
+    }
+
+    const trackSelector = document.getElementById('trackSelector');
+    if (trackSelector) {
+      trackSelector.addEventListener('change', (e) => {
+        const newSrc = e.target.value;
+        const wasPlaying = isMusicPlaying;
+        audio.src = newSrc;
+        audio.load();
+        if (wasPlaying) {
+          audio.play().catch(() => {});
+        }
+      });
+    }
+
+    musicToggle.addEventListener('click', () => toggleMusic());
+
+    /* ==========================================================
+       4. Love Time Clock Counter (Real-time Live Ticking)
+       ========================================================== */
+    // Default relationship start date: Exactly 1 year prior, or customize as desired!
+    const defaultStartDate = new Date(Date.now() - (365 * 24 * 60 * 60 * 1000 + 14 * 60 * 60 * 1000));
+    
+    function updateClock() {
+      const now = new Date();
+      let diffSeconds = Math.floor((now - defaultStartDate) / 1000);
+      if (diffSeconds < 0) diffSeconds = 0;
+
+      const days = Math.floor(diffSeconds / (3600 * 24));
+      diffSeconds %= (3600 * 24);
+      const hours = Math.floor(diffSeconds / 3600);
+      diffSeconds %= 3600;
+      const minutes = Math.floor(diffSeconds / 60);
+      const seconds = diffSeconds % 60;
+
+      document.getElementById('daysVal').textContent = days;
+      document.getElementById('hoursVal').textContent = String(hours).padStart(2, '0');
+      document.getElementById('minutesVal').textContent = String(minutes).padStart(2, '0');
+      document.getElementById('secondsVal').textContent = String(seconds).padStart(2, '0');
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+
+    /* ==========================================================
+       5. Beautiful English Love Letter (Typewriter Animation)
+       ========================================================== */
+    const romanticLetterLines = [
+      "Dearest Jannat Pakhi,",
+      "From the moment you came into my life, every day turned into something magical.",
+      "Your smile is my sunrise, and your laughter is my favorite song in the whole universe.",
+      "Just like this tree that grows from a seed into an endless canopy of blooming hearts,",
+      "My love for you grows deeper, stronger, and purer with every single heartbeat.",
+      "I promise to hold your hand through every gentle breeze and every stormy day.",
+      "You are my peace, my sweetest dream come true, and my forever paradise.",
+      "Forever & Always Yours, ❤️"
+    ];
+
+    const letterBox = document.getElementById('letterBox');
+    const cursor = document.getElementById('cursor');
+    let typingActive = false;
+
+    async function startTypewriter() {
+      if (typingActive) return;
+      typingActive = true;
+      letterBox.innerHTML = '';
+      letterBox.appendChild(cursor);
+
+      for (let lineIndex = 0; lineIndex < romanticLetterLines.length; lineIndex++) {
+        const lineText = romanticLetterLines[lineIndex];
+        const p = document.createElement('p');
+        p.className = 'letter-paragraph visible';
+        
+        if (lineIndex === 0) {
+          p.style.fontWeight = '700';
+          p.style.color = 'var(--primary)';
+          p.style.fontSize = '1.3rem';
+          p.style.fontFamily = "'Dancing Script', cursive";
+        } else if (lineIndex === romanticLetterLines.length - 1) {
+          p.className = 'letter-signature visible';
+        }
+
+        letterBox.insertBefore(p, cursor);
+
+        // Type line character by character
+        for (let charIndex = 0; charIndex < lineText.length; charIndex++) {
+          p.textContent += lineText[charIndex];
+          await new Promise(r => setTimeout(r, Math.random() * 25 + 25));
+        }
+
+        // Small pause between paragraphs
+        await new Promise(r => setTimeout(r, 450));
+      }
+      cursor.style.display = 'none';
+    }
+
+    /* ==========================================================
+       6. High-Precision Mathematical Love Tree Canvas Engine
+       ========================================================== */
+    const canvas = document.getElementById('loveCanvas');
+    const ctx = canvas.getContext('2d');
+    const startPrompt = document.getElementById('startPrompt');
+    const replayBtn = document.getElementById('replayBtn');
+
+    // High-DPI Retina Support
+    function resizeCanvasResolution() {
+      const dpr = window.devicePixelRatio || 1;
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = Math.round(rect.width * dpr);
+      canvas.height = Math.round(rect.height * dpr);
+      ctx.resetTransform?.();
+      ctx.scale(dpr, dpr);
+    }
+    resizeCanvasResolution();
+    window.addEventListener('resize', resizeCanvasResolution);
+
+    // Vector Point Class
+    class Point {
+      constructor(x, y) {
+        this.x = x || 0;
+        this.y = y || 0;
+      }
+      clone() { return new Point(this.x, this.y); }
+      add(p) { return new Point(this.x + p.x, this.y + p.y); }
+      sub(p) { return new Point(this.x - p.x, this.y - p.y); }
+      mul(n) { return new Point(this.x * n, this.y * n); }
+      div(n) { return new Point(this.x / n, this.y / n); }
+    }
+
+    // Bezier curve evaluation
+    function bezier(cp, t) {
+      const p1 = cp[0].mul((1 - t) * (1 - t));
+      const p2 = cp[1].mul(2 * t * (1 - t));
+      const p3 = cp[2].mul(t * t);
+      return p1.add(p2).add(p3);
+    }
+
+    // Parametric Heart Points
+    function generateHeartFigure() {
+      const points = [];
+      for (let i = 10; i < 30; i += 0.25) {
+        const t = i / Math.PI;
+        const x = 16 * Math.pow(Math.sin(t), 3);
+        const y = 13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t);
+        points.push(new Point(x, y));
+      }
+      return points;
+    }
+    const heartFigure = generateHeartFigure();
+
+    // Check if point (x, y) is inside cardioid heart shape
+    function inHeartRegion(x, y, r) {
+      const nx = x / r;
+      const ny = y / r;
+      const z = (nx * nx + ny * ny - 1);
+      return (z * z * z - nx * nx * ny * ny * ny) < 0;
+    }
+
+    // Vibrant Romantic Blossom Palette
+    const bloomColors = [
+      '#ff1493', '#ff4071', '#ff758f', '#ff85a1', '#e63946',
+      '#ff4d6d', '#f72585', '#b5179e', '#ff9ebb', '#ff5470',
+      '#fa5252', '#f06595', '#ff70a6', '#ff97b7', '#d90429'
+    ];
+
+    // Branch Class
+    class Branch {
+      constructor(engine, p1, p2, p3, radius, length, childBranches) {
+        this.engine = engine;
+        this.p1 = p1;
+        this.p2 = p2;
+        this.p3 = p3;
+        this.radius = radius;
+        this.length = length || 100;
+        this.step = 0;
+        this.t = 1 / (this.length - 1);
+        this.childBranches = childBranches || [];
+      }
+
+      grow() {
+        if (this.step <= this.length) {
+          const pt = bezier([this.p1, this.p2, this.p3], this.step * this.t);
+          this.draw(pt);
+          this.step++;
+          this.radius = Math.max(1.5, this.radius * 0.975);
+        } else {
+          this.engine.removeBranch(this);
+          this.engine.addBranchDefs(this.childBranches);
+        }
+      }
+
+      draw(pt) {
+        ctx.save();
+        ctx.beginPath();
+        ctx.fillStyle = '#3a2026';
+        ctx.shadowColor = 'rgba(58, 32, 38, 0.4)';
+        ctx.shadowBlur = 3;
+        ctx.arc(pt.x, pt.y, this.radius, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    // Bloom Flower Class
+    class Bloom {
+      constructor(engine, pos, color, maxScale, angle) {
+        this.engine = engine;
+        this.pos = pos;
+        this.color = color || bloomColors[Math.floor(Math.random() * bloomColors.length)];
+        this.scale = 0.05;
+        this.maxScale = maxScale || (Math.random() * 0.55 + 0.45);
+        this.angle = angle || Math.random() * Math.PI * 2;
+        this.alpha = Math.random() * 0.35 + 0.65;
+        this.growing = true;
+      }
+
+      flower() {
+        if (this.growing) {
+          this.scale += 0.08;
+          if (this.scale >= this.maxScale) {
+            this.scale = this.maxScale;
+            this.growing = false;
+          }
+        }
+        this.draw();
+      }
+
+      draw() {
+        ctx.save();
+        ctx.fillStyle = this.color;
+        ctx.globalAlpha = this.alpha;
+        ctx.translate(this.pos.x, this.pos.y);
+        ctx.scale(this.scale, this.scale);
+        ctx.rotate(this.angle);
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        for (let i = 0; i < heartFigure.length; i++) {
+          const p = heartFigure[i];
+          ctx.lineTo(p.x, -p.y);
+        }
+        ctx.closePath();
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    // Falling Floating Petal Class
+    class Petal {
+      constructor(engine, x, y) {
+        this.engine = engine;
+        this.x = x;
+        this.y = y;
+        this.color = bloomColors[Math.floor(Math.random() * bloomColors.length)];
+        this.size = Math.random() * 0.3 + 0.25;
+        this.speedY = Math.random() * 1.5 + 0.8;
+        this.speedX = (Math.random() - 0.5) * 0.8;
+        this.angle = Math.random() * Math.PI * 2;
+        this.angularSpeed = (Math.random() - 0.5) * 0.04;
+        this.oscillation = Math.random() * Math.PI;
+      }
+
+      update() {
+        this.oscillation += 0.03;
+        this.x += Math.sin(this.oscillation) * 1.1 + this.speedX;
+        this.y += this.speedY;
+        this.angle += this.angularSpeed;
+
+        const h = canvas.getBoundingClientRect().height;
+        if (this.y > h - 18) {
+          this.engine.removePetal(this);
+        } else {
+          this.draw();
+        }
+      }
+
+      draw() {
+        ctx.save();
+        ctx.fillStyle = this.color;
+        ctx.globalAlpha = 0.82;
+        ctx.translate(this.x, this.y);
+        ctx.scale(this.size, this.size);
+        ctx.rotate(this.angle);
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        for (let i = 0; i < heartFigure.length; i++) {
+          const p = heartFigure[i];
+          ctx.lineTo(p.x, -p.y);
+        }
+        ctx.closePath();
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    // Tree Engine Manager with Double-Buffering
+    class TreeEngine {
+      constructor() {
+        this.branches = [];
+        this.blooms = [];
+        this.bloomsPool = [];
+        this.petals = [];
+        this.isStarted = false;
+        this.isFullyBloomed = false;
+        this.groundWidth = 0;
+
+        // Offscreen canvas for static tree & blooms
+        this.offscreen = document.createElement('canvas');
+        this.offCtx = this.offscreen.getContext('2d');
+      }
+
+      initOffscreen() {
+        this.offscreen.width = canvas.width;
+        this.offscreen.height = canvas.height;
+        const dpr = window.devicePixelRatio || 1;
+        this.offCtx.resetTransform?.();
+        this.offCtx.scale(dpr, dpr);
+        this.offCtx.clearRect(0, 0, this.offscreen.width, this.offscreen.height);
+      }
+
+      reset() {
+        this.branches = [];
+        this.blooms = [];
+        this.bloomsPool = [];
+        this.petals = [];
+        this.isStarted = false;
+        this.isFullyBloomed = false;
+        this.groundWidth = 0;
+        this.initOffscreen();
+        const rect = canvas.getBoundingClientRect();
+        ctx.clearRect(0, 0, rect.width, rect.height);
+      }
+
+      // Responsive Coordinates Calculator
+      getMetrics() {
+        const rect = canvas.getBoundingClientRect();
+        const w = rect.width;
+        const h = rect.height;
+        const scale = Math.min(w / 560, h / 620);
+        const centerX = w / 2;
+        const groundY = h - 22;
+        const canopyCenterY = groundY - 370 * scale;
+        const canopyRadius = 185 * scale;
+        return { w, h, scale, centerX, groundY, canopyCenterY, canopyRadius };
+      }
+
+      initBlooms() {
+        const { canopyRadius, centerX, canopyCenterY } = this.getMetrics();
+        const total = 560;
+        this.bloomsPool = [];
+        this.blooms = [];
+
+        for (let i = 0; i < total; i++) {
+          let rx, ry;
+          while (true) {
+            rx = (Math.random() - 0.5) * 2 * canopyRadius * 1.15;
+            ry = (Math.random() - 0.5) * 2 * canopyRadius * 1.15;
+            if (inHeartRegion(rx, ry, canopyRadius)) {
+              break;
+            }
+          }
+          const posX = centerX + rx;
+          const posY = canopyCenterY - ry;
+          this.bloomsPool.push(new Bloom(this, new Point(posX, posY)));
+        }
+      }
+
+      addBranchDefs(defs) {
+        const { scale, centerX, groundY } = this.getMetrics();
+        const mapX = (x) => centerX + (x - 535) * scale;
+        const mapY = (y) => groundY - (680 - y) * scale;
+
+        for (let i = 0; i < defs.length; i++) {
+          const d = defs[i];
+          const p1 = new Point(mapX(d[0]), mapY(d[1]));
+          const p2 = new Point(mapX(d[2]), mapY(d[3]));
+          const p3 = new Point(mapX(d[4]), mapY(d[5]));
+          const radius = Math.max(2.2, d[6] * scale);
+          const len = d[7];
+          const children = d[8] || [];
+          this.branches.push(new Branch(this, p1, p2, p3, radius, len, children));
+        }
+      }
+
+      removeBranch(b) {
+        const idx = this.branches.indexOf(b);
+        if (idx !== -1) this.branches.splice(idx, 1);
+      }
+
+      removePetal(p) {
+        const idx = this.petals.indexOf(p);
+        if (idx !== -1) this.petals.splice(idx, 1);
+      }
+
+      drawGround() {
+        const { centerX, groundY, w } = this.getMetrics();
+        if (this.groundWidth < w * 0.88) {
+          this.groundWidth += 8;
+        }
+        const oCtx = this.offCtx;
+        oCtx.save();
+        oCtx.strokeStyle = '#3a2026';
+        oCtx.lineWidth = 5;
+        oCtx.lineCap = 'round';
+        oCtx.beginPath();
+        oCtx.moveTo(centerX - this.groundWidth / 2, groundY);
+        oCtx.lineTo(centerX + this.groundWidth / 2, groundY);
+        oCtx.stroke();
+        oCtx.restore();
+      }
+
+      async start() {
+        if (this.isStarted) return;
+        this.isStarted = true;
+        startPrompt.style.display = 'none';
+
+        this.initOffscreen();
+
+        // Play music
+        toggleMusic(true);
+
+        // Start Typewriter story
+        startTypewriter();
+
+        // Initialize bloom cache
+        this.initBlooms();
+
+        // Main Trunk and Tree Structure
+        const rawBranches = [
+          [535, 680, 570, 250, 500, 200, 28, 90, [
+            [540, 500, 455, 417, 340, 400, 13, 90, [
+              [450, 435, 434, 430, 394, 395, 2.5, 40]
+            ]],
+            [550, 445, 600, 356, 680, 345, 12, 90, [
+              [578, 400, 648, 409, 661, 426, 3, 70]
+            ]],
+            [539, 281, 537, 248, 534, 217, 3.5, 40],
+            [546, 397, 413, 247, 328, 244, 9, 80, [
+              [427, 286, 383, 253, 371, 205, 2.5, 40],
+              [498, 345, 435, 315, 395, 330, 4, 60]
+            ]],
+            [546, 357, 608, 252, 678, 221, 6.5, 90, [
+              [590, 293, 646, 277, 648, 271, 2.5, 70]
+            ]]
+          ]]
+        ];
+
+        this.addBranchDefs(rawBranches);
+
+        // Animation Loop
+        const animate = () => {
+          this.drawGround();
+
+          // 1. Grow branches onto offscreen canvas
+          if (this.branches.length > 0) {
+            for (let i = 0; i < this.branches.length; i++) {
+              const b = this.branches[i];
+              if (b.step <= b.length) {
+                const pt = bezier([b.p1, b.p2, b.p3], b.step * b.t);
+                const oCtx = this.offCtx;
+                oCtx.save();
+                oCtx.beginPath();
+                oCtx.fillStyle = '#3a2026';
+                oCtx.shadowColor = 'rgba(58, 32, 38, 0.4)';
+                oCtx.shadowBlur = 3;
+                oCtx.arc(pt.x, pt.y, b.radius, 0, Math.PI * 2);
+                oCtx.fill();
+                oCtx.restore();
+
+                b.step++;
+                b.radius = Math.max(1.5, b.radius * 0.975);
+              } else {
+                this.removeBranch(b);
+                this.addBranchDefs(b.childBranches);
+              }
+            }
+          } else if (this.bloomsPool.length > 0) {
+            // 2. Pop blossoms onto offscreen canvas
+            const count = Math.min(12, this.bloomsPool.length);
+            const batch = this.bloomsPool.splice(0, count);
+            for (let i = 0; i < batch.length; i++) {
+              const bl = batch[i];
+              this.blooms.push(bl);
+              
+              // Draw bloom to offscreen
+              const oCtx = this.offCtx;
+              oCtx.save();
+              oCtx.fillStyle = bl.color;
+              oCtx.globalAlpha = bl.alpha;
+              oCtx.translate(bl.pos.x, bl.pos.y);
+              oCtx.scale(bl.maxScale, bl.maxScale);
+              oCtx.rotate(bl.angle);
+              oCtx.beginPath();
+              oCtx.moveTo(0, 0);
+              for (let j = 0; j < heartFigure.length; j++) {
+                const p = heartFigure[j];
+                oCtx.lineTo(p.x, -p.y);
+              }
+              oCtx.closePath();
+              oCtx.fill();
+              oCtx.restore();
+            }
+          } else {
+            this.isFullyBloomed = true;
+          }
+
+          // 3. Clear visible canvas & draw static tree from offscreen
+          const rect = canvas.getBoundingClientRect();
+          ctx.clearRect(0, 0, rect.width, rect.height);
+          
+          ctx.save();
+          ctx.resetTransform?.();
+          ctx.drawImage(this.offscreen, 0, 0);
+          ctx.restore();
+
+          // 4. Falling Petals Effect on top (clean and smooth, no trails!)
+          if (this.blooms.length > 80) {
+            if (Math.random() < 0.35 && this.petals.length < 50) {
+              const randomBloom = this.blooms[Math.floor(Math.random() * this.blooms.length)];
+              this.petals.push(new Petal(this, randomBloom.pos.x, randomBloom.pos.y));
+            }
+          }
+
+          for (let i = this.petals.length - 1; i >= 0; i--) {
+            this.petals[i].update();
+          }
+
+          requestAnimationFrame(animate);
+        };
+
+        requestAnimationFrame(animate);
+      }
+    }
+
+    const treeEngine = new TreeEngine();
+
+    // Trigger Start on Seed Tap or Canvas Tap (Instant Touch Support)
+    const triggerStart = (e) => {
+      e?.preventDefault?.();
+      if (!treeEngine.isStarted) {
+        treeEngine.start();
+      }
+    };
+
+    startPrompt.addEventListener('click', triggerStart);
+    startPrompt.addEventListener('touchstart', triggerStart, { passive: false });
+    canvas.addEventListener('click', triggerStart);
+    canvas.addEventListener('touchstart', triggerStart, { passive: false });
+
+    // Replay Button
+    replayBtn.addEventListener('click', () => {
+      treeEngine.reset();
+      startPrompt.style.display = 'flex';
+      typingActive = false;
+      letterBox.innerHTML = '<span class="typing-cursor" id="cursor"></span>';
+      setTimeout(() => treeEngine.start(), 200);
+    });
+
+    // Handle Window Resize Responsively
+    window.addEventListener('load', () => {
+      resizeCanvasResolution();
+      treeEngine.initOffscreen();
+    });
+  </script>
+</body>
+</html>
