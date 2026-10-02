@@ -273,6 +273,18 @@
       "title": "BROCHURE DESIGN",
       "desc": "Modern Plant Studio Botanical Trifold & Plexicon High-Impact Corporate Brochure",
       "slideImage": "./assets/images/slide-10-brochure-design.png"
+    },
+    "slide11": {
+      "category": "PRINT DESIGN",
+      "title": "POSTER DESIGN",
+      "desc": "Curated High-Impact Automotive & Typographic Posters: Porsche 911 Heritage Red, Journey Typographic Tunnel, and GT3RS Studio Showcase",
+      "slideImage": "./assets/images/slide-11-poster-design.png"
+    },
+    "slide12": {
+      "category": "PRINT DESIGN",
+      "title": "BANNER DESIGN",
+      "desc": "Commercial Metro Billboard Display & Roll-Up Exhibition Stand for Fresh Burst Organic Fruit Juices",
+      "slideImage": "./assets/images/slide-12-banner-design.png"
     }
   },
   "extraSlides": []

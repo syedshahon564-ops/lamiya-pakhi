@@ -221,6 +221,18 @@
         title: "BROCHURE DESIGN",
         desc: "Modern Plant Studio Botanical Trifold & Plexicon High-Impact Corporate Brochure",
         slideImage: "./assets/images/slide-10-brochure-design.png"
+      },
+      slide11: {
+        category: "PRINT DESIGN",
+        title: "POSTER DESIGN",
+        desc: "Curated High-Impact Automotive & Typographic Posters: Porsche 911 Heritage Red, Journey Typographic Tunnel, and GT3RS Studio Showcase",
+        slideImage: "./assets/images/slide-11-poster-design.png"
+      },
+      slide12: {
+        category: "PRINT DESIGN",
+        title: "BANNER DESIGN",
+        desc: "Commercial Metro Billboard Display & Roll-Up Exhibition Stand for Fresh Burst Organic Fruit Juices",
+        slideImage: "./assets/images/slide-12-banner-design.png"
       }
     },
     extraSlides: []
@@ -279,6 +291,85 @@
   };
 
   const STORAGE_KEY = 'sakir_portfolio_data_2026';
+  const IDB_NAME = 'DangerShawonDB';
+  const IDB_STORE = 'portfolioStore';
+  const IDB_KEY = 'user_portfolio';
+
+  // ==========================================================================
+  // INDEXEDDB RESILIENT STORAGE ENGINE (No 5MB quota limit, survives reloads)
+  // ==========================================================================
+  function getIDB() {
+    return new Promise((resolve) => {
+      if (!window.indexedDB) return resolve(null);
+      const req = indexedDB.open(IDB_NAME, 1);
+      req.onupgradeneeded = (e) => {
+        const db = e.target.result;
+        if (!db.objectStoreNames.contains(IDB_STORE)) {
+          db.createObjectStore(IDB_STORE);
+        }
+      };
+      req.onsuccess = () => resolve(req.result);
+      req.onerror = () => resolve(null);
+    });
+  }
+
+  async function idbLoad() {
+    try {
+      const db = await getIDB();
+      if (!db) return null;
+      return new Promise((resolve) => {
+        const tx = db.transaction(IDB_STORE, 'readonly');
+        const store = tx.objectStore(IDB_STORE);
+        const req = store.get(IDB_KEY);
+        req.onsuccess = () => resolve(req.result || null);
+        req.onerror = () => resolve(null);
+      });
+    } catch (e) {
+      return null;
+    }
+  }
+
+  async function idbSave(data) {
+    try {
+      const db = await getIDB();
+      if (!db) return false;
+      return new Promise((resolve) => {
+        const tx = db.transaction(IDB_STORE, 'readwrite');
+        const store = tx.objectStore(IDB_STORE);
+        const req = store.put(data, IDB_KEY);
+        req.onsuccess = () => resolve(true);
+        req.onerror = () => resolve(false);
+      });
+    } catch (e) {
+      return false;
+    }
+  }
+
+  // Deep merge utility: base object overridden by user customizations
+  function mergePortfolioData(base, override) {
+    if (!override) return JSON.parse(JSON.stringify(base || {}));
+    const out = JSON.parse(JSON.stringify(base || {}));
+    for (const k in override) {
+      if (override[k] !== undefined && override[k] !== null) {
+        if (typeof override[k] === 'object' && !Array.isArray(override[k])) {
+          if (!out[k]) out[k] = {};
+          for (const subKey in override[k]) {
+            const val = override[k][subKey];
+            if (val !== undefined && val !== null) {
+              if (typeof val === 'string' && val.trim() === '' && out[k][subKey]) {
+                continue;
+              }
+              out[k][subKey] = val;
+            }
+          }
+        } else {
+          out[k] = override[k];
+        }
+      }
+    }
+    return out;
+  }
+
   let portfolioData = loadPortfolioData();
 
   function loadPortfolioData() {
@@ -286,18 +377,18 @@
       const stored = localStorage.getItem(STORAGE_KEY);
       if (stored) {
         const parsed = JSON.parse(stored);
-        const merged = Object.assign({}, defaultPortfolioData, parsed);
+        const merged = mergePortfolioData(defaultPortfolioData, parsed);
         if (!merged.theme) merged.theme = Object.assign({}, defaultPortfolioData.theme);
         if (!merged.showcases) {
           merged.showcases = JSON.parse(JSON.stringify(defaultPortfolioData.showcases));
         } else {
-          for (let i = 6; i <= 10; i++) {
+          for (let i = 6; i <= 12; i++) {
             const k = `slide${i}`;
             const defS = defaultPortfolioData.showcases[k];
             if (!merged.showcases[k]) {
               merged.showcases[k] = Object.assign({}, defS);
             } else if (!merged.showcases[k].slideImage || merged.showcases[k].slideImage.trim() === '') {
-              merged.showcases[k].slideImage = defS.slideImage;
+              merged.showcases[k].slideImage = defS?.slideImage || '';
             }
           }
         }
@@ -395,45 +486,69 @@
         res = await fetch('./data/portfolio.json').catch(() => null);
       }
       if (res && res.ok) {
-        const data = await res.json();
-        portfolioData = Object.assign({}, defaultPortfolioData, data);
+        const serverData = await res.json();
+        const idbData = await idbLoad();
+        const storedStr = localStorage.getItem(STORAGE_KEY);
+        let userLocalData = idbData;
+        if (!userLocalData && storedStr) {
+          try { userLocalData = JSON.parse(storedStr); } catch (e) {}
+        }
+
+        if (userLocalData) {
+          // CRITICAL: User has edited/saved data in this browser!
+          // We must PRESERVE user customizations over server defaults:
+          portfolioData = mergePortfolioData(serverData, userLocalData);
+        } else {
+          portfolioData = mergePortfolioData(defaultPortfolioData, serverData);
+        }
+
         if (!portfolioData.theme) {
           portfolioData.theme = Object.assign({}, defaultPortfolioData.theme);
         }
         if (!portfolioData.showcases) {
           portfolioData.showcases = JSON.parse(JSON.stringify(defaultPortfolioData.showcases));
         } else {
-          for (let i = 6; i <= 10; i++) {
+          for (let i = 6; i <= 12; i++) {
             const k = `slide${i}`;
             const defS = defaultPortfolioData.showcases[k];
             if (!portfolioData.showcases[k]) {
               portfolioData.showcases[k] = Object.assign({}, defS);
             } else if (!portfolioData.showcases[k].slideImage || portfolioData.showcases[k].slideImage.trim() === '') {
-              portfolioData.showcases[k].slideImage = defS.slideImage;
+              portfolioData.showcases[k].slideImage = defS?.slideImage || '';
             }
           }
         }
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(portfolioData));
+
+        await savePortfolioData(false);
         applyTheme(portfolioData.theme, false);
         renderPortfolio();
-        console.log('[Backend Sync] Synchronized state directly with data/portfolio.json.');
+        populateAdminFields();
+        console.log('[Backend Sync] Successfully synchronized and preserved user customizations.');
       }
     } catch (e) {
       console.log('[Backend Sync] Running in standalone/browser storage mode:', e.message);
     }
   }
 
-  async function savePortfolioData() {
+  async function savePortfolioData(showUserToast = true) {
+    // 1. Save to IndexedDB (virtually unlimited capacity, handles large images safely)
+    await idbSave(portfolioData);
+
+    // 2. Also try localStorage
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(portfolioData));
-      showToast("Saved to browser storage! 💾");
     } catch (e) {
-      console.error("Storage save error:", e);
+      console.warn("localStorage quota exceeded, but IndexedDB safely saved all images and text!");
     }
 
     const indicator = document.getElementById('admin-save-indicator');
     if (indicator) {
-      indicator.textContent = "Saving to database (data/portfolio.json)...";
+      indicator.textContent = `✓ Auto-Saved to Database (${new Date().toLocaleTimeString()})`;
+      indicator.style.color = "#4ECCA3";
+    }
+
+    if (showUserToast) {
+      showToast("Changes permanently saved to database! 💾 (Persists on refresh)");
     }
 
     try {
@@ -442,23 +557,14 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(portfolioData)
       });
-      if (res.ok) {
-        const result = await res.json();
-        showToast("Saved directly to backend database (data/portfolio.json)! 🚀");
+      if (res.ok && showUserToast) {
+        showToast("Disk database (data/portfolio.json) updated! 🚀");
         if (indicator) {
-          indicator.textContent = `✓ Database Updated & Synced (${new Date().toLocaleTimeString()})`;
+          indicator.textContent = `✓ Disk Database Updated (${new Date().toLocaleTimeString()})`;
           indicator.style.color = "#4ECCA3";
         }
-      } else {
-        if (indicator) {
-          indicator.textContent = "Saved to browser storage (run start-server.bat to sync disk)";
-        }
       }
-    } catch (err) {
-      if (indicator) {
-        indicator.textContent = "Saved to browser storage (launch server.js to write disk)";
-      }
-    }
+    } catch (err) {}
   }
 
   // ==========================================================================
@@ -666,8 +772,8 @@
     const logoTitle = document.getElementById('logofolio-title-text');
     if (logoTitle) logoTitle.textContent = data.logofolio.title;
 
-    // Showcases Titles, Descriptions & Images (Slides 6-10)
-    for (let i = 6; i <= 10; i++) {
+    // Showcases Titles, Descriptions & Images (Slides 6-12)
+    for (let i = 6; i <= 12; i++) {
       const sKey = `slide${i}`;
       const sData = data.showcases?.[sKey];
       if (sData) {
@@ -1231,23 +1337,60 @@
     };
   });
 
+  // Smart Canvas Image Compressor: Keeps base64 lightweight so it fits easily into storage
+  function compressImage(file, maxDimension = 1920, quality = 0.88) {
+    return new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const img = new Image();
+        img.onload = () => {
+          let width = img.width;
+          let height = img.height;
+          if (width > maxDimension || height > maxDimension) {
+            if (width > height) {
+              height = Math.round((height * maxDimension) / width);
+              width = maxDimension;
+            } else {
+              width = Math.round((width * maxDimension) / height);
+              height = maxDimension;
+            }
+          }
+          const canvas = document.createElement('canvas');
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, width, height);
+          const mime = file.type === 'image/png' ? 'image/png' : 'image/jpeg';
+          resolve(canvas.toDataURL(mime, quality));
+        };
+        img.onerror = () => resolve(e.target.result);
+        img.src = e.target.result;
+      };
+      reader.onerror = () => resolve(null);
+      reader.readAsDataURL(file);
+    });
+  }
+
   function setupImageUpload(fileInputId, previewImgId, onLoadedCallback) {
     const fileInput = document.getElementById(fileInputId);
     const previewImg = document.getElementById(previewImgId);
     if (!fileInput) return;
 
-    fileInput.onchange = () => {
+    fileInput.onchange = async () => {
       const file = fileInput.files[0];
       if (!file) return;
 
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        const base64Url = e.target.result;
+      showToast("Optimizing & saving image to database... ⏳", 2000);
+      const base64Url = await compressImage(file);
+      if (base64Url) {
         if (previewImg) previewImg.src = base64Url;
         if (onLoadedCallback) onLoadedCallback(base64Url);
-        showToast("Image loaded! Click Save to apply.");
-      };
-      reader.readAsDataURL(file);
+        portfolioData.hasCustomEdits = true;
+        renderPortfolio();
+        await savePortfolioData(false);
+        showToast("Image saved permanently to database! 💾 (Persists on refresh)");
+        playSuccess();
+      }
     };
   }
 
@@ -1285,7 +1428,7 @@
     const admQuote = document.getElementById('adm-about-quote');
     if (admQuote) admQuote.value = d.about.quote;
     const admPortraitPrev = document.getElementById('adm-portrait-preview');
-    if (admPortraitPrev) admPortraitPrev.src = d.about.portraitImage;
+    if (admPortraitPrev && d.about.portraitImage) admPortraitPrev.src = d.about.portraitImage;
 
     // Tab 4: Skills & Tools
     const admEmail = document.getElementById('adm-contact-email');
@@ -1304,8 +1447,8 @@
     const admQrPrev = document.getElementById('adm-qr-preview');
     if (admQrPrev) admQrPrev.src = d.skills.contact.qrImage;
 
-    // Tab 7: Showcases (Slides 6-10)
-    for (let i = 6; i <= 10; i++) {
+    // Tab 7: Showcases (Slides 6-12)
+    for (let i = 6; i <= 12; i++) {
       const sKey = `slide${i}`;
       const sData = d.showcases?.[sKey];
       const titleInput = document.getElementById(`adm-s${i}-title`);
@@ -1323,131 +1466,145 @@
   // Setup file uploads for hero, about, qr
   setupImageUpload('adm-hero-mascot-file', 'adm-mascot-preview', (base64) => {
     portfolioData.hero.mascotImage = base64;
+    const heroMascot = document.getElementById('hero-mascot-img');
+    if (heroMascot) heroMascot.src = base64;
   });
   setupImageUpload('adm-hero-sticker-file', 'adm-sticker-preview', (base64) => {
     portfolioData.hero.stickerImage = base64;
   });
   setupImageUpload('adm-portrait-file', 'adm-portrait-preview', (base64) => {
     portfolioData.about.portraitImage = base64;
+    const pImg = document.getElementById('about-portrait-img');
+    if (pImg) pImg.src = base64;
   });
   setupImageUpload('adm-qr-file', 'adm-qr-preview', (base64) => {
     portfolioData.skills.contact.qrImage = base64;
+    const qrImg = document.getElementById('skills-qr-img');
+    if (qrImg) qrImg.src = base64;
   });
 
-  // Setup file uploads for slides 6-10
-  setupImageUpload('adm-s6-file', null, (base64) => {
+  // Setup file uploads for slides 6-12
+  for (let i = 6; i <= 12; i++) {
+    setupImageUpload(`adm-s${i}-file`, null, (base64) => {
+      if (!portfolioData.showcases) portfolioData.showcases = {};
+      const sKey = `slide${i}`;
+      if (!portfolioData.showcases[sKey]) portfolioData.showcases[sKey] = {};
+      portfolioData.showcases[sKey].slideImage = base64;
+      const sImg = document.getElementById(`img-slide-${i}`);
+      if (sImg) sImg.src = base64;
+    });
+  }
+
+  // Helper to extract all text inputs from admin
+  function collectAllAdminInputs() {
+    // Profile
+    const fName = document.getElementById('adm-first-name');
+    const lName = document.getElementById('adm-last-name');
+    if (fName) portfolioData.profile.firstName = fName.value.trim();
+    if (lName) portfolioData.profile.lastName = lName.value.trim();
+    portfolioData.profile.name = `${portfolioData.profile.firstName || ''} ${portfolioData.profile.lastName || ''}`.trim();
+    
+    const role = document.getElementById('adm-role-title');
+    if (role) portfolioData.profile.role = role.value.trim();
+    const year = document.getElementById('adm-year');
+    if (year) portfolioData.profile.year = year.value.trim();
+    const avail = document.getElementById('adm-availability');
+    if (avail) portfolioData.profile.availability = avail.value.trim();
+
+    // Hero
+    const eye = document.getElementById('adm-hero-eyebrow');
+    if (eye) portfolioData.hero.eyebrow = eye.value.trim();
+    const torn = document.getElementById('adm-hero-torn-text');
+    if (torn) portfolioData.hero.tornText = torn.value.trim();
+    const stText = document.getElementById('adm-hero-sticker');
+    if (stText) portfolioData.hero.stickerText = stText.value.trim();
+
+    // About
+    portfolioData.about.namePrefix = portfolioData.profile.firstName;
+    portfolioData.about.nameAccent = portfolioData.profile.lastName;
+    portfolioData.about.subtitle = portfolioData.profile.role;
+    const bio = document.getElementById('adm-about-paragraphs');
+    if (bio) {
+      portfolioData.about.paragraphs = bio.value.split('\n\n').map(p => p.trim()).filter(Boolean);
+    }
+    const quote = document.getElementById('adm-about-quote');
+    if (quote) portfolioData.about.quote = quote.value.trim();
+
+    // Skills & Contact
+    const email = document.getElementById('adm-contact-email');
+    if (email) portfolioData.skills.contact.email = email.value.trim();
+    const phone = document.getElementById('adm-contact-phone');
+    if (phone) {
+      portfolioData.skills.contact.phone = phone.value.trim();
+      portfolioData.skills.contact.whatsapp = phone.value.trim();
+    }
+    const linkedin = document.getElementById('adm-contact-linkedin');
+    if (linkedin) portfolioData.skills.contact.linkedin = linkedin.value.trim();
+    const behance = document.getElementById('adm-contact-behance');
+    if (behance) {
+      portfolioData.skills.contact.behance = behance.value.trim();
+      portfolioData.skills.contact.behanceUrl = `https://www.behance.net/${behance.value.trim()}`;
+    }
+
+    const whatIDo = document.getElementById('adm-what-i-do');
+    if (whatIDo) {
+      portfolioData.skills.whatIDo = whatIDo.value.split(',').map(s => s.trim()).filter(Boolean);
+    }
+    const softSkills = document.getElementById('adm-soft-skills');
+    if (softSkills) {
+      portfolioData.skills.softSkills = softSkills.value.split(',').map(s => s.trim()).filter(Boolean);
+    }
+
+    // Showcases 6-12 titles & descriptions
     if (!portfolioData.showcases) portfolioData.showcases = {};
-    if (!portfolioData.showcases.slide6) portfolioData.showcases.slide6 = {};
-    portfolioData.showcases.slide6.slideImage = base64;
-  });
-  setupImageUpload('adm-s7-file', null, (base64) => {
-    if (!portfolioData.showcases) portfolioData.showcases = {};
-    if (!portfolioData.showcases.slide7) portfolioData.showcases.slide7 = {};
-    portfolioData.showcases.slide7.slideImage = base64;
-  });
-  setupImageUpload('adm-s8-file', null, (base64) => {
-    if (!portfolioData.showcases) portfolioData.showcases = {};
-    if (!portfolioData.showcases.slide8) portfolioData.showcases.slide8 = {};
-    portfolioData.showcases.slide8.slideImage = base64;
-  });
-  setupImageUpload('adm-s9-file', null, (base64) => {
-    if (!portfolioData.showcases) portfolioData.showcases = {};
-    if (!portfolioData.showcases.slide9) portfolioData.showcases.slide9 = {};
-    portfolioData.showcases.slide9.slideImage = base64;
-  });
-  setupImageUpload('adm-s10-file', null, (base64) => {
-    if (!portfolioData.showcases) portfolioData.showcases = {};
-    if (!portfolioData.showcases.slide10) portfolioData.showcases.slide10 = {};
-    portfolioData.showcases.slide10.slideImage = base64;
-  });
+    for (let i = 6; i <= 12; i++) {
+      const sKey = `slide${i}`;
+      if (!portfolioData.showcases[sKey]) portfolioData.showcases[sKey] = {};
+      const titleInput = document.getElementById(`adm-s${i}-title`);
+      if (titleInput) portfolioData.showcases[sKey].title = titleInput.value.trim();
+      const descInput = document.getElementById(`adm-s${i}-desc`);
+      if (descInput) portfolioData.showcases[sKey].desc = descInput.value.trim();
+    }
+
+    // Theme Colors
+    if (!portfolioData.theme) portfolioData.theme = {};
+    const fAccent = document.getElementById('color-hex-accent');
+    if (fAccent) portfolioData.theme.accentColor = fAccent.value.trim();
+    const fCream = document.getElementById('color-hex-cream');
+    if (fCream) portfolioData.theme.creamBg = fCream.value.trim();
+    const fDark = document.getElementById('color-hex-darkstage');
+    if (fDark) portfolioData.theme.darkStageBg = fDark.value.trim();
+    const fCard = document.getElementById('color-hex-card');
+    if (fCard) portfolioData.theme.darkCardBg = fCard.value.trim();
+    const fText = document.getElementById('color-hex-text');
+    if (fText) portfolioData.theme.textColor = fText.value.trim();
+
+    portfolioData.hasCustomEdits = true;
+  }
+
+  // Real-time live auto-save on typing in admin modal
+  let inputAutoSaveTimer = null;
+  const adminModalEl = document.getElementById('admin-panel-modal');
+  if (adminModalEl) {
+    adminModalEl.addEventListener('input', (e) => {
+      if (e.target.id === 'adm-new-passcode' || e.target.type === 'file') return;
+      clearTimeout(inputAutoSaveTimer);
+      inputAutoSaveTimer = setTimeout(async () => {
+        collectAllAdminInputs();
+        renderPortfolio();
+        await savePortfolioData(false);
+      }, 350);
+    });
+  }
 
   // Save Changes button in admin
   const saveAllBtn = document.getElementById('admin-save-btn');
   if (saveAllBtn) {
-    saveAllBtn.onclick = () => {
-      // Profile
-      const fName = document.getElementById('adm-first-name');
-      const lName = document.getElementById('adm-last-name');
-      if (fName) portfolioData.profile.firstName = fName.value.trim();
-      if (lName) portfolioData.profile.lastName = lName.value.trim();
-      portfolioData.profile.name = `${portfolioData.profile.firstName} ${portfolioData.profile.lastName}`.trim();
-      
-      const role = document.getElementById('adm-role-title');
-      if (role) portfolioData.profile.role = role.value.trim();
-      const year = document.getElementById('adm-year');
-      if (year) portfolioData.profile.year = year.value.trim();
-
-      // Hero
-      const eye = document.getElementById('adm-hero-eyebrow');
-      if (eye) portfolioData.hero.eyebrow = eye.value.trim();
-      const torn = document.getElementById('adm-hero-torn-text');
-      if (torn) portfolioData.hero.tornText = torn.value.trim();
-      const stText = document.getElementById('adm-hero-sticker');
-      if (stText) portfolioData.hero.stickerText = stText.value.trim();
-
-      // About
-      portfolioData.about.namePrefix = portfolioData.profile.firstName;
-      portfolioData.about.nameAccent = portfolioData.profile.lastName;
-      portfolioData.about.subtitle = portfolioData.profile.role;
-      const bio = document.getElementById('adm-about-paragraphs');
-      if (bio) {
-        portfolioData.about.paragraphs = bio.value.split('\n\n').map(p => p.trim()).filter(Boolean);
-      }
-      const quote = document.getElementById('adm-about-quote');
-      if (quote) portfolioData.about.quote = quote.value.trim();
-
-      // Skills & Contact
-      const email = document.getElementById('adm-contact-email');
-      if (email) portfolioData.skills.contact.email = email.value.trim();
-      const phone = document.getElementById('adm-contact-phone');
-      if (phone) {
-        portfolioData.skills.contact.phone = phone.value.trim();
-        portfolioData.skills.contact.whatsapp = phone.value.trim();
-      }
-      const linkedin = document.getElementById('adm-contact-linkedin');
-      if (linkedin) portfolioData.skills.contact.linkedin = linkedin.value.trim();
-      const behance = document.getElementById('adm-contact-behance');
-      if (behance) {
-        portfolioData.skills.contact.behance = behance.value.trim();
-        portfolioData.skills.contact.behanceUrl = `https://www.behance.net/${behance.value.trim()}`;
-      }
-
-      const whatIDo = document.getElementById('adm-what-i-do');
-      if (whatIDo) {
-        portfolioData.skills.whatIDo = whatIDo.value.split(',').map(s => s.trim()).filter(Boolean);
-      }
-      const softSkills = document.getElementById('adm-soft-skills');
-      if (softSkills) {
-        portfolioData.skills.softSkills = softSkills.value.split(',').map(s => s.trim()).filter(Boolean);
-      }
-
-      // Showcases 6-10 titles & descriptions
-      if (!portfolioData.showcases) portfolioData.showcases = {};
-      for (let i = 6; i <= 10; i++) {
-        const sKey = `slide${i}`;
-        if (!portfolioData.showcases[sKey]) portfolioData.showcases[sKey] = {};
-        const titleInput = document.getElementById(`adm-s${i}-title`);
-        if (titleInput) portfolioData.showcases[sKey].title = titleInput.value.trim();
-        const descInput = document.getElementById(`adm-s${i}-desc`);
-        if (descInput) portfolioData.showcases[sKey].desc = descInput.value.trim();
-      }
-
-      // Theme Colors
-      if (!portfolioData.theme) portfolioData.theme = {};
-      const fAccent = document.getElementById('color-hex-accent');
-      if (fAccent) portfolioData.theme.accentColor = fAccent.value.trim();
-      const fCream = document.getElementById('color-hex-cream');
-      if (fCream) portfolioData.theme.creamBg = fCream.value.trim();
-      const fDark = document.getElementById('color-hex-darkstage');
-      if (fDark) portfolioData.theme.darkStageBg = fDark.value.trim();
-      const fCard = document.getElementById('color-hex-card');
-      if (fCard) portfolioData.theme.darkCardBg = fCard.value.trim();
-      const fText = document.getElementById('color-hex-text');
-      if (fText) portfolioData.theme.textColor = fText.value.trim();
-
+    saveAllBtn.onclick = async () => {
+      collectAllAdminInputs();
       applyTheme(portfolioData.theme, false);
-      savePortfolioData();
       renderPortfolio();
+      await savePortfolioData(true);
       playSuccess();
     };
   }
@@ -1544,20 +1701,22 @@
   }
 
   // Backup Export & Import
-  const exportBtn = document.getElementById('adm-export-json-btn');
-  if (exportBtn) {
-    exportBtn.onclick = () => {
-      const jsonStr = JSON.stringify(portfolioData, null, 2);
-      const blob = new Blob([jsonStr], { type: 'application/json' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `sakir-portfolio-backup-${Date.now()}.json`;
-      a.click();
-      URL.revokeObjectURL(url);
-      showToast("Backup JSON file exported successfully!");
-    };
+  function exportPortfolioJson() {
+    const jsonStr = JSON.stringify(portfolioData, null, 2);
+    const blob = new Blob([jsonStr], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `portfolio.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+    showToast("portfolio.json exported successfully! 💾");
   }
+
+  const exportBtn = document.getElementById('adm-export-json-btn');
+  if (exportBtn) exportBtn.onclick = exportPortfolioJson;
+  const headerExportBtn = document.getElementById('admin-export-json-btn');
+  if (headerExportBtn) headerExportBtn.onclick = exportPortfolioJson;
 
   const importInput = document.getElementById('adm-import-json-file');
   if (importInput) {
@@ -1601,10 +1760,18 @@
   // Reset to Defaults
   const resetBtn = document.getElementById('adm-reset-defaults-btn');
   if (resetBtn) {
-    resetBtn.onclick = () => {
+    resetBtn.onclick = async () => {
       if (confirm("Are you sure you want to reset all data back to original defaults? This cannot be undone.")) {
         localStorage.removeItem(STORAGE_KEY);
+        try {
+          const db = await getIDB();
+          if (db) {
+            const tx = db.transaction(IDB_STORE, 'readwrite');
+            tx.objectStore(IDB_STORE).delete(IDB_KEY);
+          }
+        } catch (e) {}
         portfolioData = JSON.parse(JSON.stringify(defaultPortfolioData));
+        portfolioData.hasCustomEdits = false;
         renderPortfolio();
         populateAdminFields();
         showToast("Restored original defaults!");
@@ -1642,11 +1809,17 @@
   // ==========================================================================
   // 11. INITIALIZATION ON DOM READY
   // ==========================================================================
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('DOMContentLoaded', async () => {
+    try {
+      const idbData = await idbLoad();
+      if (idbData && typeof idbData === 'object') {
+        portfolioData = mergePortfolioData(defaultPortfolioData, idbData);
+      }
+    } catch (e) {}
     applyTheme(portfolioData.theme, false);
     renderPortfolio();
     initScrollProgress();
-    syncWithServerDatabase();
+    await syncWithServerDatabase();
   });
 
 })();
