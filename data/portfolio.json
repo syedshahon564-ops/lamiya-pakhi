@@ -86,6 +86,22 @@
       "Movie/Tv Show",
       "Football"
     ],
+    "tools": {
+      "visual": [
+        { "id": "ai", "name": "Adobe Illustrator", "badge": "Ai", "bg": "#330000", "color": "#FF9A00", "border": "#FF9A00" },
+        { "id": "ps", "name": "Adobe Photoshop", "badge": "Ps", "bg": "#001E36", "color": "#31A8FF", "border": "#31A8FF" },
+        { "id": "ae", "name": "Affinity / After Effects", "badge": "a", "bg": "#1B3624", "color": "#7EE68D", "border": "#7EE68D" },
+        { "id": "figma", "name": "Figma", "type": "svg", "svgType": "figma", "bg": "#1E1E1E", "color": "#F24E1E", "border": "#F24E1E" },
+        { "id": "canva", "name": "Canva", "type": "canva", "badge": "Canva", "bg": "#00C4CC", "color": "#FFFFFF" },
+        { "id": "powerpoint", "name": "PowerPoint", "badge": "P", "bg": "#D24726", "color": "#FFFFFF" }
+      ],
+      "genai": [
+        { "id": "chatgpt", "name": "ChatGPT (OpenAI)", "type": "svg", "svgType": "chatgpt" },
+        { "id": "gemini", "name": "Google Gemini", "type": "svg", "svgType": "gemini" },
+        { "id": "midjourney", "name": "Midjourney", "type": "svg", "svgType": "midjourney" },
+        { "id": "claude", "name": "Claude / Anthropic", "type": "svg", "svgType": "claude" }
+      ]
+    },
     "contact": {
       "email": "shahon54@gmail.com",
       "phone": "01905663 773",

@@ -11,6 +11,14 @@
 (function () {
   'use strict';
 
+  const TOOL_SVG_MAP = {
+    figma: `<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 2a4 4 0 0 0-4 4 4 4 0 0 0 4 4h4V2H8zm8 0h-4v8h4a4 4 0 1 0 0-8zm-8 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4h4v-8H8zm8 0h-4v8h4a4 4 0 1 0 0-8zm-8 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4v-4H8z" /></svg>`,
+    chatgpt: `<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M22.28 9.68a5.98 5.98 0 0 0-.52-4.96 6.05 6.05 0 0 0-6.51-2.85A6.06 6.06 0 0 0 10.72.63a6.04 6.04 0 0 0-5.78 4.2 6.06 6.06 0 0 0-4.05 2.94 6.04 6.04 0 0 0 .74 7.11 5.98 5.98 0 0 0 .51 4.96 6.05 6.05 0 0 0 6.52 2.85 6.06 6.06 0 0 0 4.52 1.25 6.04 6.04 0 0 0 5.78-4.2 6.06 6.06 0 0 0 4.05-2.94 6.04 6.04 0 0 0-.73-7.12zm-8.32 12.16a4.42 4.42 0 0 1-2.9-1.07l.14-.08 4.83-2.79a.83.83 0 0 0 .42-.72v-6.82l2.05 1.18a.08.08 0 0 1 .05.06v5.82a4.44 4.44 0 0 1-4.59 4.42zm-8.91-4.2a4.42 4.42 0 0 1-.54-3.04l.14.09 4.83 2.79a.83.83 0 0 0 .83 0l5.9-3.41v2.37a.08.08 0 0 1-.03.07l-5.04 2.91a4.44 4.44 0 0 1-6.09-1.78zm-1.46-8.97a4.42 4.42 0 0 1 2.36-1.97v5.74a.83.83 0 0 0 .41.72l5.9 3.41-2.05 1.18a.08.08 0 0 1-.08 0l-5.04-2.91a4.44 4.44 0 0 1-1.5-6.17zm15.42 3.19l-4.83-2.79a.83.83 0 0 0-.83 0l-5.9 3.41V9.11a.08.08 0 0 1 .03-.07l5.04-2.91a4.44 4.44 0 0 1 6.49 4.73zm1.46 8.97a4.42 4.42 0 0 1-2.36 1.97v-5.74a.83.83 0 0 0-.41-.72l-5.9-3.41 2.05-1.18a.08.08 0 0 1 .08 0l5.04 2.91a4.44 4.44 0 0 1 1.5 6.17zm-6.17-5.03l-2.71-1.56 2.71-1.56 2.71 1.56-2.71 1.56z"/></svg>`,
+    gemini: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><defs><linearGradient id="gemini-icon-grad-dyn" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#4285F4"/><stop offset="50%" stop-color="#9B51E0"/><stop offset="100%" stop-color="#FF5483"/></linearGradient></defs><path d="M12 24C12 17.373 6.627 12 0 12C6.627 12 12 6.627 12 0C12 6.627 17.373 12 24 12C17.373 12 12 17.373 12 24Z" fill="url(#gemini-icon-grad-dyn)"/></svg>`,
+    midjourney: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l9 5 9-5"/><path d="M3 17l9-14 9 14"/><path d="M12 3v19"/><path d="M7.5 13.5l4.5 2.5 4.5-2.5"/></svg>`,
+    claude: `<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M13.8 2.2c-.3 0-.6.2-.7.5l-2.4 6.7-5.8-4.1c-.2-.2-.6-.1-.8.1l-1.8 2.5c-.2.2-.1.6.1.8l5.8 4.1-7.1.6c-.3 0-.5.3-.5.6v3.1c0 .3.2.6.5.6l7.1.6-5.8 4.1c-.2.2-.3.6-.1.8l1.8 2.5c.2.2.6.3.8.1l5.8-4.1 2.4 6.7c.1.3.4.5.7.5h3.1c.3 0 .6-.2.7-.5l2.4-6.7 5.8 4.1c.2.2.6.1.8-.1l1.8-2.5c.2-.2.1-.6-.1-.8l-5.8-4.1 7.1-.6c.3 0 .5-.3.5-.6v-3.1c0-.3-.2-.6-.5-.6l-7.1-.6 5.8-4.1c.2-.2.3-.6.1-.8l-1.8-2.5c-.2-.2-.6-.3-.8-.1l-5.8 4.1-2.4-6.7c-.1-.3-.4-.5-.7-.5h-3.1z"/></svg>`
+  };
+
   // ==========================================================================
   // 1. DEFAULT PORTFOLIO DATA (Initial State with all 10 Slides)
   // ==========================================================================
@@ -76,6 +84,22 @@
         "Adaptability",
         "Communication"
       ],
+      tools: {
+        visual: [
+          { id: "ai", name: "Adobe Illustrator", badge: "Ai", bg: "#330000", color: "#FF9A00", border: "#FF9A00" },
+          { id: "ps", name: "Adobe Photoshop", badge: "Ps", bg: "#001E36", color: "#31A8FF", border: "#31A8FF" },
+          { id: "ae", name: "Affinity / After Effects", badge: "a", bg: "#1B3624", color: "#7EE68D", border: "#7EE68D" },
+          { id: "figma", name: "Figma", type: "svg", svgType: "figma", bg: "#1E1E1E", color: "#F24E1E", border: "#F24E1E" },
+          { id: "canva", name: "Canva", type: "canva", badge: "Canva", bg: "#00C4CC", color: "#FFFFFF" },
+          { id: "powerpoint", name: "PowerPoint", badge: "P", bg: "#D24726", color: "#FFFFFF" }
+        ],
+        genai: [
+          { id: "chatgpt", name: "ChatGPT (OpenAI)", type: "svg", svgType: "chatgpt" },
+          { id: "gemini", name: "Google Gemini", type: "svg", svgType: "gemini" },
+          { id: "midjourney", name: "Midjourney", type: "svg", svgType: "midjourney" },
+          { id: "claude", name: "Claude / Anthropic", type: "svg", svgType: "claude" }
+        ]
+      },
       languages: [
         { lang: "English", level: "Fluent" },
         { lang: "Bengali", level: "Native" },
@@ -349,24 +373,26 @@
   function mergePortfolioData(base, override) {
     if (!override) return JSON.parse(JSON.stringify(base || {}));
     const out = JSON.parse(JSON.stringify(base || {}));
-    for (const k in override) {
-      if (override[k] !== undefined && override[k] !== null) {
-        if (typeof override[k] === 'object' && !Array.isArray(override[k])) {
-          if (!out[k]) out[k] = {};
-          for (const subKey in override[k]) {
-            const val = override[k][subKey];
-            if (val !== undefined && val !== null) {
-              if (typeof val === 'string' && val.trim() === '' && out[k][subKey]) {
-                continue;
-              }
-              out[k][subKey] = val;
+    function deepMerge(target, src) {
+      for (const k in src) {
+        if (src[k] !== undefined && src[k] !== null) {
+          if (Array.isArray(src[k])) {
+            target[k] = JSON.parse(JSON.stringify(src[k]));
+          } else if (typeof src[k] === 'object') {
+            if (!target[k] || typeof target[k] !== 'object' || Array.isArray(target[k])) {
+              target[k] = {};
             }
+            deepMerge(target[k], src[k]);
+          } else {
+            if (typeof src[k] === 'string' && src[k].trim() === '' && target[k]) {
+              continue;
+            }
+            target[k] = src[k];
           }
-        } else {
-          out[k] = override[k];
         }
       }
     }
+    deepMerge(out, override);
     return out;
   }
 
@@ -379,6 +405,16 @@
         const parsed = JSON.parse(stored);
         const merged = mergePortfolioData(defaultPortfolioData, parsed);
         if (!merged.theme) merged.theme = Object.assign({}, defaultPortfolioData.theme);
+        if (!merged.skills) merged.skills = JSON.parse(JSON.stringify(defaultPortfolioData.skills));
+        if (!merged.skills.tools) merged.skills.tools = JSON.parse(JSON.stringify(defaultPortfolioData.skills.tools));
+        if (!merged.skills.tools.visual || merged.skills.tools.visual.length === 0) {
+          merged.skills.tools.visual = JSON.parse(JSON.stringify(defaultPortfolioData.skills.tools.visual));
+        }
+        if (!merged.skills.tools.genai || merged.skills.tools.genai.length === 0) {
+          merged.skills.tools.genai = JSON.parse(JSON.stringify(defaultPortfolioData.skills.tools.genai));
+        }
+        if (!merged.contents) merged.contents = JSON.parse(JSON.stringify(defaultPortfolioData.contents));
+        if (!merged.logofolio) merged.logofolio = JSON.parse(JSON.stringify(defaultPortfolioData.logofolio));
         if (!merged.showcases) {
           merged.showcases = JSON.parse(JSON.stringify(defaultPortfolioData.showcases));
         } else {
@@ -505,6 +541,16 @@
         if (!portfolioData.theme) {
           portfolioData.theme = Object.assign({}, defaultPortfolioData.theme);
         }
+        if (!portfolioData.skills) portfolioData.skills = JSON.parse(JSON.stringify(defaultPortfolioData.skills));
+        if (!portfolioData.skills.tools) portfolioData.skills.tools = JSON.parse(JSON.stringify(defaultPortfolioData.skills.tools));
+        if (!portfolioData.skills.tools.visual || portfolioData.skills.tools.visual.length === 0) {
+          portfolioData.skills.tools.visual = JSON.parse(JSON.stringify(defaultPortfolioData.skills.tools.visual));
+        }
+        if (!portfolioData.skills.tools.genai || portfolioData.skills.tools.genai.length === 0) {
+          portfolioData.skills.tools.genai = JSON.parse(JSON.stringify(defaultPortfolioData.skills.tools.genai));
+        }
+        if (!portfolioData.contents) portfolioData.contents = JSON.parse(JSON.stringify(defaultPortfolioData.contents));
+        if (!portfolioData.logofolio) portfolioData.logofolio = JSON.parse(JSON.stringify(defaultPortfolioData.logofolio));
         if (!portfolioData.showcases) {
           portfolioData.showcases = JSON.parse(JSON.stringify(defaultPortfolioData.showcases));
         } else {
@@ -764,13 +810,142 @@
     const qrImg = document.getElementById('contact-qr-img');
     if (qrImg && data.skills.contact.qrImage) qrImg.src = data.skills.contact.qrImage;
 
-    // Contents Section
-    const contentsTitle = document.getElementById('contents-title-text');
-    if (contentsTitle) contentsTitle.textContent = data.contents.title;
+    // Tools I Use (Visual & Gen AI)
+    const gridVisual = document.getElementById('grid-visual-tools');
+    if (gridVisual) {
+      const vTools = (data.skills?.tools?.visual && data.skills.tools.visual.length > 0)
+        ? data.skills.tools.visual
+        : defaultPortfolioData.skills.tools.visual;
+      gridVisual.innerHTML = vTools.map(t => {
+        if (t.type === 'svg' && TOOL_SVG_MAP[t.svgType]) {
+          return `<div class="tool-badge-item" title="${t.name}">
+            <div class="tool-icon-box" style="background:${t.bg || '#1E1E1E'}; color:${t.color || '#fff'}; border-color:${t.border || '#333'};">
+              ${TOOL_SVG_MAP[t.svgType]}
+            </div>
+          </div>`;
+        }
+        if (t.type === 'canva') {
+          return `<div class="tool-badge-item" title="${t.name}">
+            <div class="tool-icon-box" style="background:#00C4CC; color:#FFFFFF; border-radius:50%; font-size:10px; font-weight:800;">${t.badge || 'Canva'}</div>
+          </div>`;
+        }
+        return `<div class="tool-badge-item" title="${t.name}">
+          <div class="tool-icon-box" style="background:${t.bg || '#222'}; color:${t.color || '#fff'}; border-color:${t.border || 'transparent'};">${t.badge || t.name.slice(0, 2)}</div>
+        </div>`;
+      }).join('');
+    }
+
+    const gridGenAI = document.getElementById('grid-genai-tools');
+    if (gridGenAI) {
+      const gTools = (data.skills?.tools?.genai && data.skills.tools.genai.length > 0)
+        ? data.skills.tools.genai
+        : defaultPortfolioData.skills.tools.genai;
+      gridGenAI.innerHTML = gTools.map(t => {
+        const svg = TOOL_SVG_MAP[t.svgType] || (t.type === 'svg' && TOOL_SVG_MAP[t.id]);
+        if (svg) {
+          return `<div class="tool-badge-item" title="${t.name}">
+            <div class="tool-icon-box tool-${t.svgType || t.id}">
+              ${svg}
+            </div>
+          </div>`;
+        }
+        return `<div class="tool-badge-item" title="${t.name}">
+          <div class="tool-icon-box" style="background:${t.bg || '#1E1E24'}; color:${t.color || '#fff'}; border-color:${t.border || '#333'}; font-size:11px; font-weight:700;">
+            ${t.badge || t.name.slice(0, 2)}
+          </div>
+        </div>`;
+      }).join('');
+    }
+
+    // Contents Directory Modal
+    const contentsModalTitle = document.getElementById('contents-modal-title');
+    if (contentsModalTitle && data.contents?.title) contentsModalTitle.textContent = data.contents.title;
+
+    const contentsGrid = document.getElementById('contents-categories-grid');
+    if (contentsGrid && data.contents?.categories) {
+      const SLIDE_LINK_MAP = {
+        'logofolio': '#slide-5',
+        'branding design': '#slide-6',
+        'business card': '#slide-7',
+        'id card': '#slide-8',
+        'flyer design': '#slide-9',
+        'brochure design': '#slide-10',
+        'poster design': '#slide-11',
+        'banner design': '#slide-12'
+      };
+
+      const cats = data.contents.categories;
+      const col1Cats = cats.slice(0, Math.ceil(cats.length / 2));
+      const col2Cats = cats.slice(Math.ceil(cats.length / 2));
+
+      function renderContentsCol(colCats) {
+        return `<div class="contents-column">
+          ${colCats.map(cat => `
+            <div class="content-block">
+              <div class="block-category-title"><span class="arrow-accent">↗</span><span class="category-name">${cat.name}</span></div>
+              <ul class="block-items-list">
+                ${(cat.items || []).map(item => {
+                  const target = SLIDE_LINK_MAP[item.toLowerCase().trim()];
+                  if (target) {
+                    return `<li><a href="${target}" class="content-item-link contents-jump-link">${item}</a></li>`;
+                  }
+                  return `<li><span class="content-item-text">${item}</span></li>`;
+                }).join('')}
+              </ul>
+            </div>
+          `).join('')}
+        </div>`;
+      }
+
+      contentsGrid.innerHTML = renderContentsCol(col1Cats) + renderContentsCol(col2Cats);
+
+      contentsGrid.querySelectorAll('.contents-jump-link').forEach(link => {
+        link.onclick = () => {
+          const dlg = document.getElementById('contents-dialog');
+          if (dlg) dlg.close();
+        };
+      });
+    }
 
     // Logofolio Section
+    const logoEyebrow = document.querySelector('#slide-5 .showcase-eyebrow span');
+    if (logoEyebrow && data.logofolio?.eyebrow) logoEyebrow.textContent = data.logofolio.eyebrow;
     const logoTitle = document.getElementById('logofolio-title-text');
-    if (logoTitle) logoTitle.textContent = data.logofolio.title;
+    if (logoTitle && data.logofolio?.title) {
+      logoTitle.textContent = data.logofolio.title;
+      logoTitle.setAttribute('data-type-text', data.logofolio.title);
+    }
+
+    const logofolioGrid = document.getElementById('logofolio-cards-grid');
+    if (logofolioGrid && data.logofolio?.logos) {
+      logofolioGrid.innerHTML = data.logofolio.logos.map((logo, idx) => `
+        <article class="logo-card anim-slide-${idx % 2 === 0 ? 'left' : 'right'}" data-logo-id="${logo.id || 'logo-' + idx}" tabindex="0" role="button" aria-label="${logo.name} Logo Mockup">
+          <div class="logo-card-inner">
+            <div class="logo-image-box">
+              <img src="${logo.image || './assets/images/logo-sonicwave.png'}" alt="${logo.name} Logo Design" class="logo-img" />
+              <div class="card-glare"></div>
+            </div>
+            <div class="logo-card-info">
+              <h4 class="logo-name">${logo.name}</h4><span class="logo-cat">${logo.category}</span>
+            </div>
+          </div>
+        </article>
+      `).join('');
+
+      logofolioGrid.querySelectorAll('.logo-card').forEach(card => {
+        card.onclick = () => {
+          const id = card.getAttribute('data-logo-id');
+          openLogoModal(id);
+        };
+        card.onkeydown = (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            const id = card.getAttribute('data-logo-id');
+            openLogoModal(id);
+          }
+        };
+      });
+    }
 
     // Showcases Titles, Descriptions & Images (Slides 6-12)
     for (let i = 6; i <= 12; i++) {
@@ -1262,10 +1437,15 @@
   if (footerAdminLink) footerAdminLink.onclick = openAdminPortal;
 
   window.addEventListener('keydown', (e) => {
-    if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
-      e.preventDefault();
-      isAdminUnlocked = true;
-      openAdminDashboard();
+    if ((e.ctrlKey || e.metaKey) && e.shiftKey) {
+      if (
+        e.key === 'A' || e.key === 'a' || e.code === 'KeyA' ||
+        e.key === '+' || e.key === '=' || e.code === 'Equal' || e.code === 'NumpadAdd'
+      ) {
+        e.preventDefault();
+        isAdminUnlocked = true;
+        openAdminDashboard();
+      }
     }
   });
 
@@ -1431,6 +1611,17 @@
     if (admPortraitPrev && d.about.portraitImage) admPortraitPrev.src = d.about.portraitImage;
 
     // Tab 4: Skills & Tools
+    const admWhatIDo = document.getElementById('adm-what-i-do');
+    if (admWhatIDo) admWhatIDo.value = (d.skills.whatIDo || []).join('\n');
+    const admSoftSkills = document.getElementById('adm-soft-skills');
+    if (admSoftSkills) admSoftSkills.value = (d.skills.softSkills || []).join('\n');
+    const admHobbies = document.getElementById('adm-hobbies');
+    if (admHobbies) admHobbies.value = (d.skills.hobbies || []).join('\n');
+
+    renderAdminVisualTools();
+    renderAdminGenAITools();
+    renderAdminLanguages();
+
     const admEmail = document.getElementById('adm-contact-email');
     if (admEmail) admEmail.value = d.skills.contact.email;
     const admPhone = document.getElementById('adm-contact-phone');
@@ -1439,13 +1630,24 @@
     if (admLinkedin) admLinkedin.value = d.skills.contact.linkedin;
     const admBehance = document.getElementById('adm-contact-behance');
     if (admBehance) admBehance.value = d.skills.contact.behance;
-
-    const admWhatIDo = document.getElementById('adm-what-i-do');
-    if (admWhatIDo) admWhatIDo.value = (d.skills.whatIDo || []).join(', ');
-    const admSoftSkills = document.getElementById('adm-soft-skills');
-    if (admSoftSkills) admSoftSkills.value = (d.skills.softSkills || []).join(', ');
     const admQrPrev = document.getElementById('adm-qr-preview');
-    if (admQrPrev) admQrPrev.src = d.skills.contact.qrImage;
+    if (admQrPrev && d.skills.contact.qrImage) admQrPrev.src = d.skills.contact.qrImage;
+
+    // Tab 5: Contents
+    const admContentsTitle = document.getElementById('adm-contents-title');
+    if (admContentsTitle) admContentsTitle.value = d.contents?.title || "CONTENTS";
+    const admContentsPrev = document.getElementById('adm-contents-slide-preview');
+    if (admContentsPrev) admContentsPrev.src = d.contents?.slideImage || './assets/images/slide-4-contents.png';
+    renderAdminContentsCategories();
+
+    // Tab 6: Logofolio
+    const admLogofolioEyebrow = document.getElementById('adm-logofolio-eyebrow');
+    if (admLogofolioEyebrow) admLogofolioEyebrow.value = d.logofolio?.eyebrow || "BRANDING";
+    const admLogofolioTitle = document.getElementById('adm-logofolio-title');
+    if (admLogofolioTitle) admLogofolioTitle.value = d.logofolio?.title || "LOGOFOLIO";
+    const admLogofolioPrev = document.getElementById('adm-logofolio-slide-preview');
+    if (admLogofolioPrev) admLogofolioPrev.src = d.logofolio?.slideImage || './assets/images/slide-5-logofolio.png';
+    renderAdminLogosEditor();
 
     // Tab 7: Showcases (Slides 6-12)
     for (let i = 6; i <= 12; i++) {
@@ -1483,6 +1685,16 @@
     if (qrImg) qrImg.src = base64;
   });
 
+  // Setup file uploads for Slide 4 & Slide 5
+  setupImageUpload('adm-contents-slide-file', 'adm-contents-slide-preview', (base64) => {
+    if (!portfolioData.contents) portfolioData.contents = {};
+    portfolioData.contents.slideImage = base64;
+  });
+  setupImageUpload('adm-logofolio-slide-file', 'adm-logofolio-slide-preview', (base64) => {
+    if (!portfolioData.logofolio) portfolioData.logofolio = {};
+    portfolioData.logofolio.slideImage = base64;
+  });
+
   // Setup file uploads for slides 6-12
   for (let i = 6; i <= 12; i++) {
     setupImageUpload(`adm-s${i}-file`, null, (base64) => {
@@ -1494,6 +1706,350 @@
       if (sImg) sImg.src = base64;
     });
   }
+
+  // ==========================================================================
+  // TAB 4: VISUAL TOOLS, GEN AI STACK & LANGUAGES EDITORS
+  // ==========================================================================
+  function renderAdminVisualTools() {
+    const container = document.getElementById('adm-visual-tools-list');
+    if (!container) return;
+    if (!portfolioData.skills?.tools?.visual) {
+      if (!portfolioData.skills) portfolioData.skills = {};
+      if (!portfolioData.skills.tools) portfolioData.skills.tools = {};
+      portfolioData.skills.tools.visual = JSON.parse(JSON.stringify(defaultPortfolioData.skills.tools.visual));
+    }
+    const tools = portfolioData.skills.tools.visual;
+    container.innerHTML = tools.map((t, idx) => {
+      let iconHtml = '';
+      if (t.type === 'svg' && TOOL_SVG_MAP[t.svgType]) {
+        iconHtml = `<div style="width:24px; height:24px; display:flex; align-items:center; justify-content:center;">${TOOL_SVG_MAP[t.svgType]}</div>`;
+      } else if (t.type === 'canva') {
+        iconHtml = `<span style="display:inline-block; padding:2px 6px; border-radius:4px; font-size:10px; font-weight:800; background:#00C4CC; color:#fff;">Canva</span>`;
+      } else {
+        iconHtml = `<span style="display:inline-block; padding:2px 6px; border-radius:4px; font-size:11px; font-weight:700; background:${t.bg || '#222'}; color:${t.color || '#fff'};">${t.badge || t.name.slice(0, 2)}</span>`;
+      }
+      return `
+        <div class="adm-tool-chip" style="display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.15); border-radius:20px; padding:4px 12px 4px 8px;">
+          ${iconHtml}
+          <span style="font-size:0.8rem; color:#fff; font-weight:500;">${t.name}</span>
+          <button type="button" class="adm-del-visual-tool-btn" data-tool-idx="${idx}" style="background:none; border:none; color:#FF5555; cursor:pointer; font-size:1rem; padding:0 2px; line-height:1;" title="Remove ${t.name}">✕</button>
+        </div>
+      `;
+    }).join('');
+
+    container.querySelectorAll('.adm-del-visual-tool-btn').forEach(btn => {
+      btn.onclick = async (e) => {
+        e.stopPropagation();
+        const idx = parseInt(btn.getAttribute('data-tool-idx'), 10);
+        portfolioData.skills.tools.visual.splice(idx, 1);
+        renderAdminVisualTools();
+        renderPortfolio();
+        await savePortfolioData(false);
+        showToast("Tool removed! 🗑️");
+      };
+    });
+  }
+
+  const addVisualToolBtn = document.getElementById('adm-add-visual-tool-btn');
+  if (addVisualToolBtn) {
+    addVisualToolBtn.onclick = async () => {
+      const nameInput = document.getElementById('adm-new-tool-name');
+      const badgeInput = document.getElementById('adm-new-tool-badge');
+      const bgInput = document.getElementById('adm-new-tool-bg');
+      const colorInput = document.getElementById('adm-new-tool-color');
+
+      const name = nameInput ? nameInput.value.trim() : '';
+      if (!name) {
+        alert("Please enter a tool name (e.g. InDesign).");
+        return;
+      }
+      const badge = (badgeInput && badgeInput.value.trim()) ? badgeInput.value.trim() : name.slice(0, 2);
+      const bg = bgInput ? bgInput.value : '#49021F';
+      const color = colorInput ? colorInput.value : '#FF3366';
+
+      if (!portfolioData.skills.tools) portfolioData.skills.tools = {};
+      if (!portfolioData.skills.tools.visual) portfolioData.skills.tools.visual = [];
+
+      portfolioData.skills.tools.visual.push({
+        id: 'tool-' + Date.now(),
+        name: name,
+        badge: badge,
+        bg: bg,
+        color: color,
+        border: color
+      });
+
+      if (nameInput) nameInput.value = '';
+      if (badgeInput) badgeInput.value = '';
+
+      renderAdminVisualTools();
+      renderPortfolio();
+      await savePortfolioData(false);
+      showToast(`Added ${name} to visual tools! 🎨`);
+    };
+  }
+
+  function renderAdminGenAITools() {
+    const container = document.getElementById('adm-genai-tools-list');
+    if (!container) return;
+    if (!portfolioData.skills?.tools?.genai) {
+      if (!portfolioData.skills) portfolioData.skills = {};
+      if (!portfolioData.skills.tools) portfolioData.skills.tools = {};
+      portfolioData.skills.tools.genai = JSON.parse(JSON.stringify(defaultPortfolioData.skills.tools.genai));
+    }
+    const tools = portfolioData.skills.tools.genai;
+    container.innerHTML = tools.map((t, idx) => {
+      let iconHtml = '';
+      const svg = TOOL_SVG_MAP[t.svgType] || (t.type === 'svg' && TOOL_SVG_MAP[t.id]);
+      if (svg) {
+        iconHtml = `<div style="width:22px; height:22px; display:flex; align-items:center; justify-content:center;">${svg}</div>`;
+      } else {
+        iconHtml = `<span style="display:inline-block; padding:2px 6px; border-radius:4px; font-size:11px; font-weight:700; background:#222; color:#fff;">${t.badge || t.name.slice(0, 2)}</span>`;
+      }
+      return `
+        <div class="adm-tool-chip" style="display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.15); border-radius:20px; padding:4px 12px 4px 8px;">
+          ${iconHtml}
+          <span style="font-size:0.8rem; color:#fff; font-weight:500;">${t.name}</span>
+          <button type="button" class="adm-del-genai-tool-btn" data-tool-idx="${idx}" style="background:none; border:none; color:#FF5555; cursor:pointer; font-size:1rem; padding:0 2px; line-height:1;" title="Remove ${t.name}">✕</button>
+        </div>
+      `;
+    }).join('');
+
+    container.querySelectorAll('.adm-del-genai-tool-btn').forEach(btn => {
+      btn.onclick = async (e) => {
+        e.stopPropagation();
+        const idx = parseInt(btn.getAttribute('data-tool-idx'), 10);
+        portfolioData.skills.tools.genai.splice(idx, 1);
+        renderAdminGenAITools();
+        renderPortfolio();
+        await savePortfolioData(false);
+        showToast("Gen AI tool removed! 🗑️");
+      };
+    });
+  }
+
+  const GENAI_PRESETS = {
+    chatgpt: { id: "chatgpt", name: "ChatGPT (OpenAI)", type: "svg", svgType: "chatgpt" },
+    gemini: { id: "gemini", name: "Google Gemini", type: "svg", svgType: "gemini" },
+    midjourney: { id: "midjourney", name: "Midjourney", type: "svg", svgType: "midjourney" },
+    claude: { id: "claude", name: "Claude / Anthropic", type: "svg", svgType: "claude" }
+  };
+
+  document.querySelectorAll('.adm-preset-genai-btn').forEach(btn => {
+    btn.onclick = async () => {
+      const presetKey = btn.getAttribute('data-preset');
+      const preset = GENAI_PRESETS[presetKey];
+      if (!preset) return;
+
+      if (!portfolioData.skills.tools) portfolioData.skills.tools = {};
+      if (!portfolioData.skills.tools.genai) portfolioData.skills.tools.genai = [];
+
+      const exists = portfolioData.skills.tools.genai.some(t => (t.svgType === preset.svgType || t.id === preset.id));
+      if (exists) {
+        showToast(`${preset.name} is already in your stack!`);
+        return;
+      }
+
+      portfolioData.skills.tools.genai.push(JSON.parse(JSON.stringify(preset)));
+      renderAdminGenAITools();
+      renderPortfolio();
+      await savePortfolioData(false);
+      showToast(`Added ${preset.name} to Gen AI stack! 🤖`);
+    };
+  });
+
+  function renderAdminLanguages() {
+    const container = document.getElementById('adm-languages-container');
+    if (!container) return;
+    if (!portfolioData.skills?.languages) {
+      if (!portfolioData.skills) portfolioData.skills = {};
+      portfolioData.skills.languages = JSON.parse(JSON.stringify(defaultPortfolioData.skills.languages));
+    }
+    const langs = portfolioData.skills.languages;
+    container.innerHTML = langs.map((l, idx) => `
+      <div class="adm-language-row" data-lang-idx="${idx}" style="display:grid; grid-template-columns: 1fr 1fr auto; gap:8px; align-items:center;">
+        <input type="text" class="form-input adm-lang-name" value="${l.lang}" placeholder="Language (e.g. English)" style="padding:6px 10px; font-size:0.8rem;" />
+        <input type="text" class="form-input adm-lang-level" value="${l.level}" placeholder="Proficiency (e.g. Fluent, Native)" style="padding:6px 10px; font-size:0.8rem;" />
+        <button type="button" class="adm-del-lang-btn" data-lang-idx="${idx}" style="background:none; border:none; color:#FF5555; cursor:pointer; font-size:1.1rem; padding:4px 8px;" title="Remove language">✕</button>
+      </div>
+    `).join('');
+
+    container.querySelectorAll('.adm-del-lang-btn').forEach(btn => {
+      btn.onclick = async (e) => {
+        e.stopPropagation();
+        const idx = parseInt(btn.getAttribute('data-lang-idx'), 10);
+        portfolioData.skills.languages.splice(idx, 1);
+        renderAdminLanguages();
+        renderPortfolio();
+        await savePortfolioData(false);
+        showToast("Language removed! 🗑️");
+      };
+    });
+  }
+
+  const addLangBtn = document.getElementById('adm-add-language-btn');
+  if (addLangBtn) {
+    addLangBtn.onclick = async () => {
+      if (!portfolioData.skills) portfolioData.skills = {};
+      if (!portfolioData.skills.languages) portfolioData.skills.languages = [];
+      portfolioData.skills.languages.push({ lang: "Spanish", level: "Conversational" });
+      renderAdminLanguages();
+      renderPortfolio();
+      await savePortfolioData(false);
+      showToast("Added new language field! 🌐");
+    };
+  }
+
+  // ==========================================================================
+  // TAB 5: CONTENTS DIRECTORY CATEGORIES & ITEMS
+  // ==========================================================================
+  function renderAdminContentsCategories() {
+    const container = document.getElementById('adm-contents-categories-container');
+    if (!container) return;
+    if (!portfolioData.contents?.categories) {
+      if (!portfolioData.contents) portfolioData.contents = {};
+      portfolioData.contents.categories = JSON.parse(JSON.stringify(defaultPortfolioData.contents.categories));
+    }
+    const cats = portfolioData.contents.categories;
+    container.innerHTML = cats.map((cat, idx) => `
+      <div class="adm-category-box" data-cat-idx="${idx}" style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:12px 14px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+          <div style="display:flex; align-items:center; gap:8px; flex:1; margin-right:12px;">
+            <span style="font-size:0.75rem; color:var(--accent-red); font-weight:700;">CATEGORY:</span>
+            <input type="text" class="form-input adm-cat-name-input" data-cat-idx="${idx}" value="${cat.name}" placeholder="Category Name" style="padding:4px 8px; font-weight:700; text-transform:uppercase; font-size:0.8rem;" />
+          </div>
+          <button type="button" class="adm-del-cat-btn" data-cat-idx="${idx}" style="background:none; border:none; color:#FF5555; cursor:pointer; font-size:0.75rem;">✕ Remove</button>
+        </div>
+        <div>
+          <label class="form-label" style="font-size:0.7rem; margin-bottom:4px;">Items (one per line):</label>
+          <textarea class="form-textarea adm-cat-items-input" data-cat-idx="${idx}" rows="3" style="font-size:0.8rem; padding:6px 10px;" placeholder="Logofolio&#10;Branding Design">${(cat.items || []).join('\n')}</textarea>
+        </div>
+      </div>
+    `).join('');
+
+    container.querySelectorAll('.adm-del-cat-btn').forEach(btn => {
+      btn.onclick = async (e) => {
+        e.stopPropagation();
+        const idx = parseInt(btn.getAttribute('data-cat-idx'), 10);
+        portfolioData.contents.categories.splice(idx, 1);
+        renderAdminContentsCategories();
+        renderPortfolio();
+        await savePortfolioData(false);
+        showToast("Category removed! 🗑️");
+      };
+    });
+  }
+
+  const addCatBtn = document.getElementById('adm-add-category-btn');
+  if (addCatBtn) {
+    addCatBtn.onclick = async () => {
+      if (!portfolioData.contents) portfolioData.contents = {};
+      if (!portfolioData.contents.categories) portfolioData.contents.categories = [];
+      portfolioData.contents.categories.push({
+        name: "NEW CATEGORY",
+        items: ["Design Concept", "Case Study"]
+      });
+      renderAdminContentsCategories();
+      renderPortfolio();
+      await savePortfolioData(false);
+      showToast("Added new category! 📁");
+    };
+  }
+
+  // ==========================================================================
+  // TAB 6: LOGOFOLIO CARDS EDITOR & CHOOSE FILE IMAGE UPLOADER
+  // ==========================================================================
+  function renderAdminLogosEditor() {
+    const container = document.getElementById('adm-logos-editor-container');
+    if (!container) return;
+    if (!portfolioData.logofolio?.logos) {
+      if (!portfolioData.logofolio) portfolioData.logofolio = {};
+      portfolioData.logofolio.logos = JSON.parse(JSON.stringify(defaultPortfolioData.logofolio.logos));
+    }
+    const logos = portfolioData.logofolio.logos;
+    container.innerHTML = logos.map((logo, idx) => `
+      <div class="adm-logo-editor-item" data-logo-index="${idx}" style="display:grid; grid-template-columns: 80px 1fr auto; gap:12px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:12px; align-items:center;">
+        <div style="text-align:center;">
+          <img src="${logo.image || './assets/images/logo-sonicwave.png'}" class="adm-logo-thumb" id="adm-logo-thumb-${idx}" alt="${logo.name}" style="width:70px; height:70px; object-fit:cover; border-radius:6px; border:1px solid rgba(255,255,255,0.2); margin-bottom:6px; display:block;" />
+          <label class="pill-btn" style="cursor:pointer; display:inline-block; font-size:0.68rem; padding:4px 6px; width:100%; text-align:center; box-sizing:border-box; background:rgba(255,255,255,0.08);">
+            Choose File
+            <input type="file" accept="image/*" class="adm-logo-file-input" data-logo-index="${idx}" style="display:none;" />
+          </label>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px;">
+            <div>
+              <label class="form-label" style="font-size:0.7rem; margin-bottom:2px;">Logo Name</label>
+              <input type="text" class="form-input adm-logo-name-input" data-logo-index="${idx}" value="${logo.name}" placeholder="e.g. SonicWave" style="padding:6px 10px; font-size:0.8rem;" />
+            </div>
+            <div>
+              <label class="form-label" style="font-size:0.7rem; margin-bottom:2px;">Category / Tag</label>
+              <input type="text" class="form-input adm-logo-cat-input" data-logo-index="${idx}" value="${logo.category}" placeholder="e.g. Audio & Acoustics" style="padding:6px 10px; font-size:0.8rem;" />
+            </div>
+          </div>
+          <div>
+            <label class="form-label" style="font-size:0.7rem; margin-bottom:2px;">Description</label>
+            <input type="text" class="form-input adm-logo-desc-input" data-logo-index="${idx}" value="${logo.description || ''}" placeholder="Brief client/project note" style="padding:6px 10px; font-size:0.8rem;" />
+          </div>
+        </div>
+        <div>
+          <button type="button" class="adm-del-logo-btn" data-logo-index="${idx}" style="background:none; border:none; color:#FF5555; cursor:pointer; font-size:0.8rem; padding:8px;" title="Remove this logo card">✕</button>
+        </div>
+      </div>
+    `).join('');
+
+    container.querySelectorAll('.adm-del-logo-btn').forEach(btn => {
+      btn.onclick = async (e) => {
+        e.stopPropagation();
+        const idx = parseInt(btn.getAttribute('data-logo-index'), 10);
+        portfolioData.logofolio.logos.splice(idx, 1);
+        renderAdminLogosEditor();
+        renderPortfolio();
+        await savePortfolioData(false);
+        showToast("Logo removed! 🗑️");
+      };
+    });
+  }
+
+  const addLogoBtn = document.getElementById('adm-add-logo-btn');
+  if (addLogoBtn) {
+    addLogoBtn.onclick = async () => {
+      if (!portfolioData.logofolio) portfolioData.logofolio = {};
+      if (!portfolioData.logofolio.logos) portfolioData.logofolio.logos = [];
+      portfolioData.logofolio.logos.push({
+        id: 'logo-' + Date.now(),
+        name: 'New Brand Logo',
+        category: 'Brand Identity',
+        image: './assets/images/logo-sonicwave.png',
+        description: 'Custom brand identity design exploration and 3D mockup presentation.'
+      });
+      renderAdminLogosEditor();
+      renderPortfolio();
+      await savePortfolioData(false);
+      showToast("Added new logo card! Upload mockup with Choose File 🖼️");
+    };
+  }
+
+  // Event delegation for dynamically added logo image file pickers:
+  document.addEventListener('change', async (e) => {
+    if (e.target && e.target.classList.contains('adm-logo-file-input')) {
+      const idx = parseInt(e.target.getAttribute('data-logo-index'), 10);
+      const file = e.target.files[0];
+      if (!file) return;
+
+      showToast("Optimizing & saving logo image... ⏳", 2000);
+      const base64Url = await compressImage(file, 1600, 0.88);
+      if (base64Url && portfolioData.logofolio?.logos?.[idx]) {
+        portfolioData.logofolio.logos[idx].image = base64Url;
+        const thumb = document.getElementById(`adm-logo-thumb-${idx}`);
+        if (thumb) thumb.src = base64Url;
+        renderPortfolio();
+        await savePortfolioData(false);
+        showToast("Logo mockup image saved! 💾 (Persists on refresh)");
+        playSuccess();
+      }
+    }
+  });
 
   // Helper to extract all text inputs from admin
   function collectAllAdminInputs() {
@@ -1548,11 +2104,73 @@
 
     const whatIDo = document.getElementById('adm-what-i-do');
     if (whatIDo) {
-      portfolioData.skills.whatIDo = whatIDo.value.split(',').map(s => s.trim()).filter(Boolean);
+      portfolioData.skills.whatIDo = whatIDo.value.split(/\r?\n|,/).map(s => s.trim()).filter(Boolean);
     }
     const softSkills = document.getElementById('adm-soft-skills');
     if (softSkills) {
-      portfolioData.skills.softSkills = softSkills.value.split(',').map(s => s.trim()).filter(Boolean);
+      portfolioData.skills.softSkills = softSkills.value.split(/\r?\n|,/).map(s => s.trim()).filter(Boolean);
+    }
+    const hobbies = document.getElementById('adm-hobbies');
+    if (hobbies) {
+      portfolioData.skills.hobbies = hobbies.value.split(/\r?\n|,/).map(s => s.trim()).filter(Boolean);
+    }
+
+    // Languages
+    const langRows = document.querySelectorAll('.adm-language-row');
+    if (langRows.length > 0) {
+      portfolioData.skills.languages = Array.from(langRows).map(row => {
+        const langInput = row.querySelector('.adm-lang-name');
+        const lvlInput = row.querySelector('.adm-lang-level');
+        return {
+          lang: langInput ? langInput.value.trim() : '',
+          level: lvlInput ? lvlInput.value.trim() : ''
+        };
+      }).filter(l => l.lang.length > 0);
+    }
+
+    // Contents (Slide 4)
+    const cTitle = document.getElementById('adm-contents-title');
+    if (cTitle) {
+      if (!portfolioData.contents) portfolioData.contents = {};
+      portfolioData.contents.title = cTitle.value.trim();
+    }
+    const catBoxes = document.querySelectorAll('.adm-category-box');
+    if (catBoxes.length > 0) {
+      portfolioData.contents.categories = Array.from(catBoxes).map(box => {
+        const nameInput = box.querySelector('.adm-cat-name-input');
+        const itemsTextarea = box.querySelector('.adm-cat-items-input');
+        const items = itemsTextarea ? itemsTextarea.value.split(/\r?\n/).map(i => i.trim()).filter(Boolean) : [];
+        return {
+          name: nameInput ? nameInput.value.trim() : 'CATEGORY',
+          items: items
+        };
+      }).filter(c => c.name.length > 0);
+    }
+
+    // Logofolio (Slide 5)
+    const lEyebrow = document.getElementById('adm-logofolio-eyebrow');
+    if (lEyebrow) {
+      if (!portfolioData.logofolio) portfolioData.logofolio = {};
+      portfolioData.logofolio.eyebrow = lEyebrow.value.trim();
+    }
+    const lTitle = document.getElementById('adm-logofolio-title');
+    if (lTitle) {
+      if (!portfolioData.logofolio) portfolioData.logofolio = {};
+      portfolioData.logofolio.title = lTitle.value.trim();
+    }
+    const logoItems = document.querySelectorAll('.adm-logo-editor-item');
+    if (logoItems.length > 0 && portfolioData.logofolio?.logos) {
+      logoItems.forEach(item => {
+        const idx = parseInt(item.getAttribute('data-logo-index'), 10);
+        if (portfolioData.logofolio.logos[idx]) {
+          const nameInput = item.querySelector('.adm-logo-name-input');
+          const catInput = item.querySelector('.adm-logo-cat-input');
+          const descInput = item.querySelector('.adm-logo-desc-input');
+          if (nameInput) portfolioData.logofolio.logos[idx].name = nameInput.value.trim();
+          if (catInput) portfolioData.logofolio.logos[idx].category = catInput.value.trim();
+          if (descInput) portfolioData.logofolio.logos[idx].description = descInput.value.trim();
+        }
+      });
     }
 
     // Showcases 6-12 titles & descriptions
@@ -1584,7 +2202,7 @@
 
   // Real-time live auto-save on typing in admin modal
   let inputAutoSaveTimer = null;
-  const adminModalEl = document.getElementById('admin-panel-modal');
+  const adminModalEl = adminDashDialog || document.getElementById('admin-dashboard-dialog');
   if (adminModalEl) {
     adminModalEl.addEventListener('input', (e) => {
       if (e.target.id === 'adm-new-passcode' || e.target.type === 'file') return;
@@ -1816,6 +2434,18 @@
         portfolioData = mergePortfolioData(defaultPortfolioData, idbData);
       }
     } catch (e) {}
+    if (!portfolioData.theme) portfolioData.theme = Object.assign({}, defaultPortfolioData.theme);
+    if (!portfolioData.skills) portfolioData.skills = JSON.parse(JSON.stringify(defaultPortfolioData.skills));
+    if (!portfolioData.skills.tools) portfolioData.skills.tools = JSON.parse(JSON.stringify(defaultPortfolioData.skills.tools));
+    if (!portfolioData.skills.tools.visual || portfolioData.skills.tools.visual.length === 0) {
+      portfolioData.skills.tools.visual = JSON.parse(JSON.stringify(defaultPortfolioData.skills.tools.visual));
+    }
+    if (!portfolioData.skills.tools.genai || portfolioData.skills.tools.genai.length === 0) {
+      portfolioData.skills.tools.genai = JSON.parse(JSON.stringify(defaultPortfolioData.skills.tools.genai));
+    }
+    if (!portfolioData.contents) portfolioData.contents = JSON.parse(JSON.stringify(defaultPortfolioData.contents));
+    if (!portfolioData.logofolio) portfolioData.logofolio = JSON.parse(JSON.stringify(defaultPortfolioData.logofolio));
+
     applyTheme(portfolioData.theme, false);
     renderPortfolio();
     initScrollProgress();
