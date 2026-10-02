@@ -1,1320 +1,1649 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>For My LAMIYA Pakhi ❤️ | Tree of Love</title>
-  
-  <!-- Google Fonts: Romantic Cursive & Clean Modern Body -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Great+Vibes&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DANGER SHAWON — Graphic Designer &amp; Brand Identity Portfolio 2026</title>
 
-  <style>
-    :root {
-      --primary: #ff4071;
-      --primary-glow: rgba(255, 64, 113, 0.45);
-      --secondary: #ff758f;
-      --bg-gradient: linear-gradient(135deg, #fff0f3 0%, #ffe5ec 50%, #fde2e4 100%);
-      --glass-bg: rgba(255, 255, 255, 0.82);
-      --glass-border: rgba(255, 182, 193, 0.4);
-      --text-main: #3d1c24;
-      --text-muted: #7a4e58;
-      --accent-gold: #e29578;
-    }
+  <meta name="description"
+    content="Official Portfolio of Danger Shawon. Graphic Designer specializing in Brand Identity, Logofolio, Business Cards, Packaging Design, ID Cards, Flyers, and Brochures." />
+  <meta name="keywords"
+    content="Danger Shawon, Graphic Designer, Dinajpur Bangladesh, Logofolio 2026, Behance Portfolio, Brand Identity, Branding Design, Business Card, ID Card, Flyer Design, Brochure Design" />
+  <meta name="author" content="DANGER SHAWON" />
 
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      -webkit-tap-highlight-color: transparent;
-    }
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="DANGER SHAWON — Portfolio 2026" />
+  <meta property="og:description"
+    content="Explore selected brand identity systems, logofolio, business cards, flyers, brochures, and packaging architecture." />
+  <meta property="og:image" content="./assets/images/slide-1-hero.png" />
 
-    body {
-      min-height: 100vh;
-      min-height: -webkit-fill-available;
-      background: var(--bg-gradient);
-      font-family: 'Outfit', sans-serif;
-      color: var(--text-main);
-      overflow-x: hidden;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-    }
+  <!-- Google Fonts: Anton, Caveat, Outfit, Plus Jakarta Sans, Syne, Space Grotesk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@600;700&family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Grotesk:wght@500;700&family=Syne:wght@700;800&display=swap"
+    rel="stylesheet" />
 
-    /* Ambient Floating Background Hearts */
-    .ambient-hearts {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      pointer-events: none;
-      z-index: 1;
-      overflow: hidden;
-    }
-
-    .ambient-heart {
-      position: absolute;
-      color: rgba(255, 105, 180, 0.22);
-      user-select: none;
-      animation: floatUp 14s linear infinite;
-    }
-
-    @keyframes floatUp {
-      0% {
-        transform: translateY(105vh) scale(0.6) rotate(0deg);
-        opacity: 0;
-      }
-      15% {
-        opacity: 0.8;
-      }
-      85% {
-        opacity: 0.8;
-      }
-      100% {
-        transform: translateY(-10vh) scale(1.1) rotate(45deg);
-        opacity: 0;
-      }
-    }
-
-    /* Top Navigation / Controls Bar */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 64px;
-      padding: 0 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      z-index: 50;
-      background: rgba(255, 255, 255, 0.4);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--glass-border);
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-family: 'Dancing Script', cursive;
-      font-size: 1.65rem;
-      font-weight: 700;
-      color: var(--primary);
-      text-shadow: 0 2px 8px var(--primary-glow);
-    }
-
-    .brand .heart-icon {
-      animation: heartbeat 1.4s ease-in-out infinite;
-      display: inline-block;
-    }
-
-    @keyframes heartbeat {
-      0%, 100% { transform: scale(1); }
-      14% { transform: scale(1.25); }
-      28% { transform: scale(1); }
-      42% { transform: scale(1.25); }
-      70% { transform: scale(1); }
-    }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    /* Vinyl Record Music Toggle Button */
-    .music-btn {
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      border-radius: 50px;
-      padding: 6px 14px 6px 8px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      cursor: pointer;
-      box-shadow: 0 4px 15px rgba(255, 64, 113, 0.15);
-      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-
-    .music-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 20px rgba(255, 64, 113, 0.25);
-    }
-
-    .disc-icon {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: radial-gradient(circle, #333 20%, #111 60%, #ff4071 61%, #111 65%, #222 100%);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      color: #fff;
-    }
-
-    .disc-icon.playing {
-      animation: spin 3s linear infinite;
-    }
-
-    @keyframes spin {
-      100% { transform: rotate(360deg); }
-    }
-
-    .music-label {
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--text-main);
-    }
-
-    /* Main Container Layout */
-    main {
-      flex: 1;
-      width: 100%;
-      max-width: 1300px;
-      margin: 64px auto 0;
-      padding: 1rem;
-      display: grid;
-      grid-template-columns: 1fr;
-      position: relative;
-      z-index: 10;
-      align-items: center;
-    }
-
-    /* Responsive 2-Column on Desktop (PC) */
-    @media (min-width: 900px) {
-      main {
-        grid-template-columns: 1.05fr 1fr;
-        padding: 2rem 2.5rem;
-        min-height: calc(100vh - 64px);
-      }
-    }
-
-    /* Canvas Section */
-    .canvas-container {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      order: 1;
-    }
-
-    @media (min-width: 900px) {
-      .canvas-container {
-        order: 2;
-      }
-    }
-
-    #loveCanvas {
-      width: 100%;
-      max-width: 600px;
-      height: auto;
-      aspect-ratio: 1 / 1.08;
-      display: block;
-      border-radius: 24px;
-      background: transparent;
-      cursor: pointer;
-    }
-
-    /* Interactive "Click to Bloom" Seed Overlay Button */
-    .start-prompt {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-      cursor: pointer;
-      z-index: 25;
-      padding: 20px 28px;
-      border-radius: 28px;
-      background: rgba(255, 255, 255, 0.88);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 2px solid rgba(255, 105, 180, 0.4);
-      box-shadow: 0 15px 35px rgba(255, 64, 113, 0.25);
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      text-align: center;
-    }
-
-    .start-prompt:hover {
-      transform: translate(-50%, -50%) scale(1.06);
-      box-shadow: 0 20px 45px rgba(255, 64, 113, 0.35);
-    }
-
-    .seed-heart-pulsing {
-      width: 58px;
-      height: 58px;
-      background: linear-gradient(135deg, #ff4071, #ff758f);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 28px;
-      color: #fff;
-      box-shadow: 0 0 25px var(--primary-glow);
-      animation: heartbeat 1.2s ease-in-out infinite;
-    }
-
-    .start-prompt h3 {
-      font-family: 'Dancing Script', cursive;
-      font-size: 1.8rem;
-      color: var(--primary);
-      margin: 0;
-    }
-
-    .start-prompt p {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin: 0;
-      font-weight: 500;
-    }
-
-    /* Content & Story Letter Section */
-    .story-card {
-      background: var(--glass-bg);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid var(--glass-border);
-      border-radius: 28px;
-      padding: 2rem 2.2rem;
-      box-shadow: 0 20px 45px rgba(255, 105, 180, 0.12);
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      order: 2;
-      position: relative;
-      overflow: hidden;
-      margin-top: 1rem;
-    }
-
-    @media (min-width: 900px) {
-      .story-card {
-        order: 1;
-        margin-top: 0;
-        padding: 2.5rem 3rem;
-      }
-    }
-
-    /* Decorative Ribbon / Badge */
-    .story-badge {
-      align-self: flex-start;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: linear-gradient(135deg, rgba(255, 64, 113, 0.12), rgba(255, 117, 143, 0.15));
-      border: 1px solid rgba(255, 64, 113, 0.25);
-      padding: 6px 14px;
-      border-radius: 30px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--primary);
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-    }
-
-    .story-title {
-      font-family: 'Great Vibes', cursive;
-      font-size: 2.8rem;
-      color: var(--primary);
-      line-height: 1.1;
-      text-shadow: 0 2px 10px rgba(255, 64, 113, 0.15);
-    }
-
-    @media (min-width: 600px) {
-      .story-title {
-        font-size: 3.4rem;
-      }
-    }
-
-    /* Typewriter Letter Box */
-    .letter-box {
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: #4a2830;
-      min-height: 180px;
-      font-family: 'Playfair Display', Georgia, serif;
-      position: relative;
-    }
-
-    .letter-paragraph {
-      margin-bottom: 0.85rem;
-      opacity: 0;
-      transform: translateY(6px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-
-    .letter-paragraph.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .letter-signature {
-      font-family: 'Dancing Script', cursive;
-      font-size: 1.8rem;
-      color: var(--primary);
-      margin-top: 1rem;
-      display: block;
-      opacity: 0;
-      transform: translateY(6px);
-      transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s;
-    }
-
-    .letter-signature.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .typing-cursor {
-      display: inline-block;
-      width: 2px;
-      height: 1.15em;
-      background: var(--primary);
-      vertical-align: middle;
-      margin-left: 2px;
-      animation: blink 0.9s infinite;
-    }
-
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
-
-    /* Love Timer / Clock Counter */
-    .clock-card {
-      background: rgba(255, 255, 255, 0.7);
-      border: 1px solid rgba(255, 182, 193, 0.5);
-      border-radius: 20px;
-      padding: 1.25rem 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      box-shadow: 0 8px 25px rgba(255, 105, 180, 0.08);
-    }
-
-    .clock-heading {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: var(--text-muted);
-    }
-
-    .clock-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-    }
-
-    .clock-slot {
-      background: #ffffff;
-      border: 1px solid rgba(255, 105, 180, 0.2);
-      border-radius: 14px;
-      padding: 10px 4px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-    }
-
-    .clock-num {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--primary);
-      font-variant-numeric: tabular-nums;
-      line-height: 1.2;
-    }
-
-    @media (min-width: 600px) {
-      .clock-num {
-        font-size: 1.65rem;
-      }
-    }
-
-    .clock-unit {
-      font-size: 0.68rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: var(--text-muted);
-      margin-top: 3px;
-    }
-
-    /* Action Buttons (Replay & Tap Love) */
-    .card-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .btn-action {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: #fff;
-      border: none;
-      border-radius: 30px;
-      padding: 10px 22px;
-      font-size: 0.92rem;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      cursor: pointer;
-      box-shadow: 0 8px 20px var(--primary-glow);
-      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-
-    .btn-action:hover {
-      transform: translateY(-2px) scale(1.03);
-      box-shadow: 0 12px 28px var(--primary-glow);
-    }
-
-    .btn-action:active {
-      transform: translateY(0) scale(0.98);
-    }
-
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.9);
-      color: var(--text-main);
-      border: 1px solid var(--glass-border);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    }
-
-    .btn-secondary:hover {
-      background: #fff;
-      color: var(--primary);
-      box-shadow: 0 6px 16px rgba(255, 64, 113, 0.15);
-    }
-
-    /* Interactive Click Sparks (Floating Hearts on Click) */
-    .click-heart {
-      position: fixed;
-      pointer-events: none;
-      z-index: 9999;
-      animation: burstUp 1s ease-out forwards;
-      user-select: none;
-    }
-
-    @keyframes burstUp {
-      0% {
-        transform: translate(-50%, -50%) scale(0.5);
-        opacity: 1;
-      }
-      100% {
-        transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(1.4);
-        opacity: 0;
-      }
-    }
-
-    /* Touch Helper Footer Note */
-    .mobile-tip {
-      text-align: center;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin: 1.5rem auto 1rem;
-      position: relative;
-      z-index: 10;
-    }
-  </style>
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
+
 <body>
 
-  <!-- Ambient Floating Background Hearts -->
-  <div class="ambient-hearts" id="ambientHearts"></div>
+  <!-- Scroll Progress Indicator -->
+  <div id="scroll-progress"></div>
 
-  <!-- Audio Player (Indila - Love Story) -->
-  <audio id="loveAudio" loop preload="auto">
-    <source src="love_story_indila.m4a" type="audio/mp4">
-    <source src="love_story_full.m4a" type="audio/mp4">
-    <source src="music.mp3" type="audio/mp3">
-  </audio>
+  <!-- Audio feedback status indicator -->
+  <div id="audio-pill" class="audio-pill" aria-hidden="true">
+    <span class="audio-wave"></span>
+    <span class="audio-wave"></span>
+    <span class="audio-wave"></span>
+  </div>
 
-  <!-- Top Header Navigation -->
-  <header>
-    <div class="brand">
-      <span class="heart-icon">❤️</span>
-      <span>My LAMIYA Pakhi</span>
-    </div>
+  <!-- Floating Slide Indicator (Right side dots 01-09) -->
+  <nav class="slide-nav-tracker" aria-label="Slide Navigation">
+    <a href="#slide-1" class="tracker-dot active" data-slide="1" title="01. Hero Portfolio"><span
+        class="tracker-tooltip">01. Hero</span></a>
+    <a href="#slide-2" class="tracker-dot" data-slide="2" title="02. About Sakir"><span class="tracker-tooltip">02.
+        About</span></a>
+    <a href="#slide-3" class="tracker-dot" data-slide="3" title="03. Skills &amp; Contact"><span
+        class="tracker-tooltip">03. Skills &amp; Bento</span></a>
+    <a href="#slide-5" class="tracker-dot" data-slide="5" title="04. Logofolio"><span class="tracker-tooltip">04.
+        Logofolio</span></a>
+    <a href="#slide-6" class="tracker-dot" data-slide="6" title="05. Branding Design"><span class="tracker-tooltip">05.
+        Branding</span></a>
+    <a href="#slide-7" class="tracker-dot" data-slide="7" title="06. Business Card"><span class="tracker-tooltip">06.
+        Business Card</span></a>
+    <a href="#slide-8" class="tracker-dot" data-slide="8" title="07. ID Card"><span class="tracker-tooltip">07. ID
+        Card</span></a>
+    <a href="#slide-9" class="tracker-dot" data-slide="9" title="08. Flyer Design"><span class="tracker-tooltip">08.
+        Flyer</span></a>
+    <a href="#slide-10" class="tracker-dot" data-slide="10" title="09. Brochure Design"><span
+        class="tracker-tooltip">09. Brochure</span></a>
+    <span id="tracker-extra-dots"></span>
+  </nav>
 
-    <div class="nav-actions">
-      <!-- Track Switcher & Music Toggle -->
-      <select id="trackSelector" style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 20px; padding: 5px 10px; font-size: 0.8rem; font-family: inherit; color: var(--text-main); cursor: pointer; outline: none;">
-        <option value="love_story_indila.m4a">🎵 Indila - Love Story (Short Edit)</option>
-        <option value="love_story_full.m4a">🎵 Indila - Love Story (Full Song)</option>
-        <option value="music.mp3">🎹 Romantic Piano</option>
-      </select>
+  <!-- ==========================================================================
+       Top Navigation Bar (Removed per user request)
+       ========================================================================== -->
+  <header class="navbar" role="banner" style="display: none !important;">
+    <div class="navbar-container">
+      <!-- Brand Monogram -->
+      <a href="#slide-1" class="brand-logo" aria-label="Rafid Rizwan Sakir Home">
+        <div class="logo-badge">S</div>
+        <div class="brand-text">
+          <span class="brand-name" id="nav-brand-name">RAFID RIZWAN SAKIR</span>
+          <span class="brand-sub" id="nav-brand-sub">PORTFOLIO '26</span>
+        </div>
+      </a>
 
-      <button class="music-btn" id="musicToggle" title="Play / Pause Music">
-        <div class="disc-icon" id="discIcon">♪</div>
-        <span class="music-label" id="musicLabel">Music: Off</span>
-      </button>
+      <!-- Primary Nav Links -->
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu">
+          <li><a href="#slide-1" class="nav-link">01. Hero</a></li>
+          <li><a href="#slide-2" class="nav-link">02. About</a></li>
+          <li><a href="#slide-3" class="nav-link">03. Skills</a></li>
+          <li><a href="#slide-5" class="nav-link">04. Logofolio</a></li>
+          <li><a href="#slide-6" class="nav-link">05. Branding</a></li>
+          <li><a href="#slide-7" class="nav-link">06. Cards</a></li>
+          <li><a href="#slide-8" class="nav-link">07. ID</a></li>
+          <li><a href="#slide-9" class="nav-link">08. Flyer</a></li>
+          <li><a href="#slide-10" class="nav-link">09. Brochure</a></li>
+          <li><button id="nav-contents-btn" class="nav-contents-btn" type="button" title="View Contents Directory">📑
+              Contents</button></li>
+        </ul>
+      </nav>
+
+      <!-- Action Controls -->
+      <div class="nav-actions">
+        <!-- Sound FX Toggle -->
+        <button id="sound-toggle-btn" class="icon-btn" title="Toggle Interaction Sounds"
+          aria-label="Toggle interaction sound effects">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          </svg>
+        </button>
+
+        <!-- Behance Profile Link -->
+        <a id="nav-behance-link" href="https://www.behance.net/rrsakir" target="_blank" rel="noopener noreferrer"
+          class="btn-behance" aria-label="View on Behance">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-4.101 0-5.625-3.328-5.625-5.969 0-3.375 2.125-6.031 5.625-6.031 3.969 0 5.375 3.031 5.375 6.031 0 .375-.031.75-.047 1.031h-8.062c.078 2.016 1.453 3.094 3.125 3.094 1.453 0 2.375-.797 2.709-1.156l2.006 1zm-5.062-6.094c-.031-1.359-.781-2.125-2.062-2.125-1.281 0-2.125.844-2.297 2.125h4.359zm-13.664-5.906h4.844c2.203 0 3.75 1.156 3.75 3.094 0 1.344-.75 2.344-1.859 2.781 1.453.469 2.266 1.688 2.266 3.141 0 2.297-1.781 3.984-4.297 3.984h-4.703v-13zm2.5 5.094h2.047c.922 0 1.625-.469 1.625-1.406 0-.875-.703-1.359-1.625-1.359h-2.047v2.766zm0 5.438h2.328c1.062 0 1.844-.547 1.844-1.625 0-1.047-.781-1.578-1.844-1.578h-2.328v3.203z" />
+          </svg>
+          <span>Behance</span>
+        </a>
+
+        <!-- Admin Portal Trigger Button (Locked by default, user-only) -->
+        <button id="admin-trigger-btn" class="admin-trigger-pill" title="Admin Portal (Ctrl+Shift+A)"
+          aria-label="Open Admin Edit Panel">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+          <span class="admin-label">Admin</span>
+        </button>
+      </div>
     </div>
   </header>
 
-  <!-- Main Content Layout -->
-  <main>
-    <!-- Left Column: Story, Letter & Love Clock -->
-    <section class="story-card">
-      <div class="story-badge">
-        <span>✨</span>
-        <span>My Forever Love</span>
-      </div>
+  <!-- ==========================================================================
+       MAIN CONTENT CONTAINER
+       ========================================================================== -->
+  <main id="main-content">
 
-      <h1 class="story-title">For My LAMIYA Pakhi ❤️</h1>
-
-      <!-- Typewriter Text Container -->
-      <div class="letter-box" id="letterBox">
-        <!-- Content will be typed out dynamically -->
-        <span class="typing-cursor" id="cursor"></span>
-      </div>
-
-      <!-- Live Love Timer Clock -->
-      <div class="clock-card" id="clockBox">
-        <div class="clock-heading">
-          <span>💖 Loved Every Second</span>
-          <span style="font-size: 0.78rem; opacity: 0.8;">Since Our Day</span>
-        </div>
-        <div class="clock-grid">
-          <div class="clock-slot">
-            <span class="clock-num" id="daysVal">0</span>
-            <span class="clock-unit">Days</span>
+    <!-- ========================================================================
+         SLIDE 1: HERO SECTION (PORTFOLIO 2026)
+         ======================================================================== -->
+    <section id="slide-1" class="slide-section hero-slide" data-slide-index="1" aria-label="Slide 1: Portfolio Hero">
+      <div class="slide-viewport">
+        <!-- Top Behance Style Header Bar -->
+        <div class="hero-top-bar">
+          <div class="hero-bar-left">
+            <span class="hero-bar-action"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M4 4h7v7H4zm0 9h7v7H4zm9-9h7v7h-7zm0 9h7v7h-7z" />
+              </svg> More Like This</span>
+            <span class="hero-bar-action"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+              </svg> Save</span>
+            <span class="hero-bar-action"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+              </svg> Permalink</span>
           </div>
-          <div class="clock-slot">
-            <span class="clock-num" id="hoursVal">00</span>
-            <span class="clock-unit">Hours</span>
-          </div>
-          <div class="clock-slot">
-            <span class="clock-num" id="minutesVal">00</span>
-            <span class="clock-unit">Mins</span>
-          </div>
-          <div class="clock-slot">
-            <span class="clock-num" id="secondsVal">00</span>
-            <span class="clock-unit">Secs</span>
+          <div class="hero-bar-right">
+            <span class="hero-author-text" id="hero-designer-name">DANGER SHAWON</span>
+            <span class="hero-year-tag" id="hero-year-text">2026</span>
           </div>
         </div>
-      </div>
 
-      <!-- Action Buttons -->
-      <div class="card-footer">
-        <button class="btn-action" id="sendHeartBtn">
-          <span>Send Love</span>
-          <span>❤️</span>
-        </button>
-        <button class="btn-action btn-secondary" id="replayBtn" title="Re-bloom the Love Tree">
-          <span>Replay Tree</span>
-          <span>🌸</span>
-        </button>
+        <!-- Hero Canvas Container (Interactive layers + 3D Parallax) -->
+        <div class="hero-stage" id="hero-stage">
+          <div class="hero-ambient-glow"></div>
+
+          <!-- Graphic Designer Eyebrow Script -->
+          <div class="hero-eyebrow-wrapper">
+            <span class="hero-script-tag" id="hero-eyebrow-text">Graphic Designer</span>
+          </div>
+
+          <!-- Main Typography with Torn Paper Reveal Banner -->
+          <div class="hero-title-container">
+            <div class="scotch-tape tape-top-left" aria-hidden="true"></div>
+
+            <div class="hero-typography">
+              <span class="letter">P</span>
+              <span class="letter">U</span>
+              <span class="letter">R</span>
+              <span class="letter">T</span>
+
+              <div class="torn-paper-banner" id="hero-torn-banner">
+                <span class="torn-text" id="hero-torn-text">FOLIO</span>
+                <div class="paper-rip paper-rip-left"></div>
+                <div class="paper-rip paper-rip-right"></div>
+              </div>
+
+              <span class="letter">O</span>
+              <span class="letter">L</span>
+              <span class="letter">I</span>
+              <span class="letter">O</span>
+            </div>
+
+            <div class="hero-mascot-box" id="hero-mascot-box">
+              <img id="hero-mascot-img" src="./assets/images/hero-mascot.png" alt="Creative Cartoon Mascot"
+                class="mascot-img" />
+              <div class="mascot-sparkle">✦</div>
+            </div>
+
+            <div class="scotch-tape tape-bottom-right" aria-hidden="true"></div>
+          </div>
+
+          <!-- Floating "Sleep design repeat" Sticker Badge -->
+          <div class="floating-sticker-wrapper" id="hero-sticker-wrapper">
+            <div class="sticker-card" id="hero-sticker-card" title="Click or hover to wobble!">
+              <img id="hero-sticker-img" src="./assets/images/hero-sticker.png" alt="Sleep Design Repeat Sticker"
+                class="sticker-img" />
+            </div>
+          </div>
+
+          <!-- Year "2026" Cartoon Bubble Typography -->
+          <div class="hero-year-bubble" id="hero-year-bubble">
+            <span id="hero-year-bubble-text">2026</span>
+          </div>
+
+          <!-- Scroll down indicator hint -->
+          <a href="#slide-2" class="scroll-down-hint" aria-label="Scroll down to About section">
+            <span class="mouse-icon"><span class="mouse-wheel"></span></span>
+            <span class="scroll-text">SCROLL TO DISCOVER</span>
+            <span class="scroll-arrow">↓</span>
+          </a>
+        </div>
       </div>
     </section>
 
-    <!-- Right Column: Blooming Love Tree Canvas -->
-    <section class="canvas-container">
-      <canvas id="loveCanvas" width="600" height="650"></canvas>
+    <!-- ========================================================================
+         TRANSITION: TORN PAPER RIP DIVIDER 1 (Dark to Cream #FCF9EF)
+         ======================================================================== -->
+    <div class="torn-divider-wrapper rip-dark-to-cream" aria-hidden="true">
+      <svg class="torn-divider-svg" viewBox="0 0 1440 60" preserveAspectRatio="none">
+        <path
+          d="M0,0 L1440,0 L1440,42 Q1360,25 1280,45 Q1200,60 1120,35 Q1040,15 960,40 Q880,58 800,28 Q720,10 640,38 Q560,55 480,30 Q400,12 320,40 Q240,58 160,25 Q80,10 0,45 Z"
+          fill="#FCF9EF"></path>
+      </svg>
+    </div>
 
-      <!-- Center Pulsing Seed (Click/Tap to Start) -->
-      <div class="start-prompt" id="startPrompt">
-        <div class="seed-heart-pulsing">❤️</div>
-        <h3>Grow Our Love Tree</h3>
-        <p>Tap here to bloom for My LAMIYA Pakhi ❤️</p>
+    <!-- ========================================================================
+         SLIDE 2: ABOUT RAFID RIZWAN SAKIR (Cream Background)
+         ======================================================================== -->
+    <section id="slide-2" class="slide-section about-slide" data-slide-index="2"
+      aria-label="Slide 2: About Rafid Rizwan Sakir">
+      <div class="slide-viewport cream-theme">
+        <div class="about-container">
+
+          <header class="about-header">
+            <h2 class="about-name dynamic-typewriter-target" data-type-prefix="DANGER " data-type-accent="SHAWON">
+              <span id="about-name-prefix">DANGER </span>
+              <span class="text-red" id="about-name-accent">SHAWON</span>
+            </h2>
+            <p class="about-subtitle anim-slide-left" id="about-subtitle-text">
+              GRAPHIC DESIGNER • DINAJPUR, BANGLADESH
+            </p>
+          </header>
+
+          <div class="about-grid">
+            <div class="about-story-col anim-slide-left">
+              <div class="about-paragraphs" id="about-paragraphs-list">
+                <p class="story-p story-lead">I didn't start as a designer.</p>
+                <p class="story-p">I studied Marketing at one of the top universities in Bangladesh.<br />I was taught
+                  how brands think, how markets work, and how business speaks.</p>
+                <p class="story-p">But something was missing. Understanding a brand wasn't enough for me. I wanted to
+                  build its visual soul.</p>
+                <p class="story-p">So I stepped into Design.<br />I took my business foundation, merged it with raw
+                  creativity, and taught myself how to turn complex strategies into clean visual identities.</p>
+                <p class="story-p">I learned the fundamentals,<br />challenged myself, practiced relentlessly,<br />and
+                  slowly built my own visual language.</p>
+                <p class="story-p">Every project you see here represents<br />my commitment to becoming<br />a better
+                  designer—<br />one step at a time.</p>
+              </div>
+
+              <div class="about-quote-box" id="about-quote-box">
+                <p class="handwritten-quote">
+                  Built from <span class="quote-red">curiosity</span>, discipline, and the courage to start.
+                </p>
+                <svg class="handwritten-underline-svg" viewBox="0 0 320 24" fill="none" aria-hidden="true">
+                  <path d="M5,15 Q80,2 160,18 Q240,2 315,12" stroke="#E03126" stroke-width="3" stroke-linecap="round"
+                    fill="none" />
+                </svg>
+              </div>
+            </div>
+
+            <div class="about-photo-col anim-slide-right">
+              <div class="portrait-card" id="portrait-card">
+                <div class="portrait-photo-wrapper">
+                  <img id="about-portrait-img" src="./assets/images/sakir-portrait.png"
+                    alt="Danger Shawon — Graphic Designer" class="portrait-img" />
+                  <div class="portrait-glare"></div>
+                </div>
+                <div class="portrait-badge">
+                  <span class="live-dot"></span>
+                  <span class="badge-role">Dinajpur, BD • Open For Commissions</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
+
+    <!-- ========================================================================
+         SLIDE 3: SKILLS, TOOLS & CONTACT BENTO GRID (Cream Background)
+         ======================================================================== -->
+    <section id="slide-3" class="slide-section skills-slide" data-slide-index="3"
+      aria-label="Slide 3: Skills, Tools and Contact">
+      <div class="slide-viewport cream-theme">
+        <div class="bento-container">
+
+          <div class="bento-grid">
+            <!-- 1. WHAT I DO -->
+            <div class="bento-card card-what-i-do anim-slide-left" id="card-what-i-do">
+              <div class="card-header">
+                <h3 class="card-title">WHAT I DO</h3>
+                <div class="red-bar"></div>
+              </div>
+              <ul class="bullet-list" id="list-what-i-do">
+                <li>Branding</li>
+                <li>Visual Identity</li>
+                <li>Typography</li>
+                <li>Logo Design</li>
+                <li>Poster Design</li>
+                <li>Packaging Design</li>
+                <li>Social Media Design</li>
+              </ul>
+            </div>
+
+            <!-- 2. SOFT SKILLS -->
+            <div class="bento-card card-soft-skills anim-slide-left" id="card-soft-skills">
+              <div class="card-header">
+                <h3 class="card-title">SOFT SKILLS</h3>
+                <div class="red-bar"></div>
+              </div>
+              <ul class="bullet-list" id="list-soft-skills">
+                <li>Creative Direction</li>
+                <li>Visual Storytelling</li>
+                <li>Attention to Details</li>
+                <li>Problem Solving</li>
+                <li>Adaptability</li>
+                <li>Communication</li>
+              </ul>
+            </div>
+
+            <!-- 3. TOOLS I USE -->
+            <div class="bento-card card-tools anim-slide-right" id="card-tools">
+              <div class="card-header">
+                <h3 class="card-title">TOOLS I USE</h3>
+                <div class="red-bar"></div>
+              </div>
+
+              <div class="tools-subgroup">
+                <div class="tools-subtitle">VISUAL TOOLS</div>
+                <div class="tools-icon-grid" id="grid-visual-tools">
+                  <div class="tool-badge-item" title="Adobe Illustrator">
+                    <div class="tool-icon-box" style="background:#330000; color:#FF9A00; border-color:#FF9A00;">Ai</div>
+                  </div>
+                  <div class="tool-badge-item" title="Adobe Photoshop">
+                    <div class="tool-icon-box" style="background:#001E36; color:#31A8FF; border-color:#31A8FF;">Ps</div>
+                  </div>
+                  <div class="tool-badge-item" title="Affinity / After Effects">
+                    <div class="tool-icon-box" style="background:#1B3624; color:#7EE68D; border-color:#7EE68D;">a</div>
+                  </div>
+                  <div class="tool-badge-item" title="Figma">
+                    <div class="tool-icon-box" style="background:#1E1E1E; color:#F24E1E; border-color:#F24E1E;">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                          d="M8 2a4 4 0 0 0-4 4 4 4 0 0 0 4 4h4V2H8zm8 0h-4v8h4a4 4 0 1 0 0-8zm-8 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4h4v-8H8zm8 0h-4v8h4a4 4 0 1 0 0-8zm-8 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4v-4H8z" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="tool-badge-item" title="Canva">
+                    <div class="tool-icon-box"
+                      style="background:#00C4CC; color:#FFFFFF; border-radius:50%; font-size:10px; font-weight:800;">
+                      Canva</div>
+                  </div>
+                  <div class="tool-badge-item" title="PowerPoint">
+                    <div class="tool-icon-box"
+                      style="background:#D24726; color:#FFFFFF; border-radius:6px; font-size:14px; font-weight:800;">P
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tools-divider"></div>
+
+              <div class="tools-subgroup">
+                <div class="tools-subtitle">GEN AI</div>
+                <div class="tools-icon-grid" id="grid-genai-tools">
+                  <div class="tool-badge-item" title="ChatGPT (OpenAI)">
+                    <div class="tool-icon-box tool-chatgpt">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M22.28 9.68a5.98 5.98 0 0 0-.52-4.96 6.05 6.05 0 0 0-6.51-2.85A6.06 6.06 0 0 0 10.72.63a6.04 6.04 0 0 0-5.78 4.2 6.06 6.06 0 0 0-4.05 2.94 6.04 6.04 0 0 0 .74 7.11 5.98 5.98 0 0 0 .51 4.96 6.05 6.05 0 0 0 6.52 2.85 6.06 6.06 0 0 0 4.52 1.25 6.04 6.04 0 0 0 5.78-4.2 6.06 6.06 0 0 0 4.05-2.94 6.04 6.04 0 0 0-.73-7.12zm-8.32 12.16a4.42 4.42 0 0 1-2.9-1.07l.14-.08 4.83-2.79a.83.83 0 0 0 .42-.72v-6.82l2.05 1.18a.08.08 0 0 1 .05.06v5.82a4.44 4.44 0 0 1-4.59 4.42zm-8.91-4.2a4.42 4.42 0 0 1-.54-3.04l.14.09 4.83 2.79a.83.83 0 0 0 .83 0l5.9-3.41v2.37a.08.08 0 0 1-.03.07l-5.04 2.91a4.44 4.44 0 0 1-6.09-1.78zm-1.46-8.97a4.42 4.42 0 0 1 2.36-1.97v5.74a.83.83 0 0 0 .41.72l5.9 3.41-2.05 1.18a.08.08 0 0 1-.08 0l-5.04-2.91a4.44 4.44 0 0 1-1.5-6.17zm15.42 3.19l-4.83-2.79a.83.83 0 0 0-.83 0l-5.9 3.41V9.11a.08.08 0 0 1 .03-.07l5.04-2.91a4.44 4.44 0 0 1 6.49 4.73zm1.46 8.97a4.42 4.42 0 0 1-2.36 1.97v-5.74a.83.83 0 0 0-.41-.72l-5.9-3.41 2.05-1.18a.08.08 0 0 1 .08 0l5.04 2.91a4.44 4.44 0 0 1 1.5 6.17zm-6.17-5.03l-2.71-1.56 2.71-1.56 2.71 1.56-2.71 1.56z"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="tool-badge-item" title="Google Gemini">
+                    <div class="tool-icon-box tool-gemini">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <defs>
+                          <linearGradient id="gemini-icon-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#4285F4"/>
+                            <stop offset="50%" stop-color="#9B51E0"/>
+                            <stop offset="100%" stop-color="#FF5483"/>
+                          </linearGradient>
+                        </defs>
+                        <path d="M12 24C12 17.373 6.627 12 0 12C6.627 12 12 6.627 12 0C12 6.627 17.373 12 24 12C17.373 12 12 17.373 12 24Z" fill="url(#gemini-icon-grad)"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="tool-badge-item" title="Midjourney">
+                    <div class="tool-icon-box tool-midjourney">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 17l9 5 9-5"/>
+                        <path d="M3 17l9-14 9 14"/>
+                        <path d="M12 3v19"/>
+                        <path d="M7.5 13.5l4.5 2.5 4.5-2.5"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="tool-badge-item" title="Claude / Anthropic">
+                    <div class="tool-icon-box tool-claude">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M13.8 2.2c-.3 0-.6.2-.7.5l-2.4 6.7-5.8-4.1c-.2-.2-.6-.1-.8.1l-1.8 2.5c-.2.2-.1.6.1.8l5.8 4.1-7.1.6c-.3 0-.5.3-.5.6v3.1c0 .3.2.6.5.6l7.1.6-5.8 4.1c-.2.2-.3.6-.1.8l1.8 2.5c.2.2.6.3.8.1l5.8-4.1 2.4 6.7c.1.3.4.5.7.5h3.1c.3 0 .6-.2.7-.5l2.4-6.7 5.8 4.1c.2.2.6.1.8-.1l1.8-2.5c.2-.2.1-.6-.1-.8l-5.8-4.1 7.1-.6c.3 0 .5-.3.5-.6v-3.1c0-.3-.2-.6-.5-.6l-7.1-.6 5.8-4.1c.2-.2.3-.6.1-.8l-1.8-2.5c-.2-.2-.6-.3-.8-.1l-5.8 4.1-2.4-6.7c-.1-.3-.4-.5-.7-.5h-3.1z"/>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4. LANGUAGES -->
+            <div class="bento-card card-languages anim-slide-left" id="card-languages">
+              <div class="card-header">
+                <h3 class="card-title">LANGUAGES</h3>
+                <div class="red-bar"></div>
+              </div>
+              <div class="lang-list" id="list-languages">
+                <div class="lang-row"><span class="lang-name">English</span><span class="lang-level">Fluent</span></div>
+                <div class="lang-row"><span class="lang-name">Bengali</span><span class="lang-level">Native</span></div>
+                <div class="lang-row"><span class="lang-name">Hindi</span><span class="lang-level">Conversational</span>
+                </div>
+                <div class="lang-row"><span class="lang-name">Urdu</span><span class="lang-level">Conversational</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 5. HOBBIES -->
+            <div class="bento-card card-hobbies anim-slide-left" id="card-hobbies">
+              <div class="card-header">
+                <h3 class="card-title">HOBBIES</h3>
+                <div class="red-bar"></div>
+              </div>
+              <ul class="bullet-list plain-list" id="list-hobbies">
+                <li>Photography</li>
+                <li>Sketching</li>
+                <li>Video Games</li>
+                <li>Movie/Tv Show</li>
+                <li>Football</li>
+              </ul>
+            </div>
+
+            <!-- 6. GET IN TOUCH -->
+            <div class="bento-card card-contact anim-unroll-down" id="card-contact">
+              <div class="contact-inner-left">
+                <div class="card-header">
+                  <h3 class="card-title">GET IN TOUCH</h3>
+                  <div class="red-bar"></div>
+                </div>
+
+                <div class="contact-methods-grid">
+                  <div class="contact-pill-item" id="contact-email-box">
+                    <div class="contact-icon email-icon">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                          d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                      </svg>
+                    </div>
+                    <div class="contact-meta">
+                      <span class="contact-label">Email (Click to Copy)</span>
+                      <button class="copy-email-btn" id="contact-email-btn" title="Click to copy email address">
+                        <span id="contact-email-text">rafid.sakir@gmail.com</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                          stroke-width="2.5">
+                          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+
+                  <a id="contact-whatsapp-link" href="https://wa.me/8801568720531" target="_blank"
+                    rel="noopener noreferrer" class="contact-pill-item" title="Open WhatsApp Chat">
+                    <div class="contact-icon whatsapp-icon">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                          d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-5.46-4.45-9.92-9.91-9.92zM12.04 20.17c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31c-.82-1.31-1.26-2.84-1.26-4.41 0-4.54 3.7-8.24 8.24-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.54-3.7 8.25-8.24 8.25zm4.52-6.18c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.07-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.12.17 1.78 2.71 4.3 3.8.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.29z" />
+                      </svg>
+                    </div>
+                    <div class="contact-meta">
+                      <span class="contact-label">WhatsApp / Phone</span>
+                      <span class="contact-val" id="contact-phone-text">+88 01568720531</span>
+                    </div>
+                  </a>
+
+                  <a id="contact-linkedin-link" href="https://www.linkedin.com" target="_blank"
+                    rel="noopener noreferrer" class="contact-pill-item" title="Visit LinkedIn Profile">
+                    <div class="contact-icon linkedin-icon">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                          d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9h2.79v8.37H6.46v-8.37M7.86 6.54a1.63 1.63 0 1 0 0 3.26 1.63 1.63 0 0 0 0-3.26z" />
+                      </svg>
+                    </div>
+                    <div class="contact-meta">
+                      <span class="contact-label">LinkedIn</span>
+                      <span class="contact-val" id="contact-linkedin-text">Rafid Rizwan Sakir</span>
+                    </div>
+                  </a>
+
+                  <a id="contact-behance-link" href="https://www.behance.net/rrsakir" target="_blank"
+                    rel="noopener noreferrer" class="contact-pill-item" title="Visit Behance Profile">
+                    <div class="contact-icon behance-icon">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                          d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-4.101 0-5.625-3.328-5.625-5.969 0-3.375 2.125-6.031 5.625-6.031 3.969 0 5.375 3.031 5.375 6.031 0 .375-.031.75-.047 1.031h-8.062c.078 2.016 1.453 3.094 3.125 3.094 1.453 0 2.375-.797 2.709-1.156l2.006 1zm-5.062-6.094c-.031-1.359-.781-2.125-2.062-2.125-1.281 0-2.125.844-2.297 2.125h4.359zm-13.664-5.906h4.844c2.203 0 3.75 1.156 3.75 3.094 0 1.344-.75 2.344-1.859 2.781 1.453.469 2.266 1.688 2.266 3.141 0 2.297-1.781 3.984-4.297 3.984h-4.703v-13zm2.5 5.094h2.047c.922 0 1.625-.469 1.625-1.406 0-.875-.703-1.359-1.625-1.359h-2.047v2.766zm0 5.438h2.328c1.062 0 1.844-.547 1.844-1.625 0-1.047-.781-1.578-1.844-1.578h-2.328v3.203z" />
+                      </svg>
+                    </div>
+                    <div class="contact-meta">
+                      <span class="contact-label">Behance</span>
+                      <span class="contact-val" id="contact-behance-text">rrsakir</span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+
+              <div class="contact-qr-col">
+                <div class="qr-frame" id="qr-frame" title="Click to view full QR code">
+                  <img id="contact-qr-img" src="./assets/images/contact-qr.png" alt="Scan QR Code to connect"
+                    class="qr-img" />
+                  <div class="scan-me-badge">SCAN ME !</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bento-footer-actions anim-slide-left">
+            <a href="#slide-5" class="scroll-to-branding-btn">
+              <span>EXPLORE BRANDING LOGOFOLIO</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M12 5v14M19 12l-7 7-7-7" />
+              </svg>
+            </a>
+            <button id="open-contents-btn" class="open-contents-pill" type="button">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+              </svg>
+              <span>View Contents Directory</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SLIDE 5: BRANDING / LOGOFOLIO (Follows directly after Slide 3 Bento)
+         ======================================================================== -->
+    <section id="slide-5" class="slide-section showcase-slide-section" data-slide-index="5"
+      aria-label="Slide 5: Logofolio Showcase">
+      <div class="showcase-top-header">
+        <div class="showcase-header-content">
+          <div class="showcase-eyebrow">
+            <span>BRANDING</span>
+            <div class="red-line"></div>
+          </div>
+          <h2 class="showcase-main-title dynamic-typewriter-target" data-type-text="LOGOFOLIO"
+            id="logofolio-title-text">LOGOFOLIO</h2>
+        </div>
+        <div class="torn-divider-wrapper rip-header-to-dark" aria-hidden="true">
+          <svg class="torn-divider-svg" viewBox="0 0 1440 80" preserveAspectRatio="none">
+            <path
+              d="M0,80 L1440,80 L1440,35 Q1360,55 1280,25 Q1200,8 1120,42 Q1040,65 960,30 Q880,12 800,45 Q720,68 640,25 Q560,5 480,40 Q400,62 320,20 Q240,4 160,38 Q80,62 0,25 Z"
+              fill="#111114"></path>
+          </svg>
+        </div>
+      </div>
+
+      <div class="showcase-dark-stage">
+        <div class="slide-viewport">
+          <div class="logofolio-grid" id="logofolio-cards-grid">
+            <article class="logo-card anim-slide-left" data-logo-id="sonicwave" tabindex="0" role="button"
+              aria-label="SonicWave Logo Mockup">
+              <div class="logo-card-inner">
+                <div class="logo-image-box">
+                  <img src="./assets/images/logo-sonicwave.png" alt="SonicWave Acoustic Logo Design" class="logo-img" />
+                  <div class="card-glare"></div>
+                </div>
+                <div class="logo-card-info">
+                  <h4 class="logo-name">SonicWave</h4><span class="logo-cat">Audio &amp; Acoustics</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="logo-card anim-slide-left" data-logo-id="freshburst" tabindex="0" role="button"
+              aria-label="Fresh Burst Logo Mockup">
+              <div class="logo-card-inner">
+                <div class="logo-image-box">
+                  <img src="./assets/images/logo-freshburst.png" alt="Fresh Burst Fruit Logo Design" class="logo-img" />
+                  <div class="card-glare"></div>
+                </div>
+                <div class="logo-card-info">
+                  <h4 class="logo-name">Fresh Burst</h4><span class="logo-cat">Beverage &amp; Juice</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="logo-card anim-slide-right" data-logo-id="leafspice" tabindex="0" role="button"
+              aria-label="Leaf &amp; Spice Logo Mockup">
+              <div class="logo-card-inner">
+                <div class="logo-image-box">
+                  <img src="./assets/images/logo-leafspice.png" alt="Leaf &amp; Spice Organic Logo Design"
+                    class="logo-img" />
+                  <div class="card-glare"></div>
+                </div>
+                <div class="logo-card-info">
+                  <h4 class="logo-name">Leaf &amp; Spice</h4><span class="logo-cat">Organic Food &amp; Spice</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="logo-card anim-slide-left" data-logo-id="sakir" tabindex="0" role="button"
+              aria-label="SAKIR Monogram Logo Mockup">
+              <div class="logo-card-inner">
+                <div class="logo-image-box">
+                  <img src="./assets/images/logo-sakir.png" alt="SAKIR Soaring Monogram Logo Design" class="logo-img" />
+                  <div class="card-glare"></div>
+                </div>
+                <div class="logo-card-info">
+                  <h4 class="logo-name">SAKIR</h4><span class="logo-cat">Personal Identity</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="logo-card anim-slide-right" data-logo-id="thesparitul" tabindex="0" role="button"
+              aria-label="The Spa Ritual Logo Mockup">
+              <div class="logo-card-inner">
+                <div class="logo-image-box">
+                  <img src="./assets/images/logo-the-spa-ritual.png" alt="The Spa Ritual Neoclassical Logo Design"
+                    class="logo-img" />
+                  <div class="card-glare"></div>
+                </div>
+                <div class="logo-card-info">
+                  <h4 class="logo-name">The Spa Ritual</h4><span class="logo-cat">Wellness &amp; Sanctuary</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="logo-card anim-slide-right" data-logo-id="deepblue" tabindex="0" role="button"
+              aria-label="DEEP BLUE Luxury Marine Logo Mockup">
+              <div class="logo-card-inner">
+                <div class="logo-image-box">
+                  <img src="./assets/images/logo-deepblue.png" alt="DEEP BLUE Luxury Marine Logo Design"
+                    class="logo-img" />
+                  <div class="card-glare"></div>
+                </div>
+                <div class="logo-card-info">
+                  <h4 class="logo-name">DEEP BLUE</h4><span class="logo-cat">Luxury Marine</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SLIDE 6: BRANDING DESIGN (Full Artwork Presentation Image)
+         ======================================================================== -->
+    <section id="slide-6" class="slide-section showcase-slide-section" data-slide-index="6"
+      aria-label="Slide 6: Branding Design">
+      <div class="showcase-top-header">
+        <div class="showcase-header-content">
+          <div class="showcase-eyebrow">
+            <span id="eyebrow-slide-6">BRANDING</span>
+            <div class="red-line"></div>
+          </div>
+          <h2 class="showcase-main-title dynamic-typewriter-target" data-type-text="BRANDING DESIGN" id="title-slide-6">
+            BRANDING DESIGN</h2>
+        </div>
+        <div class="torn-divider-wrapper rip-header-to-dark" aria-hidden="true">
+          <svg class="torn-divider-svg" viewBox="0 0 1440 80" preserveAspectRatio="none">
+            <path
+              d="M0,80 L1440,80 L1440,35 Q1360,55 1280,25 Q1200,8 1120,42 Q1040,65 960,30 Q880,12 800,45 Q720,68 640,25 Q560,5 480,40 Q400,62 320,20 Q240,4 160,38 Q80,62 0,25 Z"
+              fill="#111114"></path>
+          </svg>
+        </div>
+      </div>
+
+      <div class="showcase-dark-stage">
+        <div class="slide-viewport">
+          <div class="full-showcase-card anim-slide-left">
+            <div class="showcase-img-container" data-zoom-src="./assets/images/slide-6-branding-design.png">
+              <img id="img-slide-6" src="./assets/images/slide-6-branding-design.png"
+                alt="BRANDING DESIGN — VESTRA &amp; DURONTO Presentation" class="showcase-main-image" loading="eager" />
+              <div class="showcase-hover-overlay">
+                <span class="zoom-badge">🔍 Click to Expand Fullscreen</span>
+              </div>
+            </div>
+            <div class="showcase-card-footer">
+              <div class="showcase-footer-left">
+                <span class="project-pill-tag">06 // BRANDING DESIGN</span>
+                <span class="project-pill-desc" id="desc-slide-6">VESTRA Minimalist Apparel &amp; DURONTO High-Velocity
+                  Athletics</span>
+              </div>
+              <button class="pill-btn modal-zoom-btn" data-slide="6"
+                data-img="./assets/images/slide-6-branding-design.png"
+                data-title="BRANDING DESIGN (VESTRA &amp; DURONTO)">Fullscreen View 🔍</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SLIDE 7: BUSINESS CARD (Full Artwork Presentation Image)
+         ======================================================================== -->
+    <section id="slide-7" class="slide-section showcase-slide-section" data-slide-index="7"
+      aria-label="Slide 7: Business Card Design">
+      <div class="showcase-top-header">
+        <div class="showcase-header-content">
+          <div class="showcase-eyebrow">
+            <span id="eyebrow-slide-7">STATIONERY</span>
+            <div class="red-line"></div>
+          </div>
+          <h2 class="showcase-main-title dynamic-typewriter-target" data-type-text="BUSINESS CARD" id="title-slide-7">
+            BUSINESS CARD</h2>
+        </div>
+        <div class="torn-divider-wrapper rip-header-to-dark" aria-hidden="true">
+          <svg class="torn-divider-svg" viewBox="0 0 1440 80" preserveAspectRatio="none">
+            <path
+              d="M0,80 L1440,80 L1440,35 Q1360,55 1280,25 Q1200,8 1120,42 Q1040,65 960,30 Q880,12 800,45 Q720,68 640,25 Q560,5 480,40 Q400,62 320,20 Q240,4 160,38 Q80,62 0,25 Z"
+              fill="#111114"></path>
+          </svg>
+        </div>
+      </div>
+
+      <div class="showcase-dark-stage">
+        <div class="slide-viewport">
+          <div class="full-showcase-card anim-slide-right">
+            <div class="showcase-img-container" data-zoom-src="./assets/images/slide-7-business-card.png">
+              <img id="img-slide-7" src="./assets/images/slide-7-business-card.png"
+                alt="BUSINESS CARD DESIGN — 6 Curated Brand Cards" class="showcase-main-image" loading="eager" />
+              <div class="showcase-hover-overlay">
+                <span class="zoom-badge">🔍 Click to Expand Fullscreen</span>
+              </div>
+            </div>
+            <div class="showcase-card-footer">
+              <div class="showcase-footer-left">
+                <span class="project-pill-tag">07 // BUSINESS CARD</span>
+                <span class="project-pill-desc" id="desc-slide-7">6 Curated Identity Cards: Fresh Burst, Knight Owl,
+                  Dubai Point, Sakir, Spark, Magnito</span>
+              </div>
+              <button class="pill-btn modal-zoom-btn" data-slide="7"
+                data-img="./assets/images/slide-7-business-card.png" data-title="BUSINESS CARD ARCHIVE">Fullscreen View
+                🔍</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SLIDE 8: ID CARD (Full Artwork Presentation Image)
+         ======================================================================== -->
+    <section id="slide-8" class="slide-section showcase-slide-section" data-slide-index="8"
+      aria-label="Slide 8: ID Card Design">
+      <div class="showcase-top-header">
+        <div class="showcase-header-content">
+          <div class="showcase-eyebrow">
+            <span id="eyebrow-slide-8">STATIONERY</span>
+            <div class="red-line"></div>
+          </div>
+          <h2 class="showcase-main-title dynamic-typewriter-target" data-type-text="ID CARD DESIGN" id="title-slide-8">
+            ID CARD DESIGN</h2>
+        </div>
+        <div class="torn-divider-wrapper rip-header-to-dark" aria-hidden="true">
+          <svg class="torn-divider-svg" viewBox="0 0 1440 80" preserveAspectRatio="none">
+            <path
+              d="M0,80 L1440,80 L1440,35 Q1360,55 1280,25 Q1200,8 1120,42 Q1040,65 960,30 Q880,12 800,45 Q720,68 640,25 Q560,5 480,40 Q400,62 320,20 Q240,4 160,38 Q80,62 0,25 Z"
+              fill="#111114"></path>
+          </svg>
+        </div>
+      </div>
+
+      <div class="showcase-dark-stage">
+        <div class="slide-viewport">
+          <div class="full-showcase-card anim-slide-left">
+            <div class="showcase-img-container" data-zoom-src="./assets/images/slide-8-id-card.png">
+              <img id="img-slide-8" src="./assets/images/slide-8-id-card.png"
+                alt="ID CARD DESIGN — 4 Corporate Lanyards &amp; Holders" class="showcase-main-image" loading="eager" />
+              <div class="showcase-hover-overlay">
+                <span class="zoom-badge">🔍 Click to Expand Fullscreen</span>
+              </div>
+            </div>
+            <div class="showcase-card-footer">
+              <div class="showcase-footer-left">
+                <span class="project-pill-tag">08 // ID CARD</span>
+                <span class="project-pill-desc" id="desc-slide-8">Corporate Identification &amp; Lanyard Systems
+                  (Executive Purple, Dual Green/Red, Plexicon Matte)</span>
+              </div>
+              <button class="pill-btn modal-zoom-btn" data-slide="8" data-img="./assets/images/slide-8-id-card.png"
+                data-title="ID CARD DESIGN">Fullscreen View 🔍</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SLIDE 9: FLYER DESIGN (Full Artwork Presentation Image)
+         ======================================================================== -->
+    <section id="slide-9" class="slide-section showcase-slide-section" data-slide-index="9"
+      aria-label="Slide 9: Flyer Design">
+      <div class="showcase-top-header">
+        <div class="showcase-header-content">
+          <div class="showcase-eyebrow">
+            <span id="eyebrow-slide-9">PRINT DESIGN</span>
+            <div class="red-line"></div>
+          </div>
+          <h2 class="showcase-main-title dynamic-typewriter-target" data-type-text="FLYER DESIGN" id="title-slide-9">
+            FLYER DESIGN</h2>
+        </div>
+        <div class="torn-divider-wrapper rip-header-to-dark" aria-hidden="true">
+          <svg class="torn-divider-svg" viewBox="0 0 1440 80" preserveAspectRatio="none">
+            <path
+              d="M0,80 L1440,80 L1440,35 Q1360,55 1280,25 Q1200,8 1120,42 Q1040,65 960,30 Q880,12 800,45 Q720,68 640,25 Q560,5 480,40 Q400,62 320,20 Q240,4 160,38 Q80,62 0,25 Z"
+              fill="#111114"></path>
+          </svg>
+        </div>
+      </div>
+
+      <div class="showcase-dark-stage">
+        <div class="slide-viewport">
+          <div class="full-showcase-card anim-slide-right">
+            <div class="showcase-img-container" data-zoom-src="./assets/images/slide-9-flyer-design.png">
+              <img id="img-slide-9" src="./assets/images/slide-9-flyer-design.png"
+                alt="FLYER DESIGN — 3 High-Impact Editorial &amp; Business Flyers" class="showcase-main-image"
+                loading="eager" />
+              <div class="showcase-hover-overlay">
+                <span class="zoom-badge">🔍 Click to Expand Fullscreen</span>
+              </div>
+            </div>
+            <div class="showcase-card-footer">
+              <div class="showcase-footer-left">
+                <span class="project-pill-tag">09 // FLYER DESIGN</span>
+                <span class="project-pill-desc" id="desc-slide-9">Smart Ideas Corporate Flyer, Yellow Fashion Retail
+                  Sale, and Dubai Point Capabilities Print</span>
+              </div>
+              <button class="pill-btn modal-zoom-btn" data-slide="9" data-img="./assets/images/slide-9-flyer-design.png"
+                data-title="FLYER DESIGN">Fullscreen View 🔍</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SLIDE 10: BROCHURE DESIGN (Full Artwork Presentation Image)
+         ======================================================================== -->
+    <section id="slide-10" class="slide-section showcase-slide-section" data-slide-index="10"
+      aria-label="Slide 10: Brochure Design">
+      <div class="showcase-top-header">
+        <div class="showcase-header-content">
+          <div class="showcase-eyebrow">
+            <span id="eyebrow-slide-10">PRINT DESIGN</span>
+            <div class="red-line"></div>
+          </div>
+          <h2 class="showcase-main-title dynamic-typewriter-target" data-type-text="BROCHURE DESIGN"
+            id="title-slide-10">BROCHURE DESIGN</h2>
+        </div>
+        <div class="torn-divider-wrapper rip-header-to-dark" aria-hidden="true">
+          <svg class="torn-divider-svg" viewBox="0 0 1440 80" preserveAspectRatio="none">
+            <path
+              d="M0,80 L1440,80 L1440,35 Q1360,55 1280,25 Q1200,8 1120,42 Q1040,65 960,30 Q880,12 800,45 Q720,68 640,25 Q560,5 480,40 Q400,62 320,20 Q240,4 160,38 Q80,62 0,25 Z"
+              fill="#111114"></path>
+          </svg>
+        </div>
+      </div>
+
+      <div class="showcase-dark-stage">
+        <div class="slide-viewport">
+          <div class="full-showcase-card anim-slide-left">
+            <div class="showcase-img-container" data-zoom-src="./assets/images/slide-10-brochure-design.png">
+              <img id="img-slide-10" src="./assets/images/slide-10-brochure-design.png"
+                alt="BROCHURE DESIGN — 2 Trifold Architectural Collateral" class="showcase-main-image"
+                loading="eager" />
+              <div class="showcase-hover-overlay">
+                <span class="zoom-badge">🔍 Click to Expand Fullscreen</span>
+              </div>
+            </div>
+            <div class="showcase-card-footer">
+              <div class="showcase-footer-left">
+                <span class="project-pill-tag">10 // BROCHURE DESIGN</span>
+                <span class="project-pill-desc" id="desc-slide-10">Modern Plant Studio Botanical Trifold &amp; Plexicon
+                  High-Impact Corporate Brochure</span>
+              </div>
+              <button class="pill-btn modal-zoom-btn" data-slide="10"
+                data-img="./assets/images/slide-10-brochure-design.png" data-title="BROCHURE DESIGN">Fullscreen View
+                🔍</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         DYNAMIC EXTRA SLIDES CONTAINER (Added by user / Admin in future)
+         ======================================================================== -->
+    <div id="extra-slides-container">
+      <!-- Future slides will be rendered here dynamically in sequence -->
+    </div>
+
   </main>
 
-  <div class="mobile-tip">
-    Made with eternal love for My LAMIYA Pakhi ❤️ • Works on Mobile & PC
-  </div>
-
-  <!-- Core JavaScript Logic (Pure Modern ES6 Canvas & Animation) -->
-  <script>
-    /* ==========================================================
-       1. Ambient Floating Hearts Generator
-       ========================================================== */
-    const ambientContainer = document.getElementById('ambientHearts');
-    const heartSymbols = ['❤️', '💖', '💕', '💗', '🌸', '✨'];
-    
-    function createAmbientHeart() {
-      const heart = document.createElement('div');
-      heart.className = 'ambient-heart';
-      heart.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
-      heart.style.left = Math.random() * 100 + 'vw';
-      heart.style.fontSize = (Math.random() * 14 + 14) + 'px';
-      heart.style.animationDuration = (Math.random() * 7 + 9) + 's';
-      heart.style.animationDelay = (Math.random() * 2) + 's';
-      ambientContainer.appendChild(heart);
-      setTimeout(() => heart.remove(), 16000);
-    }
-    for (let i = 0; i < 15; i++) {
-      setTimeout(createAmbientHeart, i * 400);
-    }
-    setInterval(createAmbientHeart, 1200);
-
-    /* ==========================================================
-       2. Click & Tap Heart Sparks Effect
-       ========================================================== */
-    function spawnSpark(x, y) {
-      const symbols = ['❤️', '💖', '💕', '✨', '🌸', '💗'];
-      for (let i = 0; i < 6; i++) {
-        const spark = document.createElement('span');
-        spark.className = 'click-heart';
-        spark.textContent = symbols[Math.floor(Math.random() * symbols.length)];
-        spark.style.left = x + 'px';
-        spark.style.top = y + 'px';
-        spark.style.fontSize = (Math.random() * 12 + 16) + 'px';
-        const angle = Math.random() * Math.PI * 2;
-        const dist = Math.random() * 80 + 30;
-        spark.style.setProperty('--dx', (Math.cos(angle) * dist) + 'px');
-        spark.style.setProperty('--dy', (Math.sin(angle) * dist - 30) + 'px');
-        document.body.appendChild(spark);
-        setTimeout(() => spark.remove(), 1000);
-      }
-    }
-
-    window.addEventListener('click', (e) => {
-      // Don't spawn sparks if clicking buttons directly
-      if (e.target.closest('button')) return;
-      spawnSpark(e.clientX, e.clientY);
-    });
-
-    document.getElementById('sendHeartBtn').addEventListener('click', (e) => {
-      const rect = e.target.getBoundingClientRect();
-      spawnSpark(rect.left + rect.width / 2, rect.top);
-    });
-
-    /* ==========================================================
-       3. Audio Player with Synth Fallback
-       ========================================================== */
-    const audio = document.getElementById('loveAudio');
-    const musicToggle = document.getElementById('musicToggle');
-    const discIcon = document.getElementById('discIcon');
-    const musicLabel = document.getElementById('musicLabel');
-    let isMusicPlaying = false;
-    let audioCtx = null;
-    let synthInterval = null;
-
-    function playRomanticSynth() {
-      try {
-        if (!audioCtx) {
-          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        }
-        if (audioCtx.state === 'suspended') {
-          audioCtx.resume();
-        }
-        const notes = [261.63, 329.63, 392.00, 523.25, 440.00, 392.00, 329.63, 293.66]; // C E G C A G E D
-        let noteIndex = 0;
-        synthInterval = setInterval(() => {
-          if (!isMusicPlaying) return;
-          const osc = audioCtx.createOscillator();
-          const gain = audioCtx.createGain();
-          osc.type = 'sine';
-          osc.frequency.setValueAtTime(notes[noteIndex % notes.length], audioCtx.currentTime);
-          noteIndex++;
-          gain.gain.setValueAtTime(0.06, audioCtx.currentTime);
-          gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 1.2);
-          osc.connect(gain);
-          gain.connect(audioCtx.destination);
-          osc.start();
-          osc.stop(audioCtx.currentTime + 1.3);
-        }, 900);
-      } catch (e) {
-        console.warn('Synth fallback not supported', e);
-      }
-    }
-
-    function toggleMusic(forceState) {
-      const shouldPlay = forceState !== undefined ? forceState : !isMusicPlaying;
-      if (shouldPlay) {
-        audio.play().then(() => {
-          isMusicPlaying = true;
-          discIcon.classList.add('playing');
-          musicLabel.textContent = 'Music: On';
-        }).catch(() => {
-          // If mp3 fails or blocked, start gentle synth
-          isMusicPlaying = true;
-          discIcon.classList.add('playing');
-          musicLabel.textContent = 'Music: On';
-          playRomanticSynth();
-        });
-      } else {
-        isMusicPlaying = false;
-        audio.pause();
-        if (synthInterval) clearInterval(synthInterval);
-        discIcon.classList.remove('playing');
-        musicLabel.textContent = 'Music: Off';
-      }
-    }
-
-    const trackSelector = document.getElementById('trackSelector');
-    if (trackSelector) {
-      trackSelector.addEventListener('change', (e) => {
-        const newSrc = e.target.value;
-        const wasPlaying = isMusicPlaying;
-        audio.src = newSrc;
-        audio.load();
-        if (wasPlaying) {
-          audio.play().catch(() => {});
-        }
-      });
-    }
-
-    musicToggle.addEventListener('click', () => toggleMusic());
-
-    /* ==========================================================
-       4. Love Time Clock Counter (Real-time Live Ticking)
-       ========================================================== */
-    // Default relationship start date: Exactly 1 year prior, or customize as desired!
-    const defaultStartDate = new Date(Date.now() - (365 * 24 * 60 * 60 * 1000 + 14 * 60 * 60 * 1000));
-    
-    function updateClock() {
-      const now = new Date();
-      let diffSeconds = Math.floor((now - defaultStartDate) / 1000);
-      if (diffSeconds < 0) diffSeconds = 0;
-
-      const days = Math.floor(diffSeconds / (3600 * 24));
-      diffSeconds %= (3600 * 24);
-      const hours = Math.floor(diffSeconds / 3600);
-      diffSeconds %= 3600;
-      const minutes = Math.floor(diffSeconds / 60);
-      const seconds = diffSeconds % 60;
-
-      document.getElementById('daysVal').textContent = days;
-      document.getElementById('hoursVal').textContent = String(hours).padStart(2, '0');
-      document.getElementById('minutesVal').textContent = String(minutes).padStart(2, '0');
-      document.getElementById('secondsVal').textContent = String(seconds).padStart(2, '0');
-    }
-    updateClock();
-    setInterval(updateClock, 1000);
-
-    /* ==========================================================
-       5. Beautiful English Love Letter (Typewriter Animation)
-       ========================================================== */
-    const romanticLetterLines = [
-      "Dearest LAMIYA Pakhi,",
-      "From the moment you came into my life, every day turned into something magical.",
-      "Your smile is my sunrise, and your laughter is my favorite song in the whole universe.",
-      "Just like this tree that grows from a seed into an endless canopy of blooming hearts,",
-      "My love for you grows deeper, stronger, and purer with every single heartbeat.",
-      "I promise to hold your hand through every gentle breeze and every stormy day.",
-      "You are my peace, my sweetest dream come true, and my forever paradise.",
-      "Forever & Always Yours, ❤️"
-    ];
-
-    const letterBox = document.getElementById('letterBox');
-    const cursor = document.getElementById('cursor');
-    let typingActive = false;
-
-    async function startTypewriter() {
-      if (typingActive) return;
-      typingActive = true;
-      letterBox.innerHTML = '';
-      letterBox.appendChild(cursor);
-
-      for (let lineIndex = 0; lineIndex < romanticLetterLines.length; lineIndex++) {
-        const lineText = romanticLetterLines[lineIndex];
-        const p = document.createElement('p');
-        p.className = 'letter-paragraph visible';
-        
-        if (lineIndex === 0) {
-          p.style.fontWeight = '700';
-          p.style.color = 'var(--primary)';
-          p.style.fontSize = '1.3rem';
-          p.style.fontFamily = "'Dancing Script', cursive";
-        } else if (lineIndex === romanticLetterLines.length - 1) {
-          p.className = 'letter-signature visible';
-        }
-
-        letterBox.insertBefore(p, cursor);
-
-        // Type line character by character
-        for (let charIndex = 0; charIndex < lineText.length; charIndex++) {
-          p.textContent += lineText[charIndex];
-          await new Promise(r => setTimeout(r, Math.random() * 25 + 25));
-        }
-
-        // Small pause between paragraphs
-        await new Promise(r => setTimeout(r, 450));
-      }
-      cursor.style.display = 'none';
-    }
-
-    /* ==========================================================
-       6. High-Precision Mathematical Love Tree Canvas Engine
-       ========================================================== */
-    const canvas = document.getElementById('loveCanvas');
-    const ctx = canvas.getContext('2d');
-    const startPrompt = document.getElementById('startPrompt');
-    const replayBtn = document.getElementById('replayBtn');
-
-    // High-DPI Retina Support
-    function resizeCanvasResolution() {
-      const dpr = window.devicePixelRatio || 1;
-      const rect = canvas.getBoundingClientRect();
-      canvas.width = Math.round(rect.width * dpr);
-      canvas.height = Math.round(rect.height * dpr);
-      ctx.resetTransform?.();
-      ctx.scale(dpr, dpr);
-    }
-    resizeCanvasResolution();
-    window.addEventListener('resize', resizeCanvasResolution);
-
-    // Vector Point Class
-    class Point {
-      constructor(x, y) {
-        this.x = x || 0;
-        this.y = y || 0;
-      }
-      clone() { return new Point(this.x, this.y); }
-      add(p) { return new Point(this.x + p.x, this.y + p.y); }
-      sub(p) { return new Point(this.x - p.x, this.y - p.y); }
-      mul(n) { return new Point(this.x * n, this.y * n); }
-      div(n) { return new Point(this.x / n, this.y / n); }
-    }
-
-    // Bezier curve evaluation
-    function bezier(cp, t) {
-      const p1 = cp[0].mul((1 - t) * (1 - t));
-      const p2 = cp[1].mul(2 * t * (1 - t));
-      const p3 = cp[2].mul(t * t);
-      return p1.add(p2).add(p3);
-    }
-
-    // Parametric Heart Points
-    function generateHeartFigure() {
-      const points = [];
-      for (let i = 10; i < 30; i += 0.25) {
-        const t = i / Math.PI;
-        const x = 16 * Math.pow(Math.sin(t), 3);
-        const y = 13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t);
-        points.push(new Point(x, y));
-      }
-      return points;
-    }
-    const heartFigure = generateHeartFigure();
-
-    // Check if point (x, y) is inside cardioid heart shape
-    function inHeartRegion(x, y, r) {
-      const nx = x / r;
-      const ny = y / r;
-      const z = (nx * nx + ny * ny - 1);
-      return (z * z * z - nx * nx * ny * ny * ny) < 0;
-    }
-
-    // Vibrant Romantic Blossom Palette
-    const bloomColors = [
-      '#ff1493', '#ff4071', '#ff758f', '#ff85a1', '#e63946',
-      '#ff4d6d', '#f72585', '#b5179e', '#ff9ebb', '#ff5470',
-      '#fa5252', '#f06595', '#ff70a6', '#ff97b7', '#d90429'
-    ];
-
-    // Branch Class
-    class Branch {
-      constructor(engine, p1, p2, p3, radius, length, childBranches) {
-        this.engine = engine;
-        this.p1 = p1;
-        this.p2 = p2;
-        this.p3 = p3;
-        this.radius = radius;
-        this.length = length || 100;
-        this.step = 0;
-        this.t = 1 / (this.length - 1);
-        this.childBranches = childBranches || [];
-      }
-
-      grow() {
-        if (this.step <= this.length) {
-          const pt = bezier([this.p1, this.p2, this.p3], this.step * this.t);
-          this.draw(pt);
-          this.step++;
-          this.radius = Math.max(1.5, this.radius * 0.975);
-        } else {
-          this.engine.removeBranch(this);
-          this.engine.addBranchDefs(this.childBranches);
-        }
-      }
-
-      draw(pt) {
-        ctx.save();
-        ctx.beginPath();
-        ctx.fillStyle = '#3a2026';
-        ctx.shadowColor = 'rgba(58, 32, 38, 0.4)';
-        ctx.shadowBlur = 3;
-        ctx.arc(pt.x, pt.y, this.radius, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.restore();
-      }
-    }
-
-    // Bloom Flower Class
-    class Bloom {
-      constructor(engine, pos, color, maxScale, angle) {
-        this.engine = engine;
-        this.pos = pos;
-        this.color = color || bloomColors[Math.floor(Math.random() * bloomColors.length)];
-        this.scale = 0.05;
-        this.maxScale = maxScale || (Math.random() * 0.55 + 0.45);
-        this.angle = angle || Math.random() * Math.PI * 2;
-        this.alpha = Math.random() * 0.35 + 0.65;
-        this.growing = true;
-      }
-
-      flower() {
-        if (this.growing) {
-          this.scale += 0.08;
-          if (this.scale >= this.maxScale) {
-            this.scale = this.maxScale;
-            this.growing = false;
-          }
-        }
-        this.draw();
-      }
-
-      draw() {
-        ctx.save();
-        ctx.fillStyle = this.color;
-        ctx.globalAlpha = this.alpha;
-        ctx.translate(this.pos.x, this.pos.y);
-        ctx.scale(this.scale, this.scale);
-        ctx.rotate(this.angle);
-        ctx.beginPath();
-        ctx.moveTo(0, 0);
-        for (let i = 0; i < heartFigure.length; i++) {
-          const p = heartFigure[i];
-          ctx.lineTo(p.x, -p.y);
-        }
-        ctx.closePath();
-        ctx.fill();
-        ctx.restore();
-      }
-    }
-
-    // Falling Floating Petal Class
-    class Petal {
-      constructor(engine, x, y) {
-        this.engine = engine;
-        this.x = x;
-        this.y = y;
-        this.color = bloomColors[Math.floor(Math.random() * bloomColors.length)];
-        this.size = Math.random() * 0.3 + 0.25;
-        this.speedY = Math.random() * 1.5 + 0.8;
-        this.speedX = (Math.random() - 0.5) * 0.8;
-        this.angle = Math.random() * Math.PI * 2;
-        this.angularSpeed = (Math.random() - 0.5) * 0.04;
-        this.oscillation = Math.random() * Math.PI;
-      }
-
-      update() {
-        this.oscillation += 0.03;
-        this.x += Math.sin(this.oscillation) * 1.1 + this.speedX;
-        this.y += this.speedY;
-        this.angle += this.angularSpeed;
-
-        const h = canvas.getBoundingClientRect().height;
-        if (this.y > h - 18) {
-          this.engine.removePetal(this);
-        } else {
-          this.draw();
-        }
-      }
-
-      draw() {
-        ctx.save();
-        ctx.fillStyle = this.color;
-        ctx.globalAlpha = 0.82;
-        ctx.translate(this.x, this.y);
-        ctx.scale(this.size, this.size);
-        ctx.rotate(this.angle);
-        ctx.beginPath();
-        ctx.moveTo(0, 0);
-        for (let i = 0; i < heartFigure.length; i++) {
-          const p = heartFigure[i];
-          ctx.lineTo(p.x, -p.y);
-        }
-        ctx.closePath();
-        ctx.fill();
-        ctx.restore();
-      }
-    }
-
-    // Tree Engine Manager with Double-Buffering
-    class TreeEngine {
-      constructor() {
-        this.branches = [];
-        this.blooms = [];
-        this.bloomsPool = [];
-        this.petals = [];
-        this.isStarted = false;
-        this.isFullyBloomed = false;
-        this.groundWidth = 0;
-
-        // Offscreen canvas for static tree & blooms
-        this.offscreen = document.createElement('canvas');
-        this.offCtx = this.offscreen.getContext('2d');
-      }
-
-      initOffscreen() {
-        this.offscreen.width = canvas.width;
-        this.offscreen.height = canvas.height;
-        const dpr = window.devicePixelRatio || 1;
-        this.offCtx.resetTransform?.();
-        this.offCtx.scale(dpr, dpr);
-        this.offCtx.clearRect(0, 0, this.offscreen.width, this.offscreen.height);
-      }
-
-      reset() {
-        this.branches = [];
-        this.blooms = [];
-        this.bloomsPool = [];
-        this.petals = [];
-        this.isStarted = false;
-        this.isFullyBloomed = false;
-        this.groundWidth = 0;
-        this.initOffscreen();
-        const rect = canvas.getBoundingClientRect();
-        ctx.clearRect(0, 0, rect.width, rect.height);
-      }
-
-      // Responsive Coordinates Calculator
-      getMetrics() {
-        const rect = canvas.getBoundingClientRect();
-        const w = rect.width;
-        const h = rect.height;
-        const scale = Math.min(w / 560, h / 620);
-        const centerX = w / 2;
-        const groundY = h - 22;
-        const canopyCenterY = groundY - 370 * scale;
-        const canopyRadius = 185 * scale;
-        return { w, h, scale, centerX, groundY, canopyCenterY, canopyRadius };
-      }
-
-      initBlooms() {
-        const { canopyRadius, centerX, canopyCenterY } = this.getMetrics();
-        const total = 560;
-        this.bloomsPool = [];
-        this.blooms = [];
-
-        for (let i = 0; i < total; i++) {
-          let rx, ry;
-          while (true) {
-            rx = (Math.random() - 0.5) * 2 * canopyRadius * 1.15;
-            ry = (Math.random() - 0.5) * 2 * canopyRadius * 1.15;
-            if (inHeartRegion(rx, ry, canopyRadius)) {
-              break;
-            }
-          }
-          const posX = centerX + rx;
-          const posY = canopyCenterY - ry;
-          this.bloomsPool.push(new Bloom(this, new Point(posX, posY)));
-        }
-      }
-
-      addBranchDefs(defs) {
-        const { scale, centerX, groundY } = this.getMetrics();
-        const mapX = (x) => centerX + (x - 535) * scale;
-        const mapY = (y) => groundY - (680 - y) * scale;
-
-        for (let i = 0; i < defs.length; i++) {
-          const d = defs[i];
-          const p1 = new Point(mapX(d[0]), mapY(d[1]));
-          const p2 = new Point(mapX(d[2]), mapY(d[3]));
-          const p3 = new Point(mapX(d[4]), mapY(d[5]));
-          const radius = Math.max(2.2, d[6] * scale);
-          const len = d[7];
-          const children = d[8] || [];
-          this.branches.push(new Branch(this, p1, p2, p3, radius, len, children));
-        }
-      }
-
-      removeBranch(b) {
-        const idx = this.branches.indexOf(b);
-        if (idx !== -1) this.branches.splice(idx, 1);
-      }
-
-      removePetal(p) {
-        const idx = this.petals.indexOf(p);
-        if (idx !== -1) this.petals.splice(idx, 1);
-      }
-
-      drawGround() {
-        const { centerX, groundY, w } = this.getMetrics();
-        if (this.groundWidth < w * 0.88) {
-          this.groundWidth += 8;
-        }
-        const oCtx = this.offCtx;
-        oCtx.save();
-        oCtx.strokeStyle = '#3a2026';
-        oCtx.lineWidth = 5;
-        oCtx.lineCap = 'round';
-        oCtx.beginPath();
-        oCtx.moveTo(centerX - this.groundWidth / 2, groundY);
-        oCtx.lineTo(centerX + this.groundWidth / 2, groundY);
-        oCtx.stroke();
-        oCtx.restore();
-      }
-
-      async start() {
-        if (this.isStarted) return;
-        this.isStarted = true;
-        startPrompt.style.display = 'none';
-
-        this.initOffscreen();
-
-        // Play music
-        toggleMusic(true);
-
-        // Start Typewriter story
-        startTypewriter();
-
-        // Initialize bloom cache
-        this.initBlooms();
-
-        // Main Trunk and Tree Structure
-        const rawBranches = [
-          [535, 680, 570, 250, 500, 200, 28, 90, [
-            [540, 500, 455, 417, 340, 400, 13, 90, [
-              [450, 435, 434, 430, 394, 395, 2.5, 40]
-            ]],
-            [550, 445, 600, 356, 680, 345, 12, 90, [
-              [578, 400, 648, 409, 661, 426, 3, 70]
-            ]],
-            [539, 281, 537, 248, 534, 217, 3.5, 40],
-            [546, 397, 413, 247, 328, 244, 9, 80, [
-              [427, 286, 383, 253, 371, 205, 2.5, 40],
-              [498, 345, 435, 315, 395, 330, 4, 60]
-            ]],
-            [546, 357, 608, 252, 678, 221, 6.5, 90, [
-              [590, 293, 646, 277, 648, 271, 2.5, 70]
-            ]]
-          ]]
-        ];
-
-        this.addBranchDefs(rawBranches);
-
-        // Animation Loop
-        const animate = () => {
-          this.drawGround();
-
-          // 1. Grow branches onto offscreen canvas
-          if (this.branches.length > 0) {
-            for (let i = 0; i < this.branches.length; i++) {
-              const b = this.branches[i];
-              if (b.step <= b.length) {
-                const pt = bezier([b.p1, b.p2, b.p3], b.step * b.t);
-                const oCtx = this.offCtx;
-                oCtx.save();
-                oCtx.beginPath();
-                oCtx.fillStyle = '#3a2026';
-                oCtx.shadowColor = 'rgba(58, 32, 38, 0.4)';
-                oCtx.shadowBlur = 3;
-                oCtx.arc(pt.x, pt.y, b.radius, 0, Math.PI * 2);
-                oCtx.fill();
-                oCtx.restore();
-
-                b.step++;
-                b.radius = Math.max(1.5, b.radius * 0.975);
-              } else {
-                this.removeBranch(b);
-                this.addBranchDefs(b.childBranches);
-              }
-            }
-          } else if (this.bloomsPool.length > 0) {
-            // 2. Pop blossoms onto offscreen canvas
-            const count = Math.min(12, this.bloomsPool.length);
-            const batch = this.bloomsPool.splice(0, count);
-            for (let i = 0; i < batch.length; i++) {
-              const bl = batch[i];
-              this.blooms.push(bl);
-              
-              // Draw bloom to offscreen
-              const oCtx = this.offCtx;
-              oCtx.save();
-              oCtx.fillStyle = bl.color;
-              oCtx.globalAlpha = bl.alpha;
-              oCtx.translate(bl.pos.x, bl.pos.y);
-              oCtx.scale(bl.maxScale, bl.maxScale);
-              oCtx.rotate(bl.angle);
-              oCtx.beginPath();
-              oCtx.moveTo(0, 0);
-              for (let j = 0; j < heartFigure.length; j++) {
-                const p = heartFigure[j];
-                oCtx.lineTo(p.x, -p.y);
-              }
-              oCtx.closePath();
-              oCtx.fill();
-              oCtx.restore();
-            }
-          } else {
-            this.isFullyBloomed = true;
-          }
-
-          // 3. Clear visible canvas & draw static tree from offscreen
-          const rect = canvas.getBoundingClientRect();
-          ctx.clearRect(0, 0, rect.width, rect.height);
-          
-          ctx.save();
-          ctx.resetTransform?.();
-          ctx.drawImage(this.offscreen, 0, 0);
-          ctx.restore();
-
-          // 4. Falling Petals Effect on top (clean and smooth, no trails!)
-          if (this.blooms.length > 80) {
-            if (Math.random() < 0.35 && this.petals.length < 50) {
-              const randomBloom = this.blooms[Math.floor(Math.random() * this.blooms.length)];
-              this.petals.push(new Petal(this, randomBloom.pos.x, randomBloom.pos.y));
-            }
-          }
-
-          for (let i = this.petals.length - 1; i >= 0; i--) {
-            this.petals[i].update();
-          }
-
-          requestAnimationFrame(animate);
-        };
-
-        requestAnimationFrame(animate);
-      }
-    }
-
-    const treeEngine = new TreeEngine();
-
-    // Trigger Start on Seed Tap or Canvas Tap (Instant Touch Support)
-    const triggerStart = (e) => {
-      e?.preventDefault?.();
-      if (!treeEngine.isStarted) {
-        treeEngine.start();
-      }
-    };
-
-    startPrompt.addEventListener('click', triggerStart);
-    startPrompt.addEventListener('touchstart', triggerStart, { passive: false });
-    canvas.addEventListener('click', triggerStart);
-    canvas.addEventListener('touchstart', triggerStart, { passive: false });
-
-    // Replay Button
-    replayBtn.addEventListener('click', () => {
-      treeEngine.reset();
-      startPrompt.style.display = 'flex';
-      typingActive = false;
-      letterBox.innerHTML = '<span class="typing-cursor" id="cursor"></span>';
-      setTimeout(() => treeEngine.start(), 200);
-    });
-
-    // Handle Window Resize Responsively
-    window.addEventListener('load', () => {
-      resizeCanvasResolution();
-      treeEngine.initOffscreen();
-    });
-  </script>
+  <!-- ==========================================================================
+       SITE FOOTER
+       ========================================================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="brand-text">
+          <span class="brand-name" id="footer-brand-name">DANGER SHAWON</span>
+          <span class="brand-sub">BRANDING &amp; GRAPHIC DESIGN ARCHIVE • 2026 EDITION</span>
+        </div>
+        <div class="footer-clock-box">
+          <span class="status-dot"></span>
+          <span id="live-clock">DINAJPUR, BANGLADESH • 00:00:00</span>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 <span id="footer-copy-name">Danger Shawon</span>. Crafted with obsessive typographic rigor
+          &amp; crazy animations.</p>
+        <div class="footer-bottom-actions">
+          <button class="footer-secret-admin" id="footer-admin-link">Admin Portal</button>
+          <span>•</span>
+          <a href="#slide-1" class="back-to-top-btn">Back to Top ↑</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       PORTFOLIO CONTENTS DIRECTORY MODAL (<dialog>)
+       ========================================================================== -->
+  <dialog id="contents-dialog" class="custom-modal-dialog" aria-labelledby="contents-modal-title" aria-modal="true">
+    <div class="modal-box" style="max-width: 900px;">
+      <div class="modal-header">
+        <div>
+          <span class="modal-tag">INDEX</span>
+          <h3 id="contents-modal-title" class="modal-heading">PORTFOLIO CONTENTS</h3>
+        </div>
+        <button id="contents-close-btn" class="modal-close-btn" type="button" aria-label="Close Contents">✕</button>
+      </div>
+
+      <div class="modal-content-scroll" style="padding: 30px;">
+        <div class="contents-grid" id="contents-categories-grid">
+          <div class="contents-column">
+            <div class="content-block">
+              <div class="block-category-title"><span class="arrow-accent">↗</span><span
+                  class="category-name">BRANDING</span></div>
+              <ul class="block-items-list">
+                <li><a href="#slide-5" class="content-item-link contents-jump-link">Logofolio</a></li>
+                <li><a href="#slide-6" class="content-item-link contents-jump-link">Branding Design</a></li>
+              </ul>
+            </div>
+            <div class="content-block">
+              <div class="block-category-title"><span class="arrow-accent">↗</span><span
+                  class="category-name">STATIONERY</span></div>
+              <ul class="block-items-list">
+                <li><a href="#slide-7" class="content-item-link contents-jump-link">Business Card</a></li>
+                <li><a href="#slide-8" class="content-item-link contents-jump-link">ID Card</a></li>
+                <li><span class="content-item-text">Letterhead &amp; Invoice</span></li>
+                <li><span class="content-item-text">Envelope Design</span></li>
+              </ul>
+            </div>
+            <div class="content-block">
+              <div class="block-category-title"><span class="arrow-accent">↗</span><span class="category-name">PRINT
+                  DESIGN</span></div>
+              <ul class="block-items-list">
+                <li><a href="#slide-9" class="content-item-link contents-jump-link">Flyer Design</a></li>
+                <li><a href="#slide-10" class="content-item-link contents-jump-link">Brochure Design</a></li>
+                <li><span class="content-item-text">Poster Design</span></li>
+                <li><span class="content-item-text">Banner Design</span></li>
+                <li><span class="content-item-text">Calendar Design</span></li>
+                <li><span class="content-item-text">Food Menu</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="contents-column">
+            <div class="content-block">
+              <div class="block-category-title"><span class="arrow-accent">↗</span><span
+                  class="category-name">PACKAGING</span></div>
+              <ul class="block-items-list">
+                <li><span class="content-item-text">Product Packaging</span></li>
+                <li><span class="content-item-text">Label Design</span></li>
+              </ul>
+            </div>
+            <div class="content-block">
+              <div class="block-category-title"><span class="arrow-accent">↗</span><span
+                  class="category-name">DIGITAL</span></div>
+              <ul class="block-items-list">
+                <li><span class="content-item-text">Social Media Post</span></li>
+                <li><span class="content-item-text">YouTube Thumbnail</span></li>
+              </ul>
+            </div>
+            <div class="content-block">
+              <div class="block-category-title"><span class="arrow-accent">↗</span><span
+                  class="category-name">APPAREL</span></div>
+              <ul class="block-items-list">
+                <li><span class="content-item-text">T-shirt Design</span></li>
+              </ul>
+            </div>
+            <div class="content-block">
+              <div class="block-category-title"><span class="arrow-accent">↗</span><span
+                  class="category-name">CREATIVE</span></div>
+              <ul class="block-items-list">
+                <li><span class="content-item-text">Book Cover Design</span></li>
+                <li><span class="content-item-text">Photo Manipulation</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- ==========================================================================
+       CASE STUDY / FULL IMAGE LIGHTBOX MODAL (<dialog>)
+       ========================================================================== -->
+  <dialog id="lightbox-dialog" class="custom-modal-dialog" aria-labelledby="lightbox-title" aria-modal="true">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div>
+          <span id="lightbox-cat" class="modal-tag">SHOWCASE</span>
+          <h3 id="lightbox-title" class="modal-heading">Project View</h3>
+        </div>
+        <button id="lightbox-close-btn" class="modal-close-btn" aria-label="Close Lightbox">✕</button>
+      </div>
+
+      <div class="modal-content-scroll">
+        <div class="lightbox-hero-display">
+          <img id="lightbox-img" src="" alt="Showcase Preview" class="lightbox-zoom-img" />
+        </div>
+
+        <div class="lightbox-details-grid">
+          <div>
+            <h4 class="modal-section-title">// CONCEPT &amp; IDENTITY</h4>
+            <p id="lightbox-desc" class="modal-body-text"></p>
+          </div>
+
+          <div class="modal-side-meta">
+            <h4 class="modal-section-title" id="lightbox-swatches-title">// COLOR ARCHITECTURE (CLICK TO COPY)</h4>
+            <div id="lightbox-swatches" class="palette-swatches-row"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- ==========================================================================
+       ADMIN AUTHENTICATION PASSCODE MODAL (<dialog>)
+       ========================================================================== -->
+  <dialog id="admin-auth-dialog" class="custom-modal-dialog auth-dialog" aria-labelledby="auth-modal-title"
+    aria-modal="true">
+    <div class="modal-box auth-box">
+      <div class="auth-icon-wrap">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg>
+      </div>
+      <h3 id="auth-modal-title" class="auth-title">ADMIN ACCESS</h3>
+      <p class="auth-subtitle">Enter master passcode to unlock portfolio editor</p>
+
+      <form id="admin-auth-form" class="auth-form" onsubmit="return false;">
+        <div class="input-wrapper">
+          <input type="password" id="admin-passcode-input" class="auth-input"
+            placeholder="Enter PIN (default: sakir2026)" autocomplete="current-password" autofocus />
+          <button type="button" id="toggle-passcode-vis" class="vis-toggle-btn" title="Toggle visibility">👁</button>
+        </div>
+        <div id="auth-error-msg" class="auth-error">Incorrect passcode. Please try again.</div>
+
+        <div class="auth-actions">
+          <button type="button" id="auth-cancel-btn" class="btn-secondary">Cancel</button>
+          <button type="submit" id="auth-submit-btn" class="btn-primary"><span>Unlock Portal</span></button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- ==========================================================================
+       ADMIN CONTROL CENTER DASHBOARD (<dialog>)
+       ========================================================================== -->
+  <dialog id="admin-dashboard-dialog" class="custom-modal-dialog admin-dashboard-dialog"
+    aria-labelledby="admin-dash-title" aria-modal="true">
+    <div class="modal-box admin-box">
+      <div class="admin-top-bar">
+        <div class="admin-title-row">
+          <div class="admin-badge">⚡ CREATOR STUDIO</div>
+          <h2 id="admin-dash-title" class="admin-main-title">PORTFOLIO CONTROL CENTER</h2>
+        </div>
+        <div class="admin-header-actions">
+          <button id="admin-live-preview-btn" class="pill-btn mode-active">Live Sync On ✓</button>
+          <button id="admin-close-btn" class="modal-close-btn" aria-label="Close Admin Panel">✕</button>
+        </div>
+      </div>
+
+      <div class="admin-body-layout">
+        <aside class="admin-sidebar">
+          <button class="admin-tab-btn active" data-tab="tab-profile">
+            <span class="tab-icon">👤</span> <span>Profile &amp; Info</span>
+          </button>
+          <button class="admin-tab-btn" data-tab="tab-colors">
+            <span class="tab-icon">🎨</span> <span>Theme &amp; Colors</span>
+          </button>
+          <button class="admin-tab-btn" data-tab="tab-hero">
+            <span class="tab-icon">⚡</span> <span>Slide 1: Hero</span>
+          </button>
+          <button class="admin-tab-btn" data-tab="tab-about">
+            <span class="tab-icon">📖</span> <span>Slide 2: About Me</span>
+          </button>
+          <button class="admin-tab-btn" data-tab="tab-skills">
+            <span class="tab-icon">⚡</span> <span>Slide 3: Skills &amp; Tools</span>
+          </button>
+          <button class="admin-tab-btn" data-tab="tab-contents">
+            <span class="tab-icon">📑</span> <span>Slide 4: Contents</span>
+          </button>
+          <button class="admin-tab-btn" data-tab="tab-logofolio">
+            <span class="tab-icon">💎</span> <span>Slide 5: Logofolio</span>
+          </button>
+          <button class="admin-tab-btn" data-tab="tab-new-slides">
+            <span class="tab-icon">📂</span> <span>Slides 6-10: Projects</span>
+          </button>
+          <button class="admin-tab-btn" data-tab="tab-add-slides">
+            <span class="tab-icon">➕</span> <span>+ Add More Slides</span>
+          </button>
+          <button class="admin-tab-btn" data-tab="tab-backup">
+            <span class="tab-icon">💾</span> <span>Backup &amp; Sync</span>
+          </button>
+        </aside>
+
+        <main class="admin-content-area">
+
+          <!-- TAB 1: Profile & Info -->
+          <div class="admin-tab-pane active" id="tab-profile">
+            <h3 class="pane-title">Designer Profile &amp; Identity</h3>
+            <p class="pane-desc">Edit your global public details displayed across headers and footers.</p>
+
+            <div class="admin-form-grid">
+              <div class="form-group">
+                <label class="form-label" for="adm-first-name">First Name(s)</label>
+                <input type="text" id="adm-first-name" class="form-input" value="RAFID RIZWAN" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="adm-last-name">Last Name (Accent Red)</label>
+                <input type="text" id="adm-last-name" class="form-input" value="SAKIR" />
+              </div>
+              <div class="form-group full-width">
+                <label class="form-label" for="adm-role-title">Title / Role</label>
+                <input type="text" id="adm-role-title" class="form-input"
+                  value="GRAPHIC DESIGNER • DHAKA, BANGLADESH" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="adm-year">Portfolio Edition Year</label>
+                <input type="text" id="adm-year" class="form-input" value="2026" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="adm-availability">Work Availability</label>
+                <input type="text" id="adm-availability" class="form-input" value="AVAILABLE FOR CLIENT PROJECTS" />
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB: Theme & Colors Studio -->
+          <div class="admin-tab-pane" id="tab-colors">
+            <h3 class="pane-title">Theme, Accent Colors &amp; Visual Studio</h3>
+            <p class="pane-desc">Customize accent color highlights, cream background, dark presentation stage, and card
+              surfaces. Changes apply in real time and save directly to your backend database (data/portfolio.json).</p>
+
+            <div class="theme-studio-section">
+              <h4 class="theme-subhead">1. Curated One-Click Color Presets</h4>
+              <div class="theme-presets-grid" id="theme-presets-grid">
+                <button type="button" class="theme-preset-card active" data-preset="signature-red">
+                  <div class="preset-swatch-bar">
+                    <span style="background: #E03126;"></span>
+                    <span style="background: #FCF9EF;"></span>
+                    <span style="background: #111114;"></span>
+                    <span style="background: #181B24;"></span>
+                  </div>
+                  <div class="preset-info">
+                    <span class="preset-name">Signature Red</span>
+                    <span class="preset-sub">Original Editorial</span>
+                  </div>
+                </button>
+                <button type="button" class="theme-preset-card" data-preset="cyber-cyan">
+                  <div class="preset-swatch-bar">
+                    <span style="background: #00F0FF;"></span>
+                    <span style="background: #F0F7FA;"></span>
+                    <span style="background: #0B111A;"></span>
+                    <span style="background: #111D2D;"></span>
+                  </div>
+                  <div class="preset-info">
+                    <span class="preset-name">Cyber Cyan</span>
+                    <span class="preset-sub">Futuristic Neon</span>
+                  </div>
+                </button>
+                <button type="button" class="theme-preset-card" data-preset="royal-gold">
+                  <div class="preset-swatch-bar">
+                    <span style="background: #D4AF37;"></span>
+                    <span style="background: #FAF6EE;"></span>
+                    <span style="background: #12100C;"></span>
+                    <span style="background: #1E1A14;"></span>
+                  </div>
+                  <div class="preset-info">
+                    <span class="preset-name">Royal Gold</span>
+                    <span class="preset-sub">Luxury Champagne</span>
+                  </div>
+                </button>
+                <button type="button" class="theme-preset-card" data-preset="emerald-mint">
+                  <div class="preset-swatch-bar">
+                    <span style="background: #10B981;"></span>
+                    <span style="background: #F0F9F5;"></span>
+                    <span style="background: #0A1510;"></span>
+                    <span style="background: #10231A;"></span>
+                  </div>
+                  <div class="preset-info">
+                    <span class="preset-name">Emerald Mint</span>
+                    <span class="preset-sub">Modern Botanical</span>
+                  </div>
+                </button>
+                <button type="button" class="theme-preset-card" data-preset="sunset-coral">
+                  <div class="preset-swatch-bar">
+                    <span style="background: #FF5733;"></span>
+                    <span style="background: #FAF2EE;"></span>
+                    <span style="background: #150D0E;"></span>
+                    <span style="background: #241618;"></span>
+                  </div>
+                  <div class="preset-info">
+                    <span class="preset-name">Sunset Coral</span>
+                    <span class="preset-sub">Vibrant High-Energy</span>
+                  </div>
+                </button>
+                <button type="button" class="theme-preset-card" data-preset="electric-violet">
+                  <div class="preset-swatch-bar">
+                    <span style="background: #A855F7;"></span>
+                    <span style="background: #F7F2FA;"></span>
+                    <span style="background: #120B1A;"></span>
+                    <span style="background: #1D122B;"></span>
+                  </div>
+                  <div class="preset-info">
+                    <span class="preset-name">Electric Violet</span>
+                    <span class="preset-sub">Creative Studio</span>
+                  </div>
+                </button>
+              </div>
+            </div>
+
+            <div class="theme-studio-section" style="margin-top: 24px;">
+              <h4 class="theme-subhead">2. Custom Color Pickers &amp; Fine Tuning</h4>
+              <div class="color-picker-grid">
+                <!-- Accent Color -->
+                <div class="color-field-card">
+                  <div class="color-field-top">
+                    <label class="color-field-label" for="color-picker-accent">Accent Color (Red/Highlight)</label>
+                    <span class="color-role-tag">Buttons, Badges, Highlights</span>
+                  </div>
+                  <div class="color-field-controls">
+                    <input type="color" id="color-picker-accent" class="color-native-input" value="#E03126" />
+                    <input type="text" id="color-hex-accent" class="color-hex-input" value="#E03126" maxlength="7" />
+                  </div>
+                </div>
+
+                <!-- Cream Background -->
+                <div class="color-field-card">
+                  <div class="color-field-top">
+                    <label class="color-field-label" for="color-picker-cream">Light Cream Background</label>
+                    <span class="color-role-tag">About &amp; Skills Slide</span>
+                  </div>
+                  <div class="color-field-controls">
+                    <input type="color" id="color-picker-cream" class="color-native-input" value="#FCF9EF" />
+                    <input type="text" id="color-hex-cream" class="color-hex-input" value="#FCF9EF" maxlength="7" />
+                  </div>
+                </div>
+
+                <!-- Dark Stage Background -->
+                <div class="color-field-card">
+                  <div class="color-field-top">
+                    <label class="color-field-label" for="color-picker-darkstage">Dark Presentation Stage</label>
+                    <span class="color-role-tag">Hero &amp; Slides 5-10 Stage</span>
+                  </div>
+                  <div class="color-field-controls">
+                    <input type="color" id="color-picker-darkstage" class="color-native-input" value="#111114" />
+                    <input type="text" id="color-hex-darkstage" class="color-hex-input" value="#111114" maxlength="7" />
+                  </div>
+                </div>
+
+                <!-- Dark Card Background -->
+                <div class="color-field-card">
+                  <div class="color-field-top">
+                    <label class="color-field-label" for="color-picker-card">Dark Card / Frame Surface</label>
+                    <span class="color-role-tag">Mockup Containers &amp; Boxes</span>
+                  </div>
+                  <div class="color-field-controls">
+                    <input type="color" id="color-picker-card" class="color-native-input" value="#181B24" />
+                    <input type="text" id="color-hex-card" class="color-hex-input" value="#181B24" maxlength="7" />
+                  </div>
+                </div>
+
+                <!-- Text Color -->
+                <div class="color-field-card">
+                  <div class="color-field-top">
+                    <label class="color-field-label" for="color-picker-text">Light Theme Text Color</label>
+                    <span class="color-role-tag">Story &amp; Bento Typography</span>
+                  </div>
+                  <div class="color-field-controls">
+                    <input type="color" id="color-picker-text" class="color-native-input" value="#111114" />
+                    <input type="text" id="color-hex-text" class="color-hex-input" value="#111114" maxlength="7" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Live Palette Preview Box -->
+            <div class="theme-studio-section" style="margin-top: 24px;">
+              <h4 class="theme-subhead">3. Real-Time Palette Live Preview</h4>
+              <div class="theme-live-preview-box" id="theme-live-preview-box">
+                <div class="preview-mini-cream-side" id="preview-mini-cream">
+                  <span class="preview-mini-tag" id="preview-mini-accent-tag">LIGHT SECTION PREVIEW</span>
+                  <h5 class="preview-mini-title" id="preview-mini-cream-title">
+                    RAFID RIZWAN <span id="preview-mini-accent-text" style="color: var(--accent-red);">SAKIR</span>
+                  </h5>
+                  <p class="preview-mini-sub" id="preview-mini-cream-sub">Graphic Designer • Dhaka, BD</p>
+                  <button type="button" class="preview-mini-btn" id="preview-mini-btn">Primary Action</button>
+                </div>
+                <div class="preview-mini-dark-side" id="preview-mini-dark">
+                  <span class="preview-mini-tag" style="color: var(--accent-red);">DARK STAGE PREVIEW</span>
+                  <h5 class="preview-mini-title" style="color: #FFFFFF;">LOGOFOLIO 3D</h5>
+                  <div class="preview-mini-card" id="preview-mini-card">
+                    <span class="preview-card-dot" style="background: var(--accent-red);"></span>
+                    <span style="color: #E2E8F0; font-size: 0.8rem;">Branding Mockup Card Surface</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top: 20px; display: flex; gap: 12px; justify-content: flex-end;">
+              <button type="button" id="btn-reset-theme-defaults" class="btn-secondary">Reset to Default Colors</button>
+            </div>
+          </div>
+
+          <!-- TAB 2: Hero -->
+          <div class="admin-tab-pane" id="tab-hero">
+            <h3 class="pane-title">Slide 1: Hero Section Content</h3>
+            <div class="admin-form-grid">
+              <div class="form-group">
+                <label class="form-label" for="adm-hero-eyebrow">Eyebrow Script Text</label>
+                <input type="text" id="adm-hero-eyebrow" class="form-input" value="Graphic Designer" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="adm-hero-torn-text">Torn Paper Reveal Word</label>
+                <input type="text" id="adm-hero-torn-text" class="form-input" value="FOLIO" />
+              </div>
+              <div class="form-group full-width">
+                <label class="form-label" for="adm-hero-sticker">Sticker Badge Text</label>
+                <input type="text" id="adm-hero-sticker" class="form-input" value="Sleep design repeat" />
+              </div>
+              <div class="form-group file-group">
+                <label class="form-label">Mascot Cartoon Image</label>
+                <input type="file" id="adm-hero-mascot-file" accept="image/*" class="file-input" />
+              </div>
+              <div class="form-group file-group">
+                <label class="form-label">Sticker Image</label>
+                <input type="file" id="adm-hero-sticker-file" accept="image/*" class="file-input" />
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 3: About -->
+          <div class="admin-tab-pane" id="tab-about">
+            <h3 class="pane-title">Slide 2: About Designer Story</h3>
+            <div class="admin-form-grid">
+              <div class="form-group full-width">
+                <label class="form-label" for="adm-about-paragraphs">Bio Paragraphs</label>
+                <textarea id="adm-about-paragraphs" class="form-textarea" rows="8"></textarea>
+              </div>
+              <div class="form-group full-width">
+                <label class="form-label" for="adm-about-quote">Handwritten Highlight Quote</label>
+                <input type="text" id="adm-about-quote" class="form-input"
+                  value="Built from curiosity, discipline, and the courage to start." />
+              </div>
+              <div class="form-group full-width file-group">
+                <label class="form-label">Designer Portrait Photo</label>
+                <input type="file" id="adm-portrait-file" accept="image/*" class="file-input" />
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 4: Skills & Tools -->
+          <div class="admin-tab-pane" id="tab-skills">
+            <h3 class="pane-title">Slide 3: Skills, Tools &amp; Contact</h3>
+            <div class="admin-form-grid">
+              <div class="form-group">
+                <label class="form-label" for="adm-contact-email">Email Address</label>
+                <input type="email" id="adm-contact-email" class="form-input" value="rafid.sakir@gmail.com" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="adm-contact-phone">WhatsApp / Phone</label>
+                <input type="text" id="adm-contact-phone" class="form-input" value="+88 01568720531" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="adm-contact-linkedin">LinkedIn Username</label>
+                <input type="text" id="adm-contact-linkedin" class="form-input" value="Rafid Rizwan Sakir" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="adm-contact-behance">Behance Username</label>
+                <input type="text" id="adm-contact-behance" class="form-input" value="rrsakir" />
+              </div>
+              <div class="form-group file-group full-width">
+                <label class="form-label">Contact QR Code Image</label>
+                <input type="file" id="adm-qr-file" accept="image/*" class="file-input" />
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 5: Contents -->
+          <div class="admin-tab-pane" id="tab-contents">
+            <h3 class="pane-title">Slide 4: Contents Directory</h3>
+            <div id="adm-contents-editor-list" class="admin-dynamic-list"></div>
+          </div>
+
+          <!-- TAB 6: Logofolio -->
+          <div class="admin-tab-pane" id="tab-logofolio">
+            <h3 class="pane-title">Slide 5: Logofolio 3D Mockups</h3>
+            <div id="adm-logos-editor-list" class="admin-dynamic-list"></div>
+          </div>
+
+          <!-- TAB 7: Slides 6-10 Projects -->
+          <div class="admin-tab-pane" id="tab-new-slides">
+            <h3 class="pane-title">Slides 6-10: Project Showcases</h3>
+            <p class="pane-desc">Edit titles, descriptions, and replace presentation slide images with your own
+              high-resolution image files directly from your computer!</p>
+
+            <div class="admin-dynamic-list">
+              <!-- Slide 06 -->
+              <div class="admin-card-box">
+                <h4 style="color:var(--accent-red); margin-bottom:12px;">Slide 06: Branding Design</h4>
+                <div class="admin-form-grid">
+                  <div class="form-group">
+                    <label class="form-label" for="adm-s6-title">Slide Title</label>
+                    <input type="text" id="adm-s6-title" class="form-input" value="BRANDING DESIGN" />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="adm-s6-desc">Project Description / Meta</label>
+                    <input type="text" id="adm-s6-desc" class="form-input"
+                      value="VESTRA Minimalist Apparel &amp; DURONTO High-Velocity Athletics" />
+                  </div>
+                  <div class="form-group file-group full-width">
+                    <label class="form-label">Replace Branding Design Slide Image</label>
+                    <input type="file" id="adm-s6-file" accept="image/*" class="file-input" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 07 -->
+              <div class="admin-card-box">
+                <h4 style="color:var(--accent-red); margin-bottom:12px;">Slide 07: Business Card</h4>
+                <div class="admin-form-grid">
+                  <div class="form-group">
+                    <label class="form-label" for="adm-s7-title">Slide Title</label>
+                    <input type="text" id="adm-s7-title" class="form-input" value="BUSINESS CARD" />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="adm-s7-desc">Project Description / Meta</label>
+                    <input type="text" id="adm-s7-desc" class="form-input"
+                      value="6 Curated Identity Cards: Fresh Burst, Knight Owl, Dubai Point, Sakir, Spark, Magnito" />
+                  </div>
+                  <div class="form-group file-group full-width">
+                    <label class="form-label">Replace Business Card Slide Image</label>
+                    <input type="file" id="adm-s7-file" accept="image/*" class="file-input" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 08 -->
+              <div class="admin-card-box">
+                <h4 style="color:var(--accent-red); margin-bottom:12px;">Slide 08: ID Card</h4>
+                <div class="admin-form-grid">
+                  <div class="form-group">
+                    <label class="form-label" for="adm-s8-title">Slide Title</label>
+                    <input type="text" id="adm-s8-title" class="form-input" value="ID CARD DESIGN" />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="adm-s8-desc">Project Description / Meta</label>
+                    <input type="text" id="adm-s8-desc" class="form-input"
+                      value="Corporate Identification &amp; Lanyard Systems (Executive Purple, Dual Green/Red, Plexicon Matte)" />
+                  </div>
+                  <div class="form-group file-group full-width">
+                    <label class="form-label">Replace ID Card Slide Image</label>
+                    <input type="file" id="adm-s8-file" accept="image/*" class="file-input" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 09 -->
+              <div class="admin-card-box">
+                <h4 style="color:var(--accent-red); margin-bottom:12px;">Slide 09: Flyer Design</h4>
+                <div class="admin-form-grid">
+                  <div class="form-group">
+                    <label class="form-label" for="adm-s9-title">Slide Title</label>
+                    <input type="text" id="adm-s9-title" class="form-input" value="FLYER DESIGN" />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="adm-s9-desc">Project Description / Meta</label>
+                    <input type="text" id="adm-s9-desc" class="form-input"
+                      value="Smart Ideas Corporate Flyer, Yellow Fashion Retail Sale, and Dubai Point Capabilities Print" />
+                  </div>
+                  <div class="form-group file-group full-width">
+                    <label class="form-label">Replace Flyer Design Slide Image</label>
+                    <input type="file" id="adm-s9-file" accept="image/*" class="file-input" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 10 -->
+              <div class="admin-card-box">
+                <h4 style="color:var(--accent-red); margin-bottom:12px;">Slide 10: Brochure Design</h4>
+                <div class="admin-form-grid">
+                  <div class="form-group">
+                    <label class="form-label" for="adm-s10-title">Slide Title</label>
+                    <input type="text" id="adm-s10-title" class="form-input" value="BROCHURE DESIGN" />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="adm-s10-desc">Project Description / Meta</label>
+                    <input type="text" id="adm-s10-desc" class="form-input"
+                      value="Modern Plant Studio Botanical Trifold &amp; Plexicon High-Impact Corporate Brochure" />
+                  </div>
+                  <div class="form-group file-group full-width">
+                    <label class="form-label">Replace Brochure Design Slide Image</label>
+                    <input type="file" id="adm-s10-file" accept="image/*" class="file-input" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 8: Add More Slides -->
+          <div class="admin-tab-pane" id="tab-add-slides">
+            <h3 class="pane-title">+ Add More Slides &amp; Images</h3>
+            <div class="admin-card-box">
+              <div class="admin-form-grid">
+                <div class="form-group">
+                  <label class="form-label" for="adm-new-slide-title">Slide Title</label>
+                  <input type="text" id="adm-new-slide-title" class="form-input"
+                    placeholder="e.g. PACKAGING ARCHITECTURE 2026" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="adm-new-slide-category">Category / Tag</label>
+                  <input type="text" id="adm-new-slide-category" class="form-input"
+                    placeholder="e.g. PACKAGING DESIGN" />
+                </div>
+                <div class="form-group full-width">
+                  <label class="form-label" for="adm-new-slide-desc">Description</label>
+                  <textarea id="adm-new-slide-desc" class="form-textarea" rows="2"
+                    placeholder="Brief project description..."></textarea>
+                </div>
+                <div class="form-group full-width file-group">
+                  <label class="form-label">Upload High-Res Slide Image</label>
+                  <input type="file" id="adm-new-slide-file" accept="image/*" class="file-input" />
+                </div>
+              </div>
+              <div style="margin-top: 18px; display: flex; justify-content: flex-end;">
+                <button id="adm-insert-slide-btn" class="btn-primary"><span>Append Slide to Portfolio</span></button>
+              </div>
+            </div>
+            <div style="margin-top: 28px;">
+              <h4 style="margin-bottom: 12px; color: var(--text-primary); font-size: 1rem;">Existing Extra Slides</h4>
+              <div id="adm-extra-slides-list" class="admin-dynamic-list"></div>
+            </div>
+          </div>
+
+          <!-- TAB 9: Backup & Sync -->
+          <div class="admin-tab-pane" id="tab-backup">
+            <h3 class="pane-title">Data Management, Backup &amp; Passcode</h3>
+            <div class="backup-actions-grid">
+              <div class="backup-card">
+                <h4>💾 Export Portfolio Configuration</h4>
+                <p>Download your complete edits, customized texts, and uploaded images as a single JSON backup file.</p>
+                <button id="adm-export-json-btn" class="btn-primary" style="margin-top: 14px;">Download Backup
+                  (.json)</button>
+              </div>
+              <div class="backup-card">
+                <h4>📂 Import Configuration</h4>
+                <p>Restore or load an existing backup file to update the entire website instantly.</p>
+                <input type="file" id="adm-import-json-file" accept=".json" style="margin-top: 14px;" />
+              </div>
+              <div class="backup-card">
+                <h4>🔑 Change Admin Master PIN</h4>
+                <div style="display: flex; gap: 8px; margin-top: 12px;">
+                  <input type="password" id="adm-new-passcode" class="form-input" placeholder="New PIN"
+                    style="max-width: 200px;" />
+                  <button id="adm-save-passcode-btn" class="btn-secondary">Update PIN</button>
+                </div>
+              </div>
+              <div class="backup-card danger-zone">
+                <h4 style="color:#FF4D4D;">⚠️ Reset to Default Design</h4>
+                <button id="adm-reset-defaults-btn" class="btn-danger" style="margin-top: 14px;">Reset
+                  Everything</button>
+              </div>
+            </div>
+          </div>
+
+        </main>
+      </div>
+
+      <div class="admin-footer-bar">
+        <span class="save-status-text" id="admin-save-indicator">Changes save automatically to browser storage</span>
+        <div class="admin-footer-btns">
+          <button id="admin-save-btn" class="btn-primary">
+            <span>Save &amp; Apply All Changes</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Notification Toast Container -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- Main JavaScript Controller -->
+  <script src="./assets/js/main.js"></script>
 </body>
+
 </html>

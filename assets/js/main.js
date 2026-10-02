@@ -1,0 +1,1652 @@
+/**
+ * ==========================================================================
+ * RAFID RIZWAN SAKIR — PORTFOLIO 2026 JAVASCRIPT CONTROLLER
+ * Full Interactive Engine: Scroll-Triggered Left & Right Side-in Animations,
+ * Downward Curtain Unroll Reveal, Character-by-Character Typewriter Effect,
+ * 3D Tilts, Audio Synthesizer, and Complete User-Only Admin Control Center.
+ * (Native cursor restored per user request)
+ * ==========================================================================
+ */
+
+(function () {
+  'use strict';
+
+  // ==========================================================================
+  // 1. DEFAULT PORTFOLIO DATA (Initial State with all 10 Slides)
+  // ==========================================================================
+  const defaultPortfolioData = {
+    profile: {
+      name: "DANGER SHAWON",
+      firstName: "DANGER",
+      lastName: "SHAWON",
+      role: "GRAPHIC DESIGNER • DINAJPUR, BANGLADESH",
+      year: "2026",
+      availability: "AVAILABLE FOR CLIENT PROJECTS",
+      adminPasscode: "sakir2026"
+    },
+    theme: {
+      preset: "signature-red",
+      accentColor: "#E03126",
+      creamBg: "#FCF9EF",
+      darkStageBg: "#111114",
+      darkCardBg: "#181B24",
+      textColor: "#111114"
+    },
+    hero: {
+      eyebrow: "Graphic Designer",
+      title: "PORTFOLIO",
+      tornText: "FOLIO",
+      year: "2026",
+      stickerText: "Sleep design repeat",
+      mascotImage: "./assets/images/hero-mascot.png",
+      stickerImage: "./assets/images/hero-sticker.png",
+      slideImage: "./assets/images/slide-1-hero.png"
+    },
+    about: {
+      namePrefix: "DANGER",
+      nameAccent: "SHAWON",
+      subtitle: "GRAPHIC DESIGNER • DINAJPUR, BANGLADESH",
+      paragraphs: [
+        "I didn't start as a designer.",
+        "I studied Marketing at one of the top universities in Bangladesh.\nI was taught how brands think, how markets work, and how business speaks.",
+        "But something was missing. Understanding a brand wasn't enough for me. I wanted to build its visual soul.",
+        "So I stepped into Design.\nI took my business foundation, merged it with raw creativity, and taught myself how to turn complex strategies into clean visual identities.",
+        "I learned the fundamentals,\nchallenged myself, practiced relentlessly,\nand slowly built my own visual language.",
+        "Every project you see here represents\nmy commitment to becoming\na better designer—\none step at a time."
+      ],
+      quote: "Built from curiosity, discipline, and the courage to start.",
+      portraitImage: "./assets/images/sakir-portrait.png",
+      slideImage: "./assets/images/slide-2-about.png"
+    },
+    skills: {
+      whatIDo: [
+        "Branding",
+        "Visual Identity",
+        "Typography",
+        "Logo Design",
+        "Poster Design",
+        "Packaging Design",
+        "Social Media Design"
+      ],
+      softSkills: [
+        "Creative Direction",
+        "Visual Storytelling",
+        "Attention to Details",
+        "Problem Solving",
+        "Adaptability",
+        "Communication"
+      ],
+      languages: [
+        { lang: "English", level: "Fluent" },
+        { lang: "Bengali", level: "Native" },
+        { lang: "Hindi", level: "Conversational" },
+        { lang: "Urdu", level: "Conversational" }
+      ],
+      hobbies: [
+        "Photography",
+        "Sketching",
+        "Video Games",
+        "Movie/Tv Show",
+        "Football"
+      ],
+      contact: {
+        email: "rafid.sakir@gmail.com",
+        phone: "+88 01568720531",
+        whatsapp: "+88 01568720531",
+        linkedin: "Rafid Rizwan Sakir",
+        linkedinUrl: "https://www.linkedin.com",
+        behance: "rrsakir",
+        behanceUrl: "https://www.behance.net/rrsakir",
+        qrImage: "./assets/images/contact-qr.png"
+      },
+      slideImage: "./assets/images/slide-3-skills.png"
+    },
+    contents: {
+      title: "CONTENTS",
+      categories: [
+        {
+          name: "BRANDING",
+          items: ["Logofolio", "Branding Design"]
+        },
+        {
+          name: "PACKAGING",
+          items: ["Product Packaging", "Label Design"]
+        },
+        {
+          name: "STATIONERY",
+          items: ["Business Card", "ID Card", "Letterhead & Invoice", "Envelope Design"]
+        },
+        {
+          name: "DIGITAL",
+          items: ["Social Media Post", "YouTube Thumbnail"]
+        },
+        {
+          name: "PRINT DESIGN",
+          items: ["Flyer Design", "Brochure Design", "Poster Design", "Banner Design", "Calendar Design", "Food Menu"]
+        },
+        {
+          name: "APPAREL",
+          items: ["T-shirt Design"]
+        },
+        {
+          name: "CREATIVE",
+          items: ["Book Cover Design", "Photo Manipulation"]
+        }
+      ],
+      slideImage: "./assets/images/slide-4-contents.png"
+    },
+    logofolio: {
+      eyebrow: "BRANDING",
+      title: "LOGOFOLIO",
+      logos: [
+        {
+          id: "sonicwave",
+          name: "SonicWave",
+          category: "Audio & Acoustics",
+          description: "SonicWave features a fluid acoustic soundwave 'S' monogram designed for high-fidelity audio engineering, spatial hardware, and sonic branding systems.",
+          image: "./assets/images/logo-sonicwave.png",
+          colors: ["#143627", "#1E4F39", "#A8E6CF", "#FFFFFF"]
+        },
+        {
+          id: "freshburst",
+          name: "Fresh Burst",
+          category: "Beverage & Juice",
+          description: "Fresh Burst captures the fizzy exuberance of cold-pressed organic fruit juices. Custom bubble display typography with an explosive citrus fruit wheel.",
+          image: "./assets/images/logo-freshburst.png",
+          colors: ["#111111", "#FF5964", "#FEE440", "#2EC4B6"]
+        },
+        {
+          id: "leafspice",
+          name: "Leaf & Spice",
+          category: "Organic Food & Spice",
+          description: "Leaf & Spice bridges sustainable organic agriculture and warm culinary flavor. A geometric tree motif radiating colorful botanical leaves.",
+          image: "./assets/images/logo-leafspice.png",
+          colors: ["#F8F8F8", "#E76F51", "#2A9D8F", "#E9C46A"]
+        },
+        {
+          id: "sakir",
+          name: "SAKIR",
+          category: "Personal Identity",
+          description: "Personal monogram for Rafid Rizwan Sakir. Aerodynamic avian wings soaring upward with razor-sharp geometric precision.",
+          image: "./assets/images/logo-sakir.png",
+          colors: ["#FFFFFF", "#0A1128", "#1C3144", "#E03126"]
+        },
+        {
+          id: "thesparitul",
+          name: "The Spa Ritual",
+          category: "Wellness & Sanctuary",
+          description: "The Spa Ritual embodies neoclassical tranquility. A minimalist architectural triumphal arch column conveying serenity and rejuvenation.",
+          image: "./assets/images/logo-the-spa-ritual.png",
+          colors: ["#CFC3B0", "#2B2825", "#F5F2EB", "#8A7E72"]
+        },
+        {
+          id: "deepblue",
+          name: "DEEP BLUE",
+          category: "Luxury Marine",
+          description: "DEEP BLUE crafts yachting lifestyle and ocean conservation branding. A radiant golden fin silhouette atop deep oceanic obsidian navy.",
+          image: "./assets/images/logo-deepblue.png",
+          colors: ["#101B2E", "#D4AF37", "#1E304A", "#F5F6F9"]
+        }
+      ],
+      slideImage: "./assets/images/slide-5-logofolio.png"
+    },
+    // Slides 6 to 10 project definitions
+    showcases: {
+      slide6: {
+        category: "BRANDING",
+        title: "BRANDING DESIGN",
+        desc: "VESTRA Minimalist Apparel & DURONTO High-Velocity Athletics",
+        slideImage: "./assets/images/slide-6-branding-design.png"
+      },
+      slide7: {
+        category: "STATIONERY",
+        title: "BUSINESS CARD",
+        desc: "6 Curated Identity Cards: Fresh Burst, Knight Owl, Dubai Point, Sakir, Spark, Magnito",
+        slideImage: "./assets/images/slide-7-business-card.png"
+      },
+      slide8: {
+        category: "STATIONERY",
+        title: "ID CARD DESIGN",
+        desc: "Corporate Identification & Lanyard Systems (Executive Purple, Dual Green/Red, Plexicon Matte)",
+        slideImage: "./assets/images/slide-8-id-card.png"
+      },
+      slide9: {
+        category: "PRINT DESIGN",
+        title: "FLYER DESIGN",
+        desc: "Smart Ideas Corporate Flyer, Yellow Fashion Retail Sale, and Dubai Point Capabilities Print",
+        slideImage: "./assets/images/slide-9-flyer-design.png"
+      },
+      slide10: {
+        category: "PRINT DESIGN",
+        title: "BROCHURE DESIGN",
+        desc: "Modern Plant Studio Botanical Trifold & Plexicon High-Impact Corporate Brochure",
+        slideImage: "./assets/images/slide-10-brochure-design.png"
+      }
+    },
+    extraSlides: []
+  };
+
+  // Theme Presets Configuration
+  const THEME_PRESETS = {
+    "signature-red": {
+      name: "Signature Red",
+      accentColor: "#E03126",
+      creamBg: "#FCF9EF",
+      darkStageBg: "#111114",
+      darkCardBg: "#181B24",
+      textColor: "#111114"
+    },
+    "cyber-cyan": {
+      name: "Cyber Cyan",
+      accentColor: "#00F0FF",
+      creamBg: "#F0F7FA",
+      darkStageBg: "#0B111A",
+      darkCardBg: "#111D2D",
+      textColor: "#0A1017"
+    },
+    "royal-gold": {
+      name: "Royal Gold",
+      accentColor: "#D4AF37",
+      creamBg: "#FAF6EE",
+      darkStageBg: "#12100C",
+      darkCardBg: "#1E1A14",
+      textColor: "#14110A"
+    },
+    "emerald-mint": {
+      name: "Emerald Mint",
+      accentColor: "#10B981",
+      creamBg: "#F0F9F5",
+      darkStageBg: "#0A1510",
+      darkCardBg: "#10231A",
+      textColor: "#08140E"
+    },
+    "sunset-coral": {
+      name: "Sunset Coral",
+      accentColor: "#FF5733",
+      creamBg: "#FAF2EE",
+      darkStageBg: "#150D0E",
+      darkCardBg: "#241618",
+      textColor: "#140A0B"
+    },
+    "electric-violet": {
+      name: "Electric Violet",
+      accentColor: "#A855F7",
+      creamBg: "#F7F2FA",
+      darkStageBg: "#120B1A",
+      darkCardBg: "#1D122B",
+      textColor: "#100918"
+    }
+  };
+
+  const STORAGE_KEY = 'sakir_portfolio_data_2026';
+  let portfolioData = loadPortfolioData();
+
+  function loadPortfolioData() {
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        const merged = Object.assign({}, defaultPortfolioData, parsed);
+        if (!merged.theme) merged.theme = Object.assign({}, defaultPortfolioData.theme);
+        if (!merged.showcases) {
+          merged.showcases = JSON.parse(JSON.stringify(defaultPortfolioData.showcases));
+        } else {
+          for (let i = 6; i <= 10; i++) {
+            const k = `slide${i}`;
+            const defS = defaultPortfolioData.showcases[k];
+            if (!merged.showcases[k]) {
+              merged.showcases[k] = Object.assign({}, defS);
+            } else if (!merged.showcases[k].slideImage || merged.showcases[k].slideImage.trim() === '') {
+              merged.showcases[k].slideImage = defS.slideImage;
+            }
+          }
+        }
+        return merged;
+      }
+    } catch (e) {
+      console.warn("Could not load from localStorage, using defaults:", e);
+    }
+    return JSON.parse(JSON.stringify(defaultPortfolioData));
+  }
+
+  function applyTheme(themeObj, updateInputs = false) {
+    if (!themeObj) return;
+    const root = document.documentElement;
+
+    if (themeObj.accentColor) {
+      root.style.setProperty('--accent-red', themeObj.accentColor);
+      root.style.setProperty('--border-focus', themeObj.accentColor);
+    }
+    if (themeObj.creamBg) {
+      root.style.setProperty('--bg-cream', themeObj.creamBg);
+      document.querySelectorAll('.rip-dark-to-cream .torn-divider-svg path').forEach(p => {
+        p.setAttribute('fill', themeObj.creamBg);
+      });
+    }
+    if (themeObj.darkStageBg) {
+      root.style.setProperty('--bg-dark-stage', themeObj.darkStageBg);
+      document.querySelectorAll('.rip-header-to-dark .torn-divider-svg path').forEach(p => {
+        p.setAttribute('fill', themeObj.darkStageBg);
+      });
+    }
+    if (themeObj.darkCardBg) {
+      root.style.setProperty('--bg-dark-card', themeObj.darkCardBg);
+    }
+    if (themeObj.textColor) {
+      root.style.setProperty('--text-dark', themeObj.textColor);
+    }
+
+    if (updateInputs) {
+      const pickAccent = document.getElementById('color-picker-accent');
+      const hexAccent = document.getElementById('color-hex-accent');
+      if (pickAccent && themeObj.accentColor) pickAccent.value = themeObj.accentColor;
+      if (hexAccent && themeObj.accentColor) hexAccent.value = themeObj.accentColor;
+
+      const pickCream = document.getElementById('color-picker-cream');
+      const hexCream = document.getElementById('color-hex-cream');
+      if (pickCream && themeObj.creamBg) pickCream.value = themeObj.creamBg;
+      if (hexCream && themeObj.creamBg) hexCream.value = themeObj.creamBg;
+
+      const pickDark = document.getElementById('color-picker-darkstage');
+      const hexDark = document.getElementById('color-hex-darkstage');
+      if (pickDark && themeObj.darkStageBg) pickDark.value = themeObj.darkStageBg;
+      if (hexDark && themeObj.darkStageBg) hexDark.value = themeObj.darkStageBg;
+
+      const pickCard = document.getElementById('color-picker-card');
+      const hexCard = document.getElementById('color-hex-card');
+      if (pickCard && themeObj.darkCardBg) pickCard.value = themeObj.darkCardBg;
+      if (hexCard && themeObj.darkCardBg) hexCard.value = themeObj.darkCardBg;
+
+      const pickText = document.getElementById('color-picker-text');
+      const hexText = document.getElementById('color-hex-text');
+      if (pickText && themeObj.textColor) pickText.value = themeObj.textColor;
+      if (hexText && themeObj.textColor) hexText.value = themeObj.textColor;
+
+      // Highlight active preset button
+      document.querySelectorAll('.theme-preset-card').forEach(btn => {
+        if (btn.getAttribute('data-preset') === themeObj.preset) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      // Update miniature live preview box
+      const prevCream = document.getElementById('preview-mini-cream');
+      if (prevCream && themeObj.creamBg) prevCream.style.backgroundColor = themeObj.creamBg;
+      const prevDark = document.getElementById('preview-mini-dark');
+      if (prevDark && themeObj.darkStageBg) prevDark.style.backgroundColor = themeObj.darkStageBg;
+      const prevCard = document.getElementById('preview-mini-card');
+      if (prevCard && themeObj.darkCardBg) prevCard.style.backgroundColor = themeObj.darkCardBg;
+      const prevBtn = document.getElementById('preview-mini-btn');
+      if (prevBtn && themeObj.accentColor) prevBtn.style.backgroundColor = themeObj.accentColor;
+      const prevAccentText = document.getElementById('preview-mini-accent-text');
+      if (prevAccentText && themeObj.accentColor) prevAccentText.style.color = themeObj.accentColor;
+      const prevAccentTag = document.getElementById('preview-mini-accent-tag');
+      if (prevAccentTag && themeObj.accentColor) prevAccentTag.style.color = themeObj.accentColor;
+    }
+  }
+
+  async function syncWithServerDatabase() {
+    try {
+      let res = await fetch('/api/data').catch(() => null);
+      if (!res || !res.ok) {
+        // Fallback for static hosting like GitHub Pages, Vercel, Netlify
+        res = await fetch('./data/portfolio.json').catch(() => null);
+      }
+      if (res && res.ok) {
+        const data = await res.json();
+        portfolioData = Object.assign({}, defaultPortfolioData, data);
+        if (!portfolioData.theme) {
+          portfolioData.theme = Object.assign({}, defaultPortfolioData.theme);
+        }
+        if (!portfolioData.showcases) {
+          portfolioData.showcases = JSON.parse(JSON.stringify(defaultPortfolioData.showcases));
+        } else {
+          for (let i = 6; i <= 10; i++) {
+            const k = `slide${i}`;
+            const defS = defaultPortfolioData.showcases[k];
+            if (!portfolioData.showcases[k]) {
+              portfolioData.showcases[k] = Object.assign({}, defS);
+            } else if (!portfolioData.showcases[k].slideImage || portfolioData.showcases[k].slideImage.trim() === '') {
+              portfolioData.showcases[k].slideImage = defS.slideImage;
+            }
+          }
+        }
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(portfolioData));
+        applyTheme(portfolioData.theme, false);
+        renderPortfolio();
+        console.log('[Backend Sync] Synchronized state directly with data/portfolio.json.');
+      }
+    } catch (e) {
+      console.log('[Backend Sync] Running in standalone/browser storage mode:', e.message);
+    }
+  }
+
+  async function savePortfolioData() {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(portfolioData));
+      showToast("Saved to browser storage! 💾");
+    } catch (e) {
+      console.error("Storage save error:", e);
+    }
+
+    const indicator = document.getElementById('admin-save-indicator');
+    if (indicator) {
+      indicator.textContent = "Saving to database (data/portfolio.json)...";
+    }
+
+    try {
+      const res = await fetch('/api/save', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(portfolioData)
+      });
+      if (res.ok) {
+        const result = await res.json();
+        showToast("Saved directly to backend database (data/portfolio.json)! 🚀");
+        if (indicator) {
+          indicator.textContent = `✓ Database Updated & Synced (${new Date().toLocaleTimeString()})`;
+          indicator.style.color = "#4ECCA3";
+        }
+      } else {
+        if (indicator) {
+          indicator.textContent = "Saved to browser storage (run start-server.bat to sync disk)";
+        }
+      }
+    } catch (err) {
+      if (indicator) {
+        indicator.textContent = "Saved to browser storage (launch server.js to write disk)";
+      }
+    }
+  }
+
+  // ==========================================================================
+  // 2. AUDIO SYNTHESIS ENGINE (Native Web Audio API)
+  // ==========================================================================
+  let audioCtx = null;
+  let soundEnabled = true;
+
+  function initAudio() {
+    if (!audioCtx) {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      if (AudioContext) {
+        audioCtx = new AudioContext();
+      }
+    }
+    if (audioCtx && audioCtx.state === 'suspended') {
+      audioCtx.resume();
+    }
+  }
+
+  function playTone(freq = 440, type = 'sine', duration = 0.08, gainVal = 0.04) {
+    if (!soundEnabled) return;
+    try {
+      initAudio();
+      if (!audioCtx) return;
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = type;
+      osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+      gain.gain.setValueAtTime(gainVal, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + duration);
+    } catch (e) {}
+  }
+
+  function playClick() { playTone(600, 'sine', 0.05, 0.025); }
+  function playHover() { playTone(880, 'triangle', 0.03, 0.012); }
+  function playSuccess() {
+    playTone(523, 'sine', 0.08, 0.03);
+    setTimeout(() => playTone(659, 'sine', 0.08, 0.03), 80);
+    setTimeout(() => playTone(784, 'sine', 0.12, 0.04), 160);
+  }
+  function playTornRip() {
+    playTone(320, 'sawtooth', 0.05, 0.02);
+    setTimeout(() => playTone(240, 'sawtooth', 0.07, 0.015), 40);
+  }
+  function playTypeTick() {
+    playTone(1200 + Math.random() * 200, 'sine', 0.02, 0.008);
+  }
+
+  // ==========================================================================
+  // 3. TOAST NOTIFICATION UTILITY
+  // ==========================================================================
+  function showToast(message, duration = 3000) {
+    const container = document.getElementById('toast-container');
+    if (!container) return;
+    const toast = document.createElement('div');
+    toast.className = 'toast-msg';
+    toast.innerHTML = `<span>✦</span> <span>${message}</span>`;
+    container.appendChild(toast);
+    playClick();
+
+    setTimeout(() => {
+      toast.style.animation = 'slideInRight 0.3s reverse forwards';
+      setTimeout(() => {
+        if (toast.parentNode) toast.parentNode.removeChild(toast);
+      }, 300);
+    }, duration);
+  }
+
+  // ==========================================================================
+  // 4. DOM RENDERING ENGINE (Binds state to live page)
+  // ==========================================================================
+  function renderPortfolio() {
+    const data = portfolioData;
+
+    const activeName = (data.profile.name || `${data.profile.firstName || ''} ${data.profile.lastName || ''}`).trim() || "DANGER SHAWON";
+    const firstName = data.about?.namePrefix || data.profile.firstName || "DANGER";
+    const lastName = data.about?.nameAccent || data.profile.lastName || "SHAWON";
+    const userRole = data.about?.subtitle || data.profile.role || "GRAPHIC DESIGNER • DINAJPUR, BANGLADESH";
+
+    // Dynamic Browser Tab Title
+    document.title = `${activeName} — Portfolio ${data.profile.year || '2026'}`;
+
+    // Header & Nav (if present)
+    const navName = document.getElementById('nav-brand-name');
+    if (navName) navName.textContent = activeName;
+    const navSub = document.getElementById('nav-brand-sub');
+    if (navSub) navSub.textContent = `PORTFOLIO '${(data.profile.year || "2026").slice(-2)}`;
+
+    const behanceLink = document.getElementById('nav-behance-link');
+    if (behanceLink && data.skills?.contact?.behanceUrl) {
+      behanceLink.href = data.skills.contact.behanceUrl;
+    }
+
+    // Hero Section
+    const heroName = document.getElementById('hero-designer-name');
+    if (heroName) heroName.textContent = activeName;
+    const heroYear = document.getElementById('hero-year-text');
+    if (heroYear) heroYear.textContent = data.profile.year || "2026";
+    const heroEyebrow = document.getElementById('hero-eyebrow-text');
+    if (heroEyebrow) heroEyebrow.textContent = data.hero.eyebrow;
+    const heroTornText = document.getElementById('hero-torn-text');
+    if (heroTornText) heroTornText.textContent = data.hero.tornText;
+    const heroYearBubble = document.getElementById('hero-year-bubble-text');
+    if (heroYearBubble) heroYearBubble.textContent = data.hero.year;
+
+    const mascotImg = document.getElementById('hero-mascot-img');
+    if (mascotImg && data.hero.mascotImage) mascotImg.src = data.hero.mascotImage;
+    const stickerImg = document.getElementById('hero-sticker-img');
+    if (stickerImg && data.hero.stickerImage) stickerImg.src = data.hero.stickerImage;
+
+    // About Section
+    const aboutPrefix = document.getElementById('about-name-prefix');
+    if (aboutPrefix) aboutPrefix.textContent = firstName;
+    const aboutAccent = document.getElementById('about-name-accent');
+    if (aboutAccent) aboutAccent.textContent = lastName;
+    const aboutSub = document.getElementById('about-subtitle-text');
+    if (aboutSub) aboutSub.textContent = userRole;
+
+    // CRITICAL: Update typewriter data attributes so typewriter animation types the user's name
+    const aboutNameTarget = document.querySelector('.about-name.dynamic-typewriter-target');
+    if (aboutNameTarget) {
+      aboutNameTarget.setAttribute('data-type-prefix', firstName + ' ');
+      aboutNameTarget.setAttribute('data-type-accent', lastName);
+      aboutNameTarget.setAttribute('data-type-text', `${firstName} ${lastName}`);
+      aboutNameTarget.innerHTML = `<span id="about-name-prefix">${firstName} </span><span class="text-red" id="about-name-accent">${lastName}</span>`;
+      aboutNameTarget.classList.remove('typing-active');
+    }
+
+    const paragraphsList = document.getElementById('about-paragraphs-list');
+    if (paragraphsList && data.about.paragraphs) {
+      paragraphsList.innerHTML = data.about.paragraphs.map((p, idx) => {
+        const leadClass = idx === 0 ? 'story-lead' : '';
+        const formatted = p.replace(/\n/g, '<br />');
+        return `<p class="story-p ${leadClass}">${formatted}</p>`;
+      }).join('');
+    }
+
+    const quoteBox = document.getElementById('about-quote-box');
+    if (quoteBox && data.about.quote) {
+      quoteBox.querySelector('.handwritten-quote').innerHTML = formatQuote(data.about.quote);
+    }
+
+    const portraitImg = document.getElementById('about-portrait-img');
+    if (portraitImg && data.about.portraitImage) portraitImg.src = data.about.portraitImage;
+
+    // Skills Bento Grid
+    const listWhatIDo = document.getElementById('list-what-i-do');
+    if (listWhatIDo && data.skills.whatIDo) {
+      listWhatIDo.innerHTML = data.skills.whatIDo.map(item => `<li>${item}</li>`).join('');
+    }
+
+    const listSoftSkills = document.getElementById('list-soft-skills');
+    if (listSoftSkills && data.skills.softSkills) {
+      listSoftSkills.innerHTML = data.skills.softSkills.map(item => `<li>${item}</li>`).join('');
+    }
+
+    const listLanguages = document.getElementById('list-languages');
+    if (listLanguages && data.skills.languages) {
+      listLanguages.innerHTML = data.skills.languages.map(l => `
+        <div class="lang-row">
+          <span class="lang-name">${l.lang}</span>
+          <span class="lang-level">${l.level}</span>
+        </div>
+      `).join('');
+    }
+
+    const listHobbies = document.getElementById('list-hobbies');
+    if (listHobbies && data.skills.hobbies) {
+      listHobbies.innerHTML = data.skills.hobbies.map(h => `<li>${h}</li>`).join('');
+    }
+
+    // Contact Details
+    const emailText = document.getElementById('contact-email-text');
+    if (emailText) emailText.textContent = data.skills.contact.email;
+    const phoneText = document.getElementById('contact-phone-text');
+    if (phoneText) phoneText.textContent = data.skills.contact.phone;
+    const waLink = document.getElementById('contact-whatsapp-link');
+    if (waLink) {
+      const cleanNum = (data.skills.contact.whatsapp || '').replace(/[^0-9]/g, '');
+      waLink.href = `https://wa.me/${cleanNum}`;
+    }
+    const linkedinText = document.getElementById('contact-linkedin-text');
+    if (linkedinText) linkedinText.textContent = data.skills.contact.linkedin;
+    const linkedinLink = document.getElementById('contact-linkedin-link');
+    if (linkedinLink && data.skills.contact.linkedinUrl) linkedinLink.href = data.skills.contact.linkedinUrl;
+
+    const behanceText = document.getElementById('contact-behance-text');
+    if (behanceText) behanceText.textContent = data.skills.contact.behance;
+    const behanceLink2 = document.getElementById('contact-behance-link');
+    if (behanceLink2 && data.skills.contact.behanceUrl) behanceLink2.href = data.skills.contact.behanceUrl;
+
+    const qrImg = document.getElementById('contact-qr-img');
+    if (qrImg && data.skills.contact.qrImage) qrImg.src = data.skills.contact.qrImage;
+
+    // Contents Section
+    const contentsTitle = document.getElementById('contents-title-text');
+    if (contentsTitle) contentsTitle.textContent = data.contents.title;
+
+    // Logofolio Section
+    const logoTitle = document.getElementById('logofolio-title-text');
+    if (logoTitle) logoTitle.textContent = data.logofolio.title;
+
+    // Showcases Titles, Descriptions & Images (Slides 6-10)
+    for (let i = 6; i <= 10; i++) {
+      const sKey = `slide${i}`;
+      const sData = data.showcases?.[sKey];
+      if (sData) {
+        const titleEl = document.getElementById(`title-slide-${i}`);
+        if (titleEl && sData.title) {
+          titleEl.textContent = sData.title;
+          titleEl.setAttribute('data-type-text', sData.title);
+        }
+        const eyebrowEl = document.getElementById(`eyebrow-slide-${i}`);
+        if (eyebrowEl && sData.category) {
+          eyebrowEl.textContent = sData.category;
+        }
+        const descEl = document.getElementById(`desc-slide-${i}`);
+        if (descEl && sData.desc) {
+          descEl.textContent = sData.desc;
+        }
+        const imgEl = document.getElementById(`img-slide-${i}`);
+        const defaultImg = defaultPortfolioData.showcases?.[sKey]?.slideImage || `./assets/images/slide-${i}-branding-design.png`;
+        const targetSrc = (sData && sData.slideImage && sData.slideImage.trim() !== '') ? sData.slideImage : defaultImg;
+        if (imgEl && targetSrc) {
+          imgEl.src = targetSrc;
+          imgEl.onerror = () => {
+            if (defaultImg && imgEl.src !== defaultImg) {
+              imgEl.src = defaultImg;
+            }
+          };
+          const card = imgEl.closest('.full-showcase-card');
+          if (imgEl.complete && imgEl.naturalHeight !== 0) {
+            if (card) card.classList.add('revealed');
+          } else {
+            imgEl.addEventListener('load', () => {
+              if (card) card.classList.add('revealed');
+            });
+          }
+          const container = imgEl.closest('.showcase-img-container');
+          if (container) container.setAttribute('data-zoom-src', targetSrc);
+          const zoomBtn = document.querySelector(`.modal-zoom-btn[data-slide="${i}"]`);
+          if (zoomBtn) zoomBtn.setAttribute('data-img', targetSrc);
+        }
+      }
+    }
+
+    // Footer
+    const footerName = document.getElementById('footer-brand-name');
+    if (footerName) footerName.textContent = activeName;
+    const footerCopy = document.getElementById('footer-copy-name');
+    if (footerCopy) footerCopy.textContent = activeName;
+
+    // Attach click for all full slide zoom buttons
+    document.querySelectorAll('.full-slide-view-btn').forEach(btn => {
+      btn.onclick = () => {
+        const fullImg = btn.getAttribute('data-full-img');
+        openGenericLightbox(fullImg, "Full Presentation Slide Showcase");
+      };
+    });
+
+    // Attach click for all modal zoom buttons
+    document.querySelectorAll('.modal-zoom-btn').forEach(btn => {
+      btn.onclick = (e) => {
+        e.stopPropagation();
+        const img = btn.getAttribute('data-img');
+        const title = btn.getAttribute('data-title') || "Project Showcase";
+        openGenericLightbox(img, title);
+      };
+    });
+
+    // Attach click for interactive tiles in slides 6-10
+    document.querySelectorAll('[data-zoom-src]').forEach(tile => {
+      tile.onclick = () => {
+        const src = tile.getAttribute('data-zoom-src');
+        openGenericLightbox(src, "Project Mockup View");
+      };
+    });
+
+    // Reattach logo cards click
+    document.querySelectorAll('.logo-card').forEach(card => {
+      card.onclick = () => {
+        const id = card.getAttribute('data-logo-id');
+        openLogoLightbox(id);
+      };
+    });
+
+    // Initialize observers
+    initScrollAnimations();
+    initTypewriterEffect();
+    initHeroParallax();
+    init3DTilts();
+  }
+
+  function formatQuote(quoteText) {
+    if (quoteText.toLowerCase().includes('curiosity')) {
+      return quoteText.replace(/curiosity/i, '<span class="quote-red">$&</span>');
+    }
+    return quoteText;
+  }
+
+  // ==========================================================================
+  // 5. SCROLL INTERSECTION OBSERVER (Side-in & Curtain Unroll Animations)
+  // ==========================================================================
+  function initScrollAnimations() {
+    const animatedElements = document.querySelectorAll('.anim-slide-left, .anim-slide-right, .anim-unroll-down');
+
+    function checkVisibility() {
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      animatedElements.forEach(el => {
+        if (el.classList.contains('revealed')) return;
+        const rect = el.getBoundingClientRect();
+        if (rect.top < windowHeight + 250 && rect.bottom > -150) {
+          el.classList.add('revealed');
+        }
+      });
+    }
+
+    // Immediate check
+    checkVisibility();
+
+    // Scroll & resize listeners with requestAnimationFrame
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          checkVisibility();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+
+    window.addEventListener('resize', checkVisibility, { passive: true });
+
+    // IntersectionObserver as secondary trigger
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+          }
+        });
+      }, {
+        root: null,
+        threshold: 0,
+        rootMargin: "250px 0px 250px 0px"
+      });
+
+      animatedElements.forEach(el => observer.observe(el));
+    }
+  }
+
+  // ==========================================================================
+  // 6. TYPEWRITER / CHARACTER WRITE-IN EFFECT ("লেখাগুলা লিখে লিখে আসে")
+  // ==========================================================================
+  function initTypewriterEffect() {
+    const targets = document.querySelectorAll('.dynamic-typewriter-target');
+
+    const typeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.classList.contains('typing-active')) {
+          startTypewriter(entry.target);
+        }
+      });
+    }, {
+      root: null,
+      threshold: 0.15
+    });
+
+    targets.forEach(t => {
+      const rect = t.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        startTypewriter(t);
+      }
+      typeObserver.observe(t);
+    });
+  }
+
+  function startTypewriter(element) {
+    if (element.classList.contains('typing-active')) return;
+    element.classList.add('typing-active');
+    const fullText = element.getAttribute('data-type-text') || element.textContent.trim();
+    if (!fullText) return;
+
+    // Check if there is a prefix and accent
+    const prefix = element.getAttribute('data-type-prefix');
+    const accent = element.getAttribute('data-type-accent');
+
+    if (prefix && accent) {
+      element.innerHTML = '';
+      const prefixSpan = document.createElement('span');
+      const accentSpan = document.createElement('span');
+      accentSpan.className = 'text-red';
+      element.appendChild(prefixSpan);
+      element.appendChild(accentSpan);
+
+      const prefixChars = [...prefix];
+      const accentChars = [...accent];
+      let pIdx = 0;
+      let aIdx = 0;
+
+      function typeNext() {
+        if (pIdx < prefixChars.length) {
+          const s = document.createElement('span');
+          s.className = 'type-char';
+          s.textContent = prefixChars[pIdx] === ' ' ? '\u00A0' : prefixChars[pIdx];
+          prefixSpan.appendChild(s);
+          pIdx++;
+          playTypeTick();
+          setTimeout(typeNext, 35);
+        } else if (aIdx < accentChars.length) {
+          const s = document.createElement('span');
+          s.className = 'type-char';
+          s.textContent = accentChars[aIdx] === ' ' ? '\u00A0' : accentChars[aIdx];
+          accentSpan.appendChild(s);
+          aIdx++;
+          playTypeTick();
+          setTimeout(typeNext, 35);
+        } else {
+          element.classList.add('typed');
+        }
+      }
+      typeNext();
+    } else {
+      element.innerHTML = '';
+      const chars = [...fullText];
+      let idx = 0;
+
+      function typeNextChar() {
+        if (idx < chars.length) {
+          const s = document.createElement('span');
+          s.className = 'type-char';
+          s.textContent = chars[idx] === ' ' ? '\u00A0' : chars[idx];
+          element.appendChild(s);
+          idx++;
+          playTypeTick();
+          setTimeout(typeNextChar, 35);
+        } else {
+          element.classList.add('typed');
+        }
+      }
+      typeNextChar();
+    }
+    playTypeTick();
+  }
+
+  // ==========================================================================
+  // 7. HERO PARALLAX & 3D TILTS
+  // ==========================================================================
+  function initHeroParallax() {
+    const heroStage = document.getElementById('hero-stage');
+    const mascot = document.getElementById('hero-mascot-box');
+    const sticker = document.getElementById('hero-sticker-wrapper');
+    const tornBanner = document.getElementById('hero-torn-banner');
+    if (!heroStage) return;
+
+    heroStage.addEventListener('mousemove', (e) => {
+      const rect = heroStage.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+      if (mascot) {
+        mascot.style.transform = `translate(${x * 35}px, ${y * 35}px) rotate(${x * 20}deg)`;
+      }
+      if (sticker) {
+        sticker.style.transform = `translate(${x * -25}px, ${y * -25}px) rotate(${-12 + x * 15}deg)`;
+      }
+      if (tornBanner) {
+        tornBanner.style.transform = `rotate(${-2 + x * 4}deg) translateY(${y * 8}px)`;
+      }
+    });
+
+    heroStage.addEventListener('mouseleave', () => {
+      if (mascot) mascot.style.transform = 'translate(0px, 0px) rotate(0deg)';
+      if (sticker) sticker.style.transform = 'translate(0px, 0px) rotate(-12deg)';
+      if (tornBanner) tornBanner.style.transform = 'rotate(-2deg)';
+    });
+
+    if (mascot) {
+      mascot.onclick = () => {
+        playTone(750, 'sine', 0.1, 0.05);
+        mascot.animate([
+          { transform: 'scale(1) rotate(0deg)' },
+          { transform: 'scale(1.3) rotate(-25deg)' },
+          { transform: 'scale(0.9) rotate(15deg)' },
+          { transform: 'scale(1) rotate(0deg)' }
+        ], { duration: 500, easing: 'cubic-bezier(0.34, 1.56, 0.64, 1)' });
+        showToast("🎨 Designed with passion & precision!");
+      };
+    }
+
+    const stickerCard = document.getElementById('hero-sticker-card');
+    if (stickerCard) {
+      stickerCard.onclick = () => {
+        playTornRip();
+        stickerCard.animate([
+          { transform: 'rotate(-12deg) scale(1)' },
+          { transform: 'rotate(20deg) scale(1.2)' },
+          { transform: 'rotate(-18deg) scale(1.1)' },
+          { transform: 'rotate(-12deg) scale(1)' }
+        ], { duration: 600, easing: 'cubic-bezier(0.34, 1.56, 0.64, 1)' });
+        showToast("✦ Sleep. Design. Repeat.");
+      };
+    }
+  }
+
+  function init3DTilts() {
+    const cards = document.querySelectorAll('.logo-card');
+    cards.forEach(card => {
+      const inner = card.querySelector('.logo-card-inner');
+      const glare = card.querySelector('.card-glare');
+      if (!inner) return;
+
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = ((y - centerY) / centerY) * -12;
+        const rotateY = ((x - centerX) / centerX) * 12;
+
+        inner.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+
+        if (glare) {
+          const glareX = (x / rect.width) * 100;
+          const glareY = (y / rect.height) * 100;
+          glare.style.background = `radial-gradient(circle at ${glareX}% ${glareY}%, rgba(255,255,255,0.25) 0%, transparent 60%)`;
+          glare.style.opacity = '1';
+        }
+      });
+
+      card.addEventListener('mouseleave', () => {
+        inner.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
+        if (glare) glare.style.opacity = '0';
+      });
+    });
+  }
+
+  // ==========================================================================
+  // 8. SCROLL PROGRESS & SECTION TRACKING (Dots 01 to 10)
+  // ==========================================================================
+  function initScrollProgress() {
+    const progressBar = document.getElementById('scroll-progress');
+    const navbar = document.querySelector('.navbar');
+    const trackerDots = document.querySelectorAll('.tracker-dot');
+    const sections = document.querySelectorAll('.slide-section');
+
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+
+      if (progressBar) progressBar.style.width = `${scrollPercent}%`;
+
+      if (navbar) {
+        if (scrollTop > 50) navbar.classList.add('scrolled');
+        else navbar.classList.remove('scrolled');
+      }
+
+      let currentSlide = '1';
+      sections.forEach(section => {
+        const top = section.offsetTop - 250;
+        if (scrollTop >= top) {
+          currentSlide = section.getAttribute('data-slide-index') || '1';
+        }
+      });
+
+      trackerDots.forEach(dot => {
+        if (dot.getAttribute('data-slide') === currentSlide) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+    });
+  }
+
+  // ==========================================================================
+  // 9. LIGHTBOX & FULLSCREEN CASE STUDY MODAL
+  // ==========================================================================
+  const lightboxDialog = document.getElementById('lightbox-dialog');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxTitle = document.getElementById('lightbox-title');
+  const lightboxCat = document.getElementById('lightbox-cat');
+  const lightboxDesc = document.getElementById('lightbox-desc');
+  const lightboxSwatches = document.getElementById('lightbox-swatches');
+  const lightboxSwatchesTitle = document.getElementById('lightbox-swatches-title');
+  const lightboxCloseBtn = document.getElementById('lightbox-close-btn');
+
+  function openLogoLightbox(logoId) {
+    const logo = (portfolioData.logofolio.logos || []).find(l => l.id === logoId);
+    if (!logo || !lightboxDialog) return;
+
+    if (lightboxImg) lightboxImg.src = logo.image;
+    if (lightboxTitle) lightboxTitle.textContent = logo.name;
+    if (lightboxCat) lightboxCat.textContent = logo.category.toUpperCase();
+    if (lightboxDesc) lightboxDesc.textContent = logo.description;
+    if (lightboxSwatchesTitle) lightboxSwatchesTitle.style.display = 'block';
+
+    if (lightboxSwatches && logo.colors) {
+      lightboxSwatches.innerHTML = logo.colors.map(hex => `
+        <div class="swatch-pill" style="background-color: ${hex};" title="Click to copy ${hex}" data-hex="${hex}"></div>
+      `).join('');
+
+      lightboxSwatches.querySelectorAll('.swatch-pill').forEach(pill => {
+        pill.onclick = () => {
+          const hex = pill.getAttribute('data-hex');
+          navigator.clipboard.writeText(hex).then(() => {
+            showToast(`Copied color ${hex} to clipboard!`);
+          });
+        };
+      });
+    }
+
+    lightboxDialog.showModal();
+    playClick();
+  }
+
+  function openGenericLightbox(imageUrl, title = "High-Res Case Study") {
+    if (!lightboxDialog) return;
+    if (lightboxImg) lightboxImg.src = imageUrl;
+    if (lightboxTitle) lightboxTitle.textContent = title;
+    if (lightboxCat) lightboxCat.textContent = "PORTFOLIO 2026 ARCHIVE";
+    if (lightboxDesc) lightboxDesc.textContent = "High-definition creative case study presentation curated for international design standards.";
+    if (lightboxSwatchesTitle) lightboxSwatchesTitle.style.display = 'none';
+    if (lightboxSwatches) lightboxSwatches.innerHTML = '';
+    lightboxDialog.showModal();
+    playClick();
+  }
+
+  if (lightboxCloseBtn && lightboxDialog) {
+    lightboxCloseBtn.onclick = () => {
+      lightboxDialog.close();
+      playClick();
+    };
+    lightboxDialog.onclick = (e) => {
+      const rect = lightboxDialog.getBoundingClientRect();
+      const isIn = (rect.top <= e.clientY && e.clientY <= rect.top + rect.height
+        && rect.left <= e.clientX && e.clientX <= rect.left + rect.width);
+      if (!isIn) lightboxDialog.close();
+    };
+  }
+
+  // QR Code frame click
+  const qrFrame = document.getElementById('qr-frame');
+  if (qrFrame) {
+    qrFrame.onclick = () => {
+      openGenericLightbox(portfolioData.skills.contact.qrImage, "Scan QR to Connect");
+    };
+  }
+
+  // Email copy button
+  const copyEmailBtn = document.getElementById('contact-email-btn');
+  if (copyEmailBtn) {
+    copyEmailBtn.onclick = (e) => {
+      e.preventDefault();
+      const email = portfolioData.skills.contact.email;
+      navigator.clipboard.writeText(email).then(() => {
+        showToast("Email copied to clipboard! ✉️");
+        playSuccess();
+      });
+    };
+  }
+
+  // ==========================================================================
+  // 10. ADMIN CONTROL CENTER (AUTHENTICATION & DASHBOARD)
+  // ==========================================================================
+  let isAdminUnlocked = false;
+
+  const adminTriggerBtn = document.getElementById('admin-trigger-btn');
+  const footerAdminLink = document.getElementById('footer-admin-link');
+  const authDialog = document.getElementById('admin-auth-dialog');
+  const authForm = document.getElementById('admin-auth-form');
+  const passcodeInput = document.getElementById('admin-passcode-input');
+  const authError = document.getElementById('auth-error-msg');
+  const authCancelBtn = document.getElementById('auth-cancel-btn');
+  const togglePasscodeBtn = document.getElementById('toggle-passcode-vis');
+
+  const adminDashDialog = document.getElementById('admin-dashboard-dialog');
+  const adminCloseBtn = document.getElementById('admin-close-btn');
+
+  function openAdminPortal() {
+    isAdminUnlocked = true;
+    openAdminDashboard();
+  }
+
+  if (adminTriggerBtn) adminTriggerBtn.onclick = openAdminPortal;
+  if (footerAdminLink) footerAdminLink.onclick = openAdminPortal;
+
+  window.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
+      e.preventDefault();
+      isAdminUnlocked = true;
+      openAdminDashboard();
+    }
+  });
+
+  if (togglePasscodeBtn && passcodeInput) {
+    togglePasscodeBtn.onclick = () => {
+      passcodeInput.type = passcodeInput.type === 'password' ? 'text' : 'password';
+    };
+  }
+
+  if (authCancelBtn && authDialog) {
+    authCancelBtn.onclick = () => {
+      authDialog.close();
+      playClick();
+    };
+  }
+
+  if (authForm) {
+    authForm.onsubmit = (e) => {
+      e.preventDefault();
+      const entered = (passcodeInput ? passcodeInput.value : '').trim();
+      const correct = portfolioData.profile.adminPasscode || 'sakir2026';
+
+      if (entered === correct) {
+        isAdminUnlocked = true;
+        authDialog.close();
+        playSuccess();
+        showToast("Admin access granted! Welcome back.");
+        openAdminDashboard();
+      } else {
+        playTone(220, 'sawtooth', 0.2, 0.05);
+        if (authError) authError.style.display = 'block';
+        if (passcodeInput) {
+          passcodeInput.value = '';
+          passcodeInput.focus();
+        }
+      }
+    };
+  }
+
+  function openAdminDashboard() {
+    populateAdminFields();
+    if (adminDashDialog) {
+      adminDashDialog.showModal();
+      playClick();
+    }
+  }
+
+  if (adminCloseBtn && adminDashDialog) {
+    adminCloseBtn.onclick = () => {
+      adminDashDialog.close();
+      playClick();
+    };
+  }
+
+  // Sidebar Tab Switching
+  const adminTabBtns = document.querySelectorAll('.admin-tab-btn');
+  const adminTabPanes = document.querySelectorAll('.admin-tab-pane');
+
+  adminTabBtns.forEach(btn => {
+    btn.onclick = () => {
+      const targetId = btn.getAttribute('data-tab');
+      adminTabBtns.forEach(b => b.classList.remove('active'));
+      adminTabPanes.forEach(p => p.classList.remove('active'));
+
+      btn.classList.add('active');
+      const targetPane = document.getElementById(targetId);
+      if (targetPane) targetPane.classList.add('active');
+      playClick();
+    };
+  });
+
+  function setupImageUpload(fileInputId, previewImgId, onLoadedCallback) {
+    const fileInput = document.getElementById(fileInputId);
+    const previewImg = document.getElementById(previewImgId);
+    if (!fileInput) return;
+
+    fileInput.onchange = () => {
+      const file = fileInput.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const base64Url = e.target.result;
+        if (previewImg) previewImg.src = base64Url;
+        if (onLoadedCallback) onLoadedCallback(base64Url);
+        showToast("Image loaded! Click Save to apply.");
+      };
+      reader.readAsDataURL(file);
+    };
+  }
+
+  function populateAdminFields() {
+    const d = portfolioData;
+
+    // Tab 1: Profile
+    const admFirst = document.getElementById('adm-first-name');
+    if (admFirst) admFirst.value = d.profile.firstName || "DANGER";
+    const admLast = document.getElementById('adm-last-name');
+    if (admLast) admLast.value = d.profile.lastName || "SHAWON";
+    const admRole = document.getElementById('adm-role-title');
+    if (admRole) admRole.value = d.profile.role || "GRAPHIC DESIGNER • DINAJPUR, BANGLADESH";
+    const admYear = document.getElementById('adm-year');
+    if (admYear) admYear.value = d.profile.year || "2026";
+    const admAvail = document.getElementById('adm-availability');
+    if (admAvail) admAvail.value = d.profile.availability || "AVAILABLE FOR CLIENT PROJECTS";
+
+    // Tab 2: Hero
+    const admEyebrow = document.getElementById('adm-hero-eyebrow');
+    if (admEyebrow) admEyebrow.value = d.hero.eyebrow;
+    const admTorn = document.getElementById('adm-hero-torn-text');
+    if (admTorn) admTorn.value = d.hero.tornText;
+    const admSticker = document.getElementById('adm-hero-sticker');
+    if (admSticker) admSticker.value = d.hero.stickerText;
+
+    const admMascotPrev = document.getElementById('adm-mascot-preview');
+    if (admMascotPrev) admMascotPrev.src = d.hero.mascotImage;
+    const admStickerPrev = document.getElementById('adm-sticker-preview');
+    if (admStickerPrev) admStickerPrev.src = d.hero.stickerImage;
+
+    // Tab 3: About
+    const admBio = document.getElementById('adm-about-paragraphs');
+    if (admBio) admBio.value = (d.about.paragraphs || []).join('\n\n');
+    const admQuote = document.getElementById('adm-about-quote');
+    if (admQuote) admQuote.value = d.about.quote;
+    const admPortraitPrev = document.getElementById('adm-portrait-preview');
+    if (admPortraitPrev) admPortraitPrev.src = d.about.portraitImage;
+
+    // Tab 4: Skills & Tools
+    const admEmail = document.getElementById('adm-contact-email');
+    if (admEmail) admEmail.value = d.skills.contact.email;
+    const admPhone = document.getElementById('adm-contact-phone');
+    if (admPhone) admPhone.value = d.skills.contact.phone;
+    const admLinkedin = document.getElementById('adm-contact-linkedin');
+    if (admLinkedin) admLinkedin.value = d.skills.contact.linkedin;
+    const admBehance = document.getElementById('adm-contact-behance');
+    if (admBehance) admBehance.value = d.skills.contact.behance;
+
+    const admWhatIDo = document.getElementById('adm-what-i-do');
+    if (admWhatIDo) admWhatIDo.value = (d.skills.whatIDo || []).join(', ');
+    const admSoftSkills = document.getElementById('adm-soft-skills');
+    if (admSoftSkills) admSoftSkills.value = (d.skills.softSkills || []).join(', ');
+    const admQrPrev = document.getElementById('adm-qr-preview');
+    if (admQrPrev) admQrPrev.src = d.skills.contact.qrImage;
+
+    // Tab 7: Showcases (Slides 6-10)
+    for (let i = 6; i <= 10; i++) {
+      const sKey = `slide${i}`;
+      const sData = d.showcases?.[sKey];
+      const titleInput = document.getElementById(`adm-s${i}-title`);
+      if (titleInput && sData?.title) titleInput.value = sData.title;
+      const descInput = document.getElementById(`adm-s${i}-desc`);
+      if (descInput && sData?.desc) descInput.value = sData.desc;
+    }
+
+    // Tab: Theme & Colors Studio
+    if (d.theme) {
+      applyTheme(d.theme, true);
+    }
+  }
+
+  // Setup file uploads for hero, about, qr
+  setupImageUpload('adm-hero-mascot-file', 'adm-mascot-preview', (base64) => {
+    portfolioData.hero.mascotImage = base64;
+  });
+  setupImageUpload('adm-hero-sticker-file', 'adm-sticker-preview', (base64) => {
+    portfolioData.hero.stickerImage = base64;
+  });
+  setupImageUpload('adm-portrait-file', 'adm-portrait-preview', (base64) => {
+    portfolioData.about.portraitImage = base64;
+  });
+  setupImageUpload('adm-qr-file', 'adm-qr-preview', (base64) => {
+    portfolioData.skills.contact.qrImage = base64;
+  });
+
+  // Setup file uploads for slides 6-10
+  setupImageUpload('adm-s6-file', null, (base64) => {
+    if (!portfolioData.showcases) portfolioData.showcases = {};
+    if (!portfolioData.showcases.slide6) portfolioData.showcases.slide6 = {};
+    portfolioData.showcases.slide6.slideImage = base64;
+  });
+  setupImageUpload('adm-s7-file', null, (base64) => {
+    if (!portfolioData.showcases) portfolioData.showcases = {};
+    if (!portfolioData.showcases.slide7) portfolioData.showcases.slide7 = {};
+    portfolioData.showcases.slide7.slideImage = base64;
+  });
+  setupImageUpload('adm-s8-file', null, (base64) => {
+    if (!portfolioData.showcases) portfolioData.showcases = {};
+    if (!portfolioData.showcases.slide8) portfolioData.showcases.slide8 = {};
+    portfolioData.showcases.slide8.slideImage = base64;
+  });
+  setupImageUpload('adm-s9-file', null, (base64) => {
+    if (!portfolioData.showcases) portfolioData.showcases = {};
+    if (!portfolioData.showcases.slide9) portfolioData.showcases.slide9 = {};
+    portfolioData.showcases.slide9.slideImage = base64;
+  });
+  setupImageUpload('adm-s10-file', null, (base64) => {
+    if (!portfolioData.showcases) portfolioData.showcases = {};
+    if (!portfolioData.showcases.slide10) portfolioData.showcases.slide10 = {};
+    portfolioData.showcases.slide10.slideImage = base64;
+  });
+
+  // Save Changes button in admin
+  const saveAllBtn = document.getElementById('admin-save-btn');
+  if (saveAllBtn) {
+    saveAllBtn.onclick = () => {
+      // Profile
+      const fName = document.getElementById('adm-first-name');
+      const lName = document.getElementById('adm-last-name');
+      if (fName) portfolioData.profile.firstName = fName.value.trim();
+      if (lName) portfolioData.profile.lastName = lName.value.trim();
+      portfolioData.profile.name = `${portfolioData.profile.firstName} ${portfolioData.profile.lastName}`.trim();
+      
+      const role = document.getElementById('adm-role-title');
+      if (role) portfolioData.profile.role = role.value.trim();
+      const year = document.getElementById('adm-year');
+      if (year) portfolioData.profile.year = year.value.trim();
+
+      // Hero
+      const eye = document.getElementById('adm-hero-eyebrow');
+      if (eye) portfolioData.hero.eyebrow = eye.value.trim();
+      const torn = document.getElementById('adm-hero-torn-text');
+      if (torn) portfolioData.hero.tornText = torn.value.trim();
+      const stText = document.getElementById('adm-hero-sticker');
+      if (stText) portfolioData.hero.stickerText = stText.value.trim();
+
+      // About
+      portfolioData.about.namePrefix = portfolioData.profile.firstName;
+      portfolioData.about.nameAccent = portfolioData.profile.lastName;
+      portfolioData.about.subtitle = portfolioData.profile.role;
+      const bio = document.getElementById('adm-about-paragraphs');
+      if (bio) {
+        portfolioData.about.paragraphs = bio.value.split('\n\n').map(p => p.trim()).filter(Boolean);
+      }
+      const quote = document.getElementById('adm-about-quote');
+      if (quote) portfolioData.about.quote = quote.value.trim();
+
+      // Skills & Contact
+      const email = document.getElementById('adm-contact-email');
+      if (email) portfolioData.skills.contact.email = email.value.trim();
+      const phone = document.getElementById('adm-contact-phone');
+      if (phone) {
+        portfolioData.skills.contact.phone = phone.value.trim();
+        portfolioData.skills.contact.whatsapp = phone.value.trim();
+      }
+      const linkedin = document.getElementById('adm-contact-linkedin');
+      if (linkedin) portfolioData.skills.contact.linkedin = linkedin.value.trim();
+      const behance = document.getElementById('adm-contact-behance');
+      if (behance) {
+        portfolioData.skills.contact.behance = behance.value.trim();
+        portfolioData.skills.contact.behanceUrl = `https://www.behance.net/${behance.value.trim()}`;
+      }
+
+      const whatIDo = document.getElementById('adm-what-i-do');
+      if (whatIDo) {
+        portfolioData.skills.whatIDo = whatIDo.value.split(',').map(s => s.trim()).filter(Boolean);
+      }
+      const softSkills = document.getElementById('adm-soft-skills');
+      if (softSkills) {
+        portfolioData.skills.softSkills = softSkills.value.split(',').map(s => s.trim()).filter(Boolean);
+      }
+
+      // Showcases 6-10 titles & descriptions
+      if (!portfolioData.showcases) portfolioData.showcases = {};
+      for (let i = 6; i <= 10; i++) {
+        const sKey = `slide${i}`;
+        if (!portfolioData.showcases[sKey]) portfolioData.showcases[sKey] = {};
+        const titleInput = document.getElementById(`adm-s${i}-title`);
+        if (titleInput) portfolioData.showcases[sKey].title = titleInput.value.trim();
+        const descInput = document.getElementById(`adm-s${i}-desc`);
+        if (descInput) portfolioData.showcases[sKey].desc = descInput.value.trim();
+      }
+
+      // Theme Colors
+      if (!portfolioData.theme) portfolioData.theme = {};
+      const fAccent = document.getElementById('color-hex-accent');
+      if (fAccent) portfolioData.theme.accentColor = fAccent.value.trim();
+      const fCream = document.getElementById('color-hex-cream');
+      if (fCream) portfolioData.theme.creamBg = fCream.value.trim();
+      const fDark = document.getElementById('color-hex-darkstage');
+      if (fDark) portfolioData.theme.darkStageBg = fDark.value.trim();
+      const fCard = document.getElementById('color-hex-card');
+      if (fCard) portfolioData.theme.darkCardBg = fCard.value.trim();
+      const fText = document.getElementById('color-hex-text');
+      if (fText) portfolioData.theme.textColor = fText.value.trim();
+
+      applyTheme(portfolioData.theme, false);
+      savePortfolioData();
+      renderPortfolio();
+      playSuccess();
+    };
+  }
+
+  // ==========================================================================
+  // THEME STUDIO EVENT LISTENERS & COLOR PICKER CONTROLS
+  // ==========================================================================
+  document.querySelectorAll('.theme-preset-card').forEach(btn => {
+    btn.onclick = () => {
+      const pKey = btn.getAttribute('data-preset');
+      const pData = THEME_PRESETS[pKey];
+      if (pData) {
+        portfolioData.theme = Object.assign({}, pData, { preset: pKey });
+        applyTheme(portfolioData.theme, true);
+        showToast(`Theme preset applied: ${pData.name} ✨`);
+        playClick();
+      }
+    };
+  });
+
+  function bindColorPair(pickerId, hexId, themeKey) {
+    const picker = document.getElementById(pickerId);
+    const hex = document.getElementById(hexId);
+    if (!picker || !hex) return;
+
+    picker.addEventListener('input', (e) => {
+      const val = e.target.value;
+      hex.value = val.toUpperCase();
+      if (!portfolioData.theme) portfolioData.theme = {};
+      portfolioData.theme[themeKey] = val;
+      portfolioData.theme.preset = 'custom';
+      applyTheme(portfolioData.theme, true);
+    });
+
+    hex.addEventListener('input', (e) => {
+      let val = e.target.value.trim();
+      if (val && !val.startsWith('#')) val = '#' + val;
+      if (/^#[0-9A-Fa-f]{6}$/.test(val)) {
+        picker.value = val;
+        if (!portfolioData.theme) portfolioData.theme = {};
+        portfolioData.theme[themeKey] = val;
+        portfolioData.theme.preset = 'custom';
+        applyTheme(portfolioData.theme, true);
+      }
+    });
+  }
+
+  bindColorPair('color-picker-accent', 'color-hex-accent', 'accentColor');
+  bindColorPair('color-picker-cream', 'color-hex-cream', 'creamBg');
+  bindColorPair('color-picker-darkstage', 'color-hex-darkstage', 'darkStageBg');
+  bindColorPair('color-picker-card', 'color-hex-card', 'darkCardBg');
+  bindColorPair('color-picker-text', 'color-hex-text', 'textColor');
+
+  const btnResetTheme = document.getElementById('btn-reset-theme-defaults');
+  if (btnResetTheme) {
+    btnResetTheme.onclick = () => {
+      portfolioData.theme = Object.assign({}, THEME_PRESETS['signature-red'], { preset: 'signature-red' });
+      applyTheme(portfolioData.theme, true);
+      showToast("Theme restored to Signature Red! 🎨");
+      playClick();
+    };
+  }
+
+  // ==========================================================================
+  // CONTENTS DIRECTORY MODAL DIALOG CONTROLLER
+  // ==========================================================================
+  const contentsDialog = document.getElementById('contents-dialog');
+  const navContentsBtn = document.getElementById('nav-contents-btn');
+  const openContentsBtn = document.getElementById('open-contents-btn');
+  const contentsCloseBtn = document.getElementById('contents-close-btn');
+
+  function openContentsModal() {
+    if (contentsDialog) {
+      contentsDialog.showModal();
+      playClick();
+    }
+  }
+
+  if (navContentsBtn) navContentsBtn.onclick = openContentsModal;
+  if (openContentsBtn) openContentsBtn.onclick = openContentsModal;
+  if (contentsCloseBtn && contentsDialog) {
+    contentsCloseBtn.onclick = () => {
+      contentsDialog.close();
+      playClick();
+    };
+  }
+  if (contentsDialog) {
+    contentsDialog.onclick = (e) => {
+      const rect = contentsDialog.getBoundingClientRect();
+      const isIn = (rect.top <= e.clientY && e.clientY <= rect.top + rect.height
+        && rect.left <= e.clientX && e.clientX <= rect.left + rect.width);
+      if (!isIn) contentsDialog.close();
+    };
+  }
+
+  // Backup Export & Import
+  const exportBtn = document.getElementById('adm-export-json-btn');
+  if (exportBtn) {
+    exportBtn.onclick = () => {
+      const jsonStr = JSON.stringify(portfolioData, null, 2);
+      const blob = new Blob([jsonStr], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `sakir-portfolio-backup-${Date.now()}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast("Backup JSON file exported successfully!");
+    };
+  }
+
+  const importInput = document.getElementById('adm-import-json-file');
+  if (importInput) {
+    importInput.onchange = () => {
+      const file = importInput.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        try {
+          const parsed = JSON.parse(e.target.result);
+          portfolioData = Object.assign({}, defaultPortfolioData, parsed);
+          savePortfolioData();
+          renderPortfolio();
+          populateAdminFields();
+          showToast("Portfolio restored from JSON backup! ✨");
+        } catch (err) {
+          alert("Invalid JSON backup file!");
+        }
+      };
+      reader.readAsText(file);
+    };
+  }
+
+  // Change Admin Passcode
+  const savePasscodeBtn = document.getElementById('adm-save-passcode-btn');
+  const newPasscodeInput = document.getElementById('adm-new-passcode');
+  if (savePasscodeBtn && newPasscodeInput) {
+    savePasscodeBtn.onclick = () => {
+      const newPin = newPasscodeInput.value.trim();
+      if (!newPin || newPin.length < 4) {
+        alert("Please enter a PIN with at least 4 characters.");
+        return;
+      }
+      portfolioData.profile.adminPasscode = newPin;
+      savePortfolioData();
+      newPasscodeInput.value = '';
+      showToast("Admin passcode updated successfully!");
+    };
+  }
+
+  // Reset to Defaults
+  const resetBtn = document.getElementById('adm-reset-defaults-btn');
+  if (resetBtn) {
+    resetBtn.onclick = () => {
+      if (confirm("Are you sure you want to reset all data back to original defaults? This cannot be undone.")) {
+        localStorage.removeItem(STORAGE_KEY);
+        portfolioData = JSON.parse(JSON.stringify(defaultPortfolioData));
+        renderPortfolio();
+        populateAdminFields();
+        showToast("Restored original defaults!");
+      }
+    };
+  }
+
+  // Sound FX Toggle
+  const soundToggleBtn = document.getElementById('sound-toggle-btn');
+  if (soundToggleBtn) {
+    soundToggleBtn.onclick = () => {
+      soundEnabled = !soundEnabled;
+      soundToggleBtn.style.opacity = soundEnabled ? '1' : '0.4';
+      const audioPill = document.getElementById('audio-pill');
+      if (audioPill) audioPill.style.display = soundEnabled ? 'flex' : 'none';
+      showToast(soundEnabled ? "Interaction sounds enabled 🔊" : "Muted 🔇");
+    };
+  }
+
+  // Live clock in footer (Dhaka, Bangladesh GMT+6)
+  function updateLiveClock() {
+    const clockEl = document.getElementById('live-clock');
+    if (!clockEl) return;
+    const now = new Date();
+    const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+    const dhakaTime = new Date(utc + (3600000 * 6));
+    const hours = String(dhakaTime.getHours()).padStart(2, '0');
+    const mins = String(dhakaTime.getMinutes()).padStart(2, '0');
+    const secs = String(dhakaTime.getSeconds()).padStart(2, '0');
+    clockEl.textContent = `DHAKA, BANGLADESH • ${hours}:${mins}:${secs}`;
+  }
+  setInterval(updateLiveClock, 1000);
+  updateLiveClock();
+
+  // ==========================================================================
+  // 11. INITIALIZATION ON DOM READY
+  // ==========================================================================
+  document.addEventListener('DOMContentLoaded', () => {
+    applyTheme(portfolioData.theme, false);
+    renderPortfolio();
+    initScrollProgress();
+    syncWithServerDatabase();
+  });
+
+})();

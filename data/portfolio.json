@@ -1,0 +1,279 @@
+{
+  "profile": {
+    "name": "DANGER SHAWON",
+    "firstName": "DANGER",
+    "lastName": "SHAWON",
+    "role": "GRAPHIC DESIGNER • DINAJPUR, BANGLADESH",
+    "year": "2026",
+    "availability": "AVAILABLE FOR CLIENT PROJECTS",
+    "adminPasscode": "sakir2026"
+  },
+  "theme": {
+    "name": "Emerald Mint",
+    "accentColor": "#10B981",
+    "creamBg": "#F0F9F5",
+    "darkStageBg": "#0A1510",
+    "darkCardBg": "#10231A",
+    "textColor": "#08140E",
+    "preset": "emerald-mint"
+  },
+  "hero": {
+    "eyebrow": "Graphic Designer",
+    "title": "PORTFOLIO",
+    "tornText": "FOLIO",
+    "year": "2026",
+    "stickerText": "Sleep design repeat",
+    "mascotImage": "./assets/images/hero-mascot.png",
+    "stickerImage": "./assets/images/hero-sticker.png",
+    "slideImage": "./assets/images/slide-1-hero.png"
+  },
+  "about": {
+    "namePrefix": "DANGER",
+    "nameAccent": "SHAWON",
+    "subtitle": "GRAPHIC DESIGNER • DINAJPUR, BANGLADESH",
+    "paragraphs": [
+      "I didn't start as a designer.",
+      "I studied Marketing at one of the top universities in Bangladesh.\nI was taught how brands think, how markets work, and how business speaks.",
+      "But something was missing. Understanding a brand wasn't enough for me. I wanted to build its visual soul.",
+      "So I stepped into Design.\nI took my business foundation, merged it with raw creativity, and taught myself how to turn complex strategies into clean visual identities.",
+      "I learned the fundamentals,\nchallenged myself, practiced relentlessly,\nand slowly built my own visual language.",
+      "Every project you see here represents\nmy commitment to becoming\na better designer—\none step at a time."
+    ],
+    "quote": "Built from curiosity, discipline, and the courage to start.",
+    "portraitImage": "./assets/images/sakir-portrait.png",
+    "slideImage": "./assets/images/slide-2-about.png"
+  },
+  "skills": {
+    "whatIDo": [
+      "Branding",
+      "Visual Identity",
+      "Typography",
+      "Logo Design",
+      "Poster Design",
+      "Packaging Design",
+      "Social Media Design"
+    ],
+    "softSkills": [
+      "Creative Direction",
+      "Visual Storytelling",
+      "Attention to Details",
+      "Problem Solving",
+      "Adaptability",
+      "Communication"
+    ],
+    "languages": [
+      {
+        "lang": "English",
+        "level": "Fluent"
+      },
+      {
+        "lang": "Bengali",
+        "level": "Native"
+      },
+      {
+        "lang": "Hindi",
+        "level": "Conversational"
+      },
+      {
+        "lang": "Urdu",
+        "level": "Conversational"
+      }
+    ],
+    "hobbies": [
+      "Photography",
+      "Sketching",
+      "Video Games",
+      "Movie/Tv Show",
+      "Football"
+    ],
+    "contact": {
+      "email": "shahon54@gmail.com",
+      "phone": "01905663 773",
+      "whatsapp": "01905663 773",
+      "linkedin": "DANGER SHAWON",
+      "linkedinUrl": "https://www.linkedin.com",
+      "behance": "SHAWON",
+      "behanceUrl": "https://www.behance.net/SHAWON",
+      "qrImage": "./assets/images/contact-qr.png"
+    },
+    "slideImage": "./assets/images/slide-3-skills.png"
+  },
+  "contents": {
+    "title": "CONTENTS",
+    "categories": [
+      {
+        "name": "BRANDING",
+        "items": [
+          "Logofolio",
+          "Branding Design"
+        ]
+      },
+      {
+        "name": "PACKAGING",
+        "items": [
+          "Product Packaging",
+          "Label Design"
+        ]
+      },
+      {
+        "name": "STATIONERY",
+        "items": [
+          "Business Card",
+          "ID Card",
+          "Letterhead & Invoice",
+          "Envelope Design"
+        ]
+      },
+      {
+        "name": "DIGITAL",
+        "items": [
+          "Social Media Post",
+          "YouTube Thumbnail"
+        ]
+      },
+      {
+        "name": "PRINT DESIGN",
+        "items": [
+          "Flyer Design",
+          "Brochure Design",
+          "Poster Design",
+          "Banner Design",
+          "Calendar Design",
+          "Food Menu"
+        ]
+      },
+      {
+        "name": "APPAREL",
+        "items": [
+          "T-shirt Design"
+        ]
+      },
+      {
+        "name": "CREATIVE",
+        "items": [
+          "Book Cover Design",
+          "Photo Manipulation"
+        ]
+      }
+    ],
+    "slideImage": "./assets/images/slide-4-contents.png"
+  },
+  "logofolio": {
+    "eyebrow": "BRANDING",
+    "title": "LOGOFOLIO",
+    "logos": [
+      {
+        "id": "sonicwave",
+        "name": "SonicWave",
+        "category": "Audio & Acoustics",
+        "description": "SonicWave features a fluid acoustic soundwave 'S' monogram designed for high-fidelity audio engineering, spatial hardware, and sonic branding systems.",
+        "image": "./assets/images/logo-sonicwave.png",
+        "colors": [
+          "#143627",
+          "#1E4F39",
+          "#A8E6CF",
+          "#FFFFFF"
+        ]
+      },
+      {
+        "id": "freshburst",
+        "name": "Fresh Burst",
+        "category": "Beverage & Juice",
+        "description": "Fresh Burst captures the fizzy exuberance of cold-pressed organic fruit juices. Custom bubble display typography with an explosive citrus fruit wheel.",
+        "image": "./assets/images/logo-freshburst.png",
+        "colors": [
+          "#111111",
+          "#FF5964",
+          "#FEE440",
+          "#2EC4B6"
+        ]
+      },
+      {
+        "id": "leafspice",
+        "name": "Leaf & Spice",
+        "category": "Organic Food & Spice",
+        "description": "Leaf & Spice bridges sustainable organic agriculture and warm culinary flavor. A geometric tree motif radiating colorful botanical leaves.",
+        "image": "./assets/images/logo-leafspice.png",
+        "colors": [
+          "#F8F8F8",
+          "#E76F51",
+          "#2A9D8F",
+          "#E9C46A"
+        ]
+      },
+      {
+        "id": "sakir",
+        "name": "SAKIR",
+        "category": "Personal Identity",
+        "description": "Personal monogram for Rafid Rizwan Sakir. Aerodynamic avian wings soaring upward with razor-sharp geometric precision.",
+        "image": "./assets/images/logo-sakir.png",
+        "colors": [
+          "#FFFFFF",
+          "#0A1128",
+          "#1C3144",
+          "#E03126"
+        ]
+      },
+      {
+        "id": "thesparitul",
+        "name": "The Spa Ritual",
+        "category": "Wellness & Sanctuary",
+        "description": "The Spa Ritual embodies neoclassical tranquility. A minimalist architectural triumphal arch column conveying serenity and rejuvenation.",
+        "image": "./assets/images/logo-the-spa-ritual.png",
+        "colors": [
+          "#CFC3B0",
+          "#2B2825",
+          "#F5F2EB",
+          "#8A7E72"
+        ]
+      },
+      {
+        "id": "deepblue",
+        "name": "DEEP BLUE",
+        "category": "Luxury Marine",
+        "description": "DEEP BLUE crafts yachting lifestyle and ocean conservation branding. A radiant golden fin silhouette atop deep oceanic obsidian navy.",
+        "image": "./assets/images/logo-deepblue.png",
+        "colors": [
+          "#101B2E",
+          "#D4AF37",
+          "#1E304A",
+          "#F5F6F9"
+        ]
+      }
+    ],
+    "slideImage": "./assets/images/slide-5-logofolio.png"
+  },
+  "showcases": {
+    "slide6": {
+      "category": "BRANDING",
+      "title": "BRANDING DESIGN",
+      "desc": "VESTRA Minimalist Apparel & DURONTO High-Velocity Athletics",
+      "slideImage": "./assets/images/slide-6-branding-design.png"
+    },
+    "slide7": {
+      "category": "STATIONERY",
+      "title": "BUSINESS CARD",
+      "desc": "6 Curated Identity Cards: Fresh Burst, Knight Owl, Dubai Point, Sakir, Spark, Magnito",
+      "slideImage": "./assets/images/slide-7-business-card.png"
+    },
+    "slide8": {
+      "category": "STATIONERY",
+      "title": "ID CARD DESIGN",
+      "desc": "Corporate Identification & Lanyard Systems (Executive Purple, Dual Green/Red, Plexicon Matte)",
+      "slideImage": "./assets/images/slide-8-id-card.png"
+    },
+    "slide9": {
+      "category": "PRINT DESIGN",
+      "title": "FLYER DESIGN",
+      "desc": "Smart Ideas Corporate Flyer, Yellow Fashion Retail Sale, and Dubai Point Capabilities Print",
+      "slideImage": "./assets/images/slide-9-flyer-design.png"
+    },
+    "slide10": {
+      "category": "PRINT DESIGN",
+      "title": "BROCHURE DESIGN",
+      "desc": "Modern Plant Studio Botanical Trifold & Plexicon High-Impact Corporate Brochure",
+      "slideImage": "./assets/images/slide-10-brochure-design.png"
+    }
+  },
+  "extraSlides": []
+}
