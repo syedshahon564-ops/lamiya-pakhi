@@ -573,13 +573,20 @@
     <section id="slide-5" class="slide-section showcase-slide-section" data-slide-index="5"
       aria-label="Slide 5: Logofolio Showcase">
       <div class="showcase-top-header">
-        <div class="showcase-header-content">
-          <div class="showcase-eyebrow">
-            <span>BRANDING</span>
-            <div class="red-line"></div>
+        <div class="showcase-header-content" style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:12px;">
+          <div>
+            <div class="showcase-eyebrow">
+              <span>BRANDING</span>
+              <div class="red-line"></div>
+            </div>
+            <h2 class="showcase-main-title dynamic-typewriter-target" data-type-text="LOGOFOLIO"
+              id="logofolio-title-text">LOGOFOLIO</h2>
           </div>
-          <h2 class="showcase-main-title dynamic-typewriter-target" data-type-text="LOGOFOLIO"
-            id="logofolio-title-text">LOGOFOLIO</h2>
+          <button class="pill-btn modal-zoom-btn" id="btn-slide-5-fullscreen" data-slide="5"
+            data-img="./assets/images/slide-5-logofolio.png" data-title="LOGOFOLIO PRESENTATION SLIDE"
+            style="margin-bottom: 8px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 6px;">
+            <span>Presentation Slide</span> ↗
+          </button>
         </div>
         <div class="torn-divider-wrapper rip-header-to-dark" aria-hidden="true">
           <svg class="torn-divider-svg" viewBox="0 0 1440 80" preserveAspectRatio="none">
@@ -1059,7 +1066,10 @@
           <span class="modal-tag">INDEX</span>
           <h3 id="contents-modal-title" class="modal-heading">PORTFOLIO CONTENTS</h3>
         </div>
-        <button id="contents-close-btn" class="modal-close-btn" type="button" aria-label="Close Contents">✕</button>
+        <div style="display:flex; align-items:center; gap:12px;">
+          <button class="pill-btn modal-zoom-btn" id="btn-contents-slide-artwork" data-img="./assets/images/slide-4-contents.png" data-title="CONTENTS DIRECTORY PRESENTATION SLIDE" style="font-size:0.75rem; padding:6px 12px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.2); color:#fff; cursor:pointer;">Slide Artwork ↗</button>
+          <button id="contents-close-btn" class="modal-close-btn" type="button" aria-label="Close Contents">✕</button>
+        </div>
       </div>
 
       <div class="modal-content-scroll" style="padding: 30px;">
@@ -1732,6 +1742,13 @@
                   </div>
                   <div class="form-group file-group full-width">
                     <label class="form-label">Replace Branding Design Slide Image</label>
+                    <div style="display:flex; align-items:center; gap:16px; margin: 8px 0 12px 0; background:rgba(255,255,255,0.04); padding:10px 14px; border-radius:8px; border:1px solid rgba(255,255,255,0.08);">
+                      <img id="adm-s6-preview" src="./assets/images/slide-6-branding-design.png" alt="Slide 6 Preview" style="width:100px; height:60px; object-fit:cover; border-radius:6px; border:1px solid rgba(255,255,255,0.2);" />
+                      <div>
+                        <div style="font-weight:600; font-size:0.85rem; color:#fff;">Slide 06 Artwork</div>
+                        <div style="font-size:0.75rem; color:#888;">Select your high-res presentation image below:</div>
+                      </div>
+                    </div>
                     <input type="file" id="adm-s6-file" accept="image/*" class="file-input" />
                   </div>
                 </div>
@@ -1752,6 +1769,13 @@
                   </div>
                   <div class="form-group file-group full-width">
                     <label class="form-label">Replace Business Card Slide Image</label>
+                    <div style="display:flex; align-items:center; gap:16px; margin: 8px 0 12px 0; background:rgba(255,255,255,0.04); padding:10px 14px; border-radius:8px; border:1px solid rgba(255,255,255,0.08);">
+                      <img id="adm-s7-preview" src="./assets/images/slide-7-business-card.png" alt="Slide 7 Preview" style="width:100px; height:60px; object-fit:cover; border-radius:6px; border:1px solid rgba(255,255,255,0.2);" />
+                      <div>
+                        <div style="font-weight:600; font-size:0.85rem; color:#fff;">Slide 07 Artwork</div>
+                        <div style="font-size:0.75rem; color:#888;">Select your high-res presentation image below:</div>
+                      </div>
+                    </div>
                     <input type="file" id="adm-s7-file" accept="image/*" class="file-input" />
                   </div>
                 </div>
@@ -1772,6 +1796,13 @@
                   </div>
                   <div class="form-group file-group full-width">
                     <label class="form-label">Replace ID Card Slide Image</label>
+                    <div style="display:flex; align-items:center; gap:16px; margin: 8px 0 12px 0; background:rgba(255,255,255,0.04); padding:10px 14px; border-radius:8px; border:1px solid rgba(255,255,255,0.08);">
+                      <img id="adm-s8-preview" src="./assets/images/slide-8-id-card.png" alt="Slide 8 Preview" style="width:100px; height:60px; object-fit:cover; border-radius:6px; border:1px solid rgba(255,255,255,0.2);" />
+                      <div>
+                        <div style="font-weight:600; font-size:0.85rem; color:#fff;">Slide 08 Artwork</div>
+                        <div style="font-size:0.75rem; color:#888;">Select your high-res presentation image below:</div>
+                      </div>
+                    </div>
                     <input type="file" id="adm-s8-file" accept="image/*" class="file-input" />
                   </div>
                 </div>
@@ -1792,6 +1823,13 @@
                   </div>
                   <div class="form-group file-group full-width">
                     <label class="form-label">Replace Flyer Design Slide Image</label>
+                    <div style="display:flex; align-items:center; gap:16px; margin: 8px 0 12px 0; background:rgba(255,255,255,0.04); padding:10px 14px; border-radius:8px; border:1px solid rgba(255,255,255,0.08);">
+                      <img id="adm-s9-preview" src="./assets/images/slide-9-flyer-design.png" alt="Slide 9 Preview" style="width:100px; height:60px; object-fit:cover; border-radius:6px; border:1px solid rgba(255,255,255,0.2);" />
+                      <div>
+                        <div style="font-weight:600; font-size:0.85rem; color:#fff;">Slide 09 Artwork</div>
+                        <div style="font-size:0.75rem; color:#888;">Select your high-res presentation image below:</div>
+                      </div>
+                    </div>
                     <input type="file" id="adm-s9-file" accept="image/*" class="file-input" />
                   </div>
                 </div>
@@ -1812,6 +1850,13 @@
                   </div>
                   <div class="form-group file-group full-width">
                     <label class="form-label">Replace Brochure Design Slide Image</label>
+                    <div style="display:flex; align-items:center; gap:16px; margin: 8px 0 12px 0; background:rgba(255,255,255,0.04); padding:10px 14px; border-radius:8px; border:1px solid rgba(255,255,255,0.08);">
+                      <img id="adm-s10-preview" src="./assets/images/slide-10-brochure-design.png" alt="Slide 10 Preview" style="width:100px; height:60px; object-fit:cover; border-radius:6px; border:1px solid rgba(255,255,255,0.2);" />
+                      <div>
+                        <div style="font-weight:600; font-size:0.85rem; color:#fff;">Slide 10 Artwork</div>
+                        <div style="font-size:0.75rem; color:#888;">Select your high-res presentation image below:</div>
+                      </div>
+                    </div>
                     <input type="file" id="adm-s10-file" accept="image/*" class="file-input" />
                   </div>
                 </div>
@@ -1832,6 +1877,13 @@
                   </div>
                   <div class="form-group file-group full-width">
                     <label class="form-label">Replace Poster Design Slide Image</label>
+                    <div style="display:flex; align-items:center; gap:16px; margin: 8px 0 12px 0; background:rgba(255,255,255,0.04); padding:10px 14px; border-radius:8px; border:1px solid rgba(255,255,255,0.08);">
+                      <img id="adm-s11-preview" src="./assets/images/slide-11-poster-design.png" alt="Slide 11 Preview" style="width:100px; height:60px; object-fit:cover; border-radius:6px; border:1px solid rgba(255,255,255,0.2);" />
+                      <div>
+                        <div style="font-weight:600; font-size:0.85rem; color:#fff;">Slide 11 Artwork</div>
+                        <div style="font-size:0.75rem; color:#888;">Select your high-res presentation image below:</div>
+                      </div>
+                    </div>
                     <input type="file" id="adm-s11-file" accept="image/*" class="file-input" />
                   </div>
                 </div>
@@ -1852,6 +1904,13 @@
                   </div>
                   <div class="form-group file-group full-width">
                     <label class="form-label">Replace Banner Design Slide Image</label>
+                    <div style="display:flex; align-items:center; gap:16px; margin: 8px 0 12px 0; background:rgba(255,255,255,0.04); padding:10px 14px; border-radius:8px; border:1px solid rgba(255,255,255,0.08);">
+                      <img id="adm-s12-preview" src="./assets/images/slide-12-banner-design.png" alt="Slide 12 Preview" style="width:100px; height:60px; object-fit:cover; border-radius:6px; border:1px solid rgba(255,255,255,0.2);" />
+                      <div>
+                        <div style="font-weight:600; font-size:0.85rem; color:#fff;">Slide 12 Artwork</div>
+                        <div style="font-size:0.75rem; color:#888;">Select your high-res presentation image below:</div>
+                      </div>
+                    </div>
                     <input type="file" id="adm-s12-file" accept="image/*" class="file-input" />
                   </div>
                 </div>

@@ -991,6 +991,65 @@
       }
     }
 
+    // Slide 4 & Slide 5 Presentation Buttons
+    const s5Btn = document.getElementById('btn-slide-5-fullscreen');
+    if (s5Btn) {
+      const s5Img = data.logofolio?.slideImage || './assets/images/slide-5-logofolio.png';
+      s5Btn.setAttribute('data-img', s5Img);
+    }
+    const s4Btn = document.getElementById('btn-contents-slide-artwork');
+    if (s4Btn) {
+      const s4Img = data.contents?.slideImage || './assets/images/slide-4-contents.png';
+      s4Btn.setAttribute('data-img', s4Img);
+    }
+
+    // Dynamic Extra Slides Rendering
+    const extraContainer = document.getElementById('extra-slides-container');
+    if (extraContainer) {
+      if (data.extraSlides && data.extraSlides.length > 0) {
+        extraContainer.innerHTML = data.extraSlides.map((s, idx) => {
+          const slideNum = 13 + idx;
+          const numStr = String(slideNum).padStart(2, '0');
+          return `
+            <section id="slide-${slideNum}" class="slide-section showcase-slide-section" data-slide-index="${slideNum}">
+              <div class="showcase-top-header">
+                <div class="showcase-header-content">
+                  <div class="showcase-eyebrow">
+                    <span>${s.category || 'PROJECT SHOWCASE'}</span>
+                    <div class="red-line"></div>
+                  </div>
+                  <h2 class="showcase-main-title dynamic-typewriter-target" data-type-text="${s.title}">${s.title}</h2>
+                </div>
+                <div class="torn-divider-wrapper rip-header-to-dark" aria-hidden="true">
+                  <svg class="torn-divider-svg" viewBox="0 0 1440 80" preserveAspectRatio="none">
+                    <path d="M0,80 L1440,80 L1440,35 Q1360,55 1280,25 Q1200,8 1120,42 Q1040,65 960,30 Q880,12 800,45 Q720,68 640,25 Q560,5 480,40 Q400,62 320,20 Q240,4 160,38 Q80,62 0,25 Z" fill="#111114"></path>
+                  </svg>
+                </div>
+              </div>
+              <div class="showcase-dark-stage">
+                <div class="slide-viewport">
+                  <div class="full-showcase-card anim-unroll-down revealed">
+                    <div class="showcase-img-container" data-zoom-src="${s.slideImage}">
+                      <img src="${s.slideImage}" alt="${s.title}" class="showcase-img" />
+                      <div class="showcase-glass-card">
+                        <div class="glass-slide-badge">SLIDE // ${numStr}</div>
+                        <h3 class="glass-slide-title">${s.title}</h3>
+                        <p class="glass-slide-desc">${s.desc || ''}</p>
+                      </div>
+                      <div class="img-glare-effect"></div>
+                    </div>
+                    <button class="pill-btn modal-zoom-btn" data-slide="${slideNum}" data-img="${s.slideImage}" data-title="${s.title}">Fullscreen View ↗</button>
+                  </div>
+                </div>
+              </div>
+            </section>
+          `;
+        }).join('');
+      } else {
+        extraContainer.innerHTML = '';
+      }
+    }
+
     // Footer
     const footerName = document.getElementById('footer-brand-name');
     if (footerName) footerName.textContent = activeName;
@@ -1657,7 +1716,12 @@
       if (titleInput && sData?.title) titleInput.value = sData.title;
       const descInput = document.getElementById(`adm-s${i}-desc`);
       if (descInput && sData?.desc) descInput.value = sData.desc;
+      const prev = document.getElementById(`adm-s${i}-preview`);
+      if (prev && sData?.slideImage) prev.src = sData.slideImage;
     }
+
+    // Tab 8: Extra Slides
+    renderAdminExtraSlides();
 
     // Tab: Theme & Colors Studio
     if (d.theme) {
@@ -1697,7 +1761,7 @@
 
   // Setup file uploads for slides 6-12
   for (let i = 6; i <= 12; i++) {
-    setupImageUpload(`adm-s${i}-file`, null, (base64) => {
+    setupImageUpload(`adm-s${i}-file`, `adm-s${i}-preview`, (base64) => {
       if (!portfolioData.showcases) portfolioData.showcases = {};
       const sKey = `slide${i}`;
       if (!portfolioData.showcases[sKey]) portfolioData.showcases[sKey] = {};
@@ -2027,6 +2091,86 @@
       renderPortfolio();
       await savePortfolioData(false);
       showToast("Added new logo card! Upload mockup with Choose File 🖼️");
+    };
+  }
+
+  // ==========================================================================
+  // TAB 8: DYNAMIC EXTRA SLIDES MANAGER
+  // ==========================================================================
+  function renderAdminExtraSlides() {
+    const list = document.getElementById('adm-extra-slides-list');
+    if (!list) return;
+    if (!portfolioData.extraSlides) portfolioData.extraSlides = [];
+    if (portfolioData.extraSlides.length === 0) {
+      list.innerHTML = `<p style="font-size:0.8rem; color:#888; margin: 8px 0;">No extra slides added yet. Fill the form above to append slides.</p>`;
+      return;
+    }
+    list.innerHTML = portfolioData.extraSlides.map((s, idx) => `
+      <div class="admin-card-box" style="display:grid; grid-template-columns: 90px 1fr auto; gap:14px; align-items:center; margin-bottom:12px;">
+        <img src="${s.slideImage || './assets/images/slide-6-branding-design.png'}" style="width:90px; height:55px; object-fit:cover; border-radius:6px; border:1px solid rgba(255,255,255,0.2);" />
+        <div>
+          <h4 style="color:#fff; font-size:0.95rem; margin:0 0 4px 0;">${s.title || 'Untitled Slide'}</h4>
+          <span style="font-size:0.75rem; color:var(--accent-red); font-weight:600; text-transform:uppercase;">${s.category || 'PROJECT'}</span>
+          <p style="font-size:0.75rem; color:#aaa; margin:4px 0 0 0;">${s.desc || ''}</p>
+        </div>
+        <button type="button" class="adm-del-extra-slide-btn" data-slide-idx="${idx}" style="color:#FF4D4D; background:none; border:none; cursor:pointer; font-size:0.85rem; padding:6px 10px;" title="Remove this slide">✕ Remove</button>
+      </div>
+    `).join('');
+
+    list.querySelectorAll('.adm-del-extra-slide-btn').forEach(btn => {
+      btn.onclick = async (e) => {
+        e.stopPropagation();
+        const idx = parseInt(btn.getAttribute('data-slide-idx'), 10);
+        portfolioData.extraSlides.splice(idx, 1);
+        renderAdminExtraSlides();
+        renderPortfolio();
+        await savePortfolioData(false);
+        showToast("Extra slide removed! 🗑️");
+      };
+    });
+  }
+
+  const insertSlideBtn = document.getElementById('adm-insert-slide-btn');
+  if (insertSlideBtn) {
+    insertSlideBtn.onclick = async () => {
+      const titleInput = document.getElementById('adm-new-slide-title');
+      const catInput = document.getElementById('adm-new-slide-category');
+      const descInput = document.getElementById('adm-new-slide-desc');
+      const fileInput = document.getElementById('adm-new-slide-file');
+
+      const title = titleInput ? titleInput.value.trim() : '';
+      if (!title) {
+        alert("Please enter a slide title.");
+        return;
+      }
+      const category = catInput ? catInput.value.trim() : 'PROJECT SHOWCASE';
+      const desc = descInput ? descInput.value.trim() : '';
+
+      let slideImage = './assets/images/slide-6-branding-design.png';
+      if (fileInput && fileInput.files[0]) {
+        showToast("Compressing & saving slide image... ⏳");
+        const b64 = await compressImage(fileInput.files[0], 1920, 0.88);
+        if (b64) slideImage = b64;
+      }
+
+      if (!portfolioData.extraSlides) portfolioData.extraSlides = [];
+      portfolioData.extraSlides.push({
+        id: 'slide-extra-' + Date.now(),
+        title,
+        category,
+        desc,
+        slideImage
+      });
+
+      if (titleInput) titleInput.value = '';
+      if (catInput) catInput.value = '';
+      if (descInput) descInput.value = '';
+      if (fileInput) fileInput.value = '';
+
+      renderAdminExtraSlides();
+      renderPortfolio();
+      await savePortfolioData(false);
+      showToast("Extra slide successfully added to portfolio! 🚀");
     };
   }
 
