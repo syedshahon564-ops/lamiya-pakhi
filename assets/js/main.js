@@ -975,14 +975,6 @@
               imgEl.src = defaultImg;
             }
           };
-          const card = imgEl.closest('.full-showcase-card');
-          if (imgEl.complete && imgEl.naturalHeight !== 0) {
-            if (card) card.classList.add('revealed');
-          } else {
-            imgEl.addEventListener('load', () => {
-              if (card) card.classList.add('revealed');
-            });
-          }
           const container = imgEl.closest('.showcase-img-container');
           if (container) container.setAttribute('data-zoom-src', targetSrc);
           const zoomBtn = document.querySelector(`.modal-zoom-btn[data-slide="${i}"]`);
@@ -1028,7 +1020,7 @@
               </div>
               <div class="showcase-dark-stage">
                 <div class="slide-viewport">
-                  <div class="full-showcase-card anim-unroll-down revealed">
+                  <div class="full-showcase-card anim-unroll-down">
                     <div class="showcase-img-container" data-zoom-src="${s.slideImage}">
                       <img src="${s.slideImage}" alt="${s.title}" class="showcase-img" />
                       <div class="showcase-glass-card">
@@ -1115,13 +1107,14 @@
       animatedElements.forEach(el => {
         if (el.classList.contains('revealed')) return;
         const rect = el.getBoundingClientRect();
-        if (rect.top < windowHeight + 250 && rect.bottom > -150) {
+        // Reveal elements that are genuinely inside the viewport
+        if (rect.top < windowHeight - 60 && rect.bottom > 40) {
           el.classList.add('revealed');
         }
       });
     }
 
-    // Immediate check
+    // Check elements already visible in viewport on initial load
     checkVisibility();
 
     // Scroll & resize listeners with requestAnimationFrame
@@ -1138,21 +1131,26 @@
 
     window.addEventListener('resize', checkVisibility, { passive: true });
 
-    // IntersectionObserver as secondary trigger
+    // IntersectionObserver for buttery-smooth viewport triggers
     if ('IntersectionObserver' in window) {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
           }
         });
       }, {
         root: null,
-        threshold: 0,
-        rootMargin: "250px 0px 250px 0px"
+        threshold: 0.12,
+        rootMargin: "0px 0px -70px 0px"
       });
 
-      animatedElements.forEach(el => observer.observe(el));
+      animatedElements.forEach(el => {
+        if (!el.classList.contains('revealed')) {
+          observer.observe(el);
+        }
+      });
     }
   }
 

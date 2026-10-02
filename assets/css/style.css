@@ -398,54 +398,109 @@ a, button, input, select, textarea, [role="button"] {
    CRAZY SCROLL ANIMATION CLASSES (Left, Right, Curtain Unroll, Typewriter)
    ========================================================================== */
 
-/* 1. Slide from Left */
+/* 1. Slide from Left - Slow-Motion Luxury Entrance */
 .anim-slide-left {
   opacity: 0;
-  transform: translateX(-40px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform, opacity;
+  transform: translate3d(-90px, 0, 0) scale(0.96);
+  filter: blur(8px);
+  will-change: transform, opacity, filter;
+}
+
+.anim-slide-left:not(.revealed) {
+  opacity: 0 !important;
+  transform: translate3d(-90px, 0, 0) scale(0.96) !important;
+  filter: blur(8px) !important;
+  transition: none !important;
 }
 
 .anim-slide-left.revealed {
   opacity: 1 !important;
-  transform: translateX(0) !important;
-  filter: none !important;
+  transform: translate3d(0, 0, 0) scale(1) !important;
+  filter: blur(0px) !important;
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 1.15s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-/* 2. Slide from Right */
+/* 2. Slide from Right - Slow-Motion Luxury Entrance */
 .anim-slide-right {
   opacity: 0;
-  transform: translateX(40px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform, opacity;
+  transform: translate3d(90px, 0, 0) scale(0.96);
+  filter: blur(8px);
+  will-change: transform, opacity, filter;
+}
+
+.anim-slide-right:not(.revealed) {
+  opacity: 0 !important;
+  transform: translate3d(90px, 0, 0) scale(0.96) !important;
+  filter: blur(8px) !important;
+  transition: none !important;
 }
 
 .anim-slide-right.revealed {
   opacity: 1 !important;
-  transform: translateX(0) !important;
-  filter: none !important;
+  transform: translate3d(0, 0, 0) scale(1) !important;
+  filter: blur(0px) !important;
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 1.15s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 /* 3. Curtain Unroll Downward Reveal */
 .anim-unroll-down {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform, opacity;
+  transform: translate3d(0, 50px, 0) scale(0.97);
+  filter: blur(6px);
+  will-change: transform, opacity, filter;
+}
+
+.anim-unroll-down:not(.revealed) {
+  opacity: 0 !important;
+  transform: translate3d(0, 50px, 0) scale(0.97) !important;
+  filter: blur(6px) !important;
+  transition: none !important;
 }
 
 .anim-unroll-down.revealed {
   opacity: 1 !important;
   clip-path: none !important;
-  transform: translateY(0) !important;
+  transform: translate3d(0, 0, 0) scale(1) !important;
+  filter: blur(0px) !important;
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 1.15s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 /* Safety Fallback */
 .revealed {
   opacity: 1 !important;
+}
+
+/* Micro-stagger for paired elements */
+.logofolio-grid .anim-slide-right.revealed {
+  transition-delay: 0.08s !important;
+}
+
+/* Hover interaction preservation for revealed cards */
+.bento-card.revealed:hover {
+  transform: translateY(-5px) scale(1.01) !important;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease !important;
+}
+
+.full-showcase-card.revealed:hover {
+  transform: translateY(-8px) scale(1.008) !important;
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.8), 0 0 35px rgba(224, 49, 38, 0.25) !important;
+  border-color: rgba(224, 49, 38, 0.45) !important;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s ease, border-color 0.45s ease !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-slide-left, .anim-slide-right, .anim-unroll-down {
+    transform: none !important;
+    filter: none !important;
+    opacity: 1 !important;
+    transition: none !important;
+  }
 }
 
 /* 4. Typewriter Character Reveal */
@@ -1481,8 +1536,10 @@ a, button, input, select, textarea, [role="button"] {
    ========================================================================== */
 .logofolio-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 26px;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 1080px;
+  margin: 0 auto;
+  gap: 32px;
 }
 
 .logo-card {
