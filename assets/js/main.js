@@ -518,8 +518,8 @@
     try {
       let res = await fetch('/api/data').catch(() => null);
       if (!res || !res.ok) {
-        // Fallback for static hosting like GitHub Pages, Vercel, Netlify
-        res = await fetch('./data/portfolio.json').catch(() => null);
+        // Fallback for static hosting like GitHub Pages, Vercel, Netlify (always fetch freshest data)
+        res = await fetch('./data/portfolio.json?v=' + Date.now(), { cache: 'no-store' }).catch(() => null);
       }
       if (res && res.ok) {
         const serverData = await res.json();
