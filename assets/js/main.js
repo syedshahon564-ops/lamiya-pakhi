@@ -1,6 +1,6 @@
 /**
  * ==========================================================================
- * RAFID RIZWAN SAKIR — PORTFOLIO 2026 JAVASCRIPT CONTROLLER
+ * DANGER SHAWON — PORTFOLIO 2026 JAVASCRIPT CONTROLLER
  * Full Interactive Engine: Scroll-Triggered Left & Right Side-in Animations,
  * Downward Curtain Unroll Reveal, Character-by-Character Typewriter Effect,
  * 3D Tilts, Audio Synthesizer, and Complete User-Only Admin Control Center.
@@ -30,7 +30,7 @@
       role: "GRAPHIC DESIGNER • DINAJPUR, BANGLADESH",
       year: "2026",
       availability: "AVAILABLE FOR CLIENT PROJECTS",
-      adminPasscode: "sakir2026"
+      adminPasscode: "shawon2026"
     },
     theme: {
       preset: "signature-red",
@@ -63,7 +63,7 @@
         "Every project you see here represents\nmy commitment to becoming\na better designer—\none step at a time."
       ],
       quote: "Built from curiosity, discipline, and the courage to start.",
-      portraitImage: "./assets/images/sakir-portrait.png",
+      portraitImage: "./assets/images/shawon-portrait.png",
       slideImage: "./assets/images/slide-2-about.png"
     },
     skills: {
@@ -114,13 +114,13 @@
         "Football"
       ],
       contact: {
-        email: "rafid.sakir@gmail.com",
-        phone: "+88 01568720531",
-        whatsapp: "+88 01568720531",
-        linkedin: "Rafid Rizwan Sakir",
+        email: "shahon54@gmail.com",
+        phone: "01905663 773",
+        whatsapp: "01905663 773",
+        linkedin: "DANGER SHAWON",
         linkedinUrl: "https://www.linkedin.com",
-        behance: "rrsakir",
-        behanceUrl: "https://www.behance.net/rrsakir",
+        behance: "SHAWON",
+        behanceUrl: "https://www.behance.net/SHAWON",
         qrImage: "./assets/images/contact-qr.png"
       },
       slideImage: "./assets/images/slide-3-skills.png"
@@ -188,12 +188,12 @@
           colors: ["#F8F8F8", "#E76F51", "#2A9D8F", "#E9C46A"]
         },
         {
-          id: "sakir",
-          name: "SAKIR",
-          category: "Personal Identity",
-          description: "Personal monogram for Rafid Rizwan Sakir. Aerodynamic avian wings soaring upward with razor-sharp geometric precision.",
-          image: "./assets/images/logo-sakir.png",
-          colors: ["#FFFFFF", "#0A1128", "#1C3144", "#E03126"]
+          id: "shawon",
+          name: "DANGER SHAWON",
+          category: "Brand Identity & Mascot",
+          description: "Signature brand identity emblem for Danger Shawon. Fierce aerodynamic crimson dragon shield radiating high-voltage energy and bold typographic dominance.",
+          image: "./assets/images/logo-shawon.png",
+          colors: ["#000000", "#E03126", "#FFFFFF", "#1A1A1A"]
         },
         {
           id: "thesparitul",
@@ -225,7 +225,7 @@
       slide7: {
         category: "STATIONERY",
         title: "BUSINESS CARD",
-        desc: "6 Curated Identity Cards: Fresh Burst, Knight Owl, Dubai Point, Sakir, Spark, Magnito",
+        desc: "5 Curated Identity Cards: Fresh Burst, Knight Owl, Dubai Point, Spark, Magnito",
         slideImage: "./assets/images/slide-7-business-card.png"
       },
       slide8: {
@@ -314,7 +314,7 @@
     }
   };
 
-  const STORAGE_KEY = 'sakir_portfolio_data_2026';
+  const STORAGE_KEY = 'shawon_portfolio_data_2026';
   const IDB_NAME = 'DangerShawonDB';
   const IDB_STORE = 'portfolioStore';
   const IDB_KEY = 'user_portfolio';
@@ -1523,7 +1523,7 @@
     authForm.onsubmit = (e) => {
       e.preventDefault();
       const entered = (passcodeInput ? passcodeInput.value : '').trim();
-      const correct = portfolioData.profile.adminPasscode || 'sakir2026';
+      const correct = portfolioData.profile.adminPasscode || 'shawon2026';
 
       if (entered === correct) {
         isAdminUnlocked = true;

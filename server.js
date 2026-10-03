@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * RAFID RIZWAN SAKIR — PORTFOLIO BACKEND SERVER (Node.js)
+ * DANGER SHAWON — PORTFOLIO BACKEND SERVER (Node.js)
  * Standalone Local Database & API Server
  * - Serves Static Portfolio Web Assets
  * - Provides GET /api/data (Loads data/portfolio.json)
@@ -142,9 +142,9 @@ const server = http.createServer((req, res) => {
 
 server.listen(PORT, () => {
   console.log('================================================================');
-  console.log(`✦ RAFID RIZWAN SAKIR PORTFOLIO SERVER RUNNING`);
+  console.log(`✦ DANGER SHAWON PORTFOLIO SERVER RUNNING`);
   console.log(`✦ Local URL:   http://localhost:${PORT}`);
   console.log(`✦ Database:    ${DATA_FILE}`);
-  console.log(`✦ Admin Key:   sakir2026`);
+  console.log(`✦ Admin Key:   shawon2026`);
   console.log('================================================================');
 });

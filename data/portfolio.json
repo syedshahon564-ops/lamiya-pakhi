@@ -6,7 +6,7 @@
     "role": "GRAPHIC DESIGNER • DINAJPUR, BANGLADESH",
     "year": "2026",
     "availability": "AVAILABLE FOR CLIENT PROJECTS",
-    "adminPasscode": "sakir2026"
+    "adminPasscode": "shawon2026"
   },
   "theme": {
     "name": "Emerald Mint",
@@ -40,7 +40,7 @@
       "Every project you see here represents\nmy commitment to becoming\na better designer—\none step at a time."
     ],
     "quote": "Built from curiosity, discipline, and the courage to start.",
-    "portraitImage": "./assets/images/sakir-portrait.png",
+    "portraitImage": "./assets/images/shawon-portrait.png",
     "slideImage": "./assets/images/slide-2-about.png"
   },
   "skills": {
@@ -218,16 +218,16 @@
         ]
       },
       {
-        "id": "sakir",
-        "name": "SAKIR",
-        "category": "Personal Identity",
-        "description": "Personal monogram for Rafid Rizwan Sakir. Aerodynamic avian wings soaring upward with razor-sharp geometric precision.",
-        "image": "./assets/images/logo-sakir.png",
+        "id": "shawon",
+        "name": "DANGER SHAWON",
+        "category": "Brand Identity & Mascot",
+        "description": "Signature brand identity emblem for Danger Shawon. Fierce aerodynamic crimson dragon shield radiating high-voltage energy and bold typographic dominance.",
+        "image": "./assets/images/logo-shawon.png",
         "colors": [
+          "#000000",
+          "#E03126",
           "#FFFFFF",
-          "#0A1128",
-          "#1C3144",
-          "#E03126"
+          "#1A1A1A"
         ]
       },
       {
@@ -269,7 +269,7 @@
     "slide7": {
       "category": "STATIONERY",
       "title": "BUSINESS CARD",
-      "desc": "6 Curated Identity Cards: Fresh Burst, Knight Owl, Dubai Point, Sakir, Spark, Magnito",
+      "desc": "5 Curated Identity Cards: Fresh Burst, Knight Owl, Dubai Point, Spark, Magnito",
       "slideImage": "./assets/images/slide-7-business-card.png"
     },
     "slide8": {
